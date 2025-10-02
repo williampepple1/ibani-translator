@@ -35,19 +35,16 @@ class IbaniRuleBasedTranslator:
         
         # Add common verb mappings for better translation
         common_verbs = {
-            "eat": "bia",
-            "drink": "nwu", 
-            "go": "zigha",
-            "come": "bara",
-            "see": "kiri",
-            "hear": "tam",
-            "speak": "tam",
-            "walk": "zigha",
-            "run": "gbara",
-            "sit": "nwu",
-            "stand": "tam",
-            "sleep": "tam",
-            "wake": "tam"
+            "eat": "fii",
+            "go": "mu",
+            "come": "bo",
+            "see": "ari",
+            "hear": "na",
+            "speak": "egere",
+            "run": "mangi",
+            "sit": "kporofini",
+            "sleep": "muno",
+            "wake": "saghi"
         }
         
         for eng_verb, ibani_verb in common_verbs.items():
@@ -121,6 +118,12 @@ class IbaniRuleBasedTranslator:
             else:
                 tense_info["tense"] = "present"
         
+        # Also check for present continuous without -ing (be + verb)
+        elif any(indicator in word_text for indicator in ["am", "is", "are"]) and not any(word.endswith("ed") for word in words):
+            # This might be present continuous without -ing form
+            tense_info["aspect"] = "progressive"
+            tense_info["tense"] = "present"
+        
         # Check for simple past tense (regular verbs with -ed)
         elif any(word.endswith("ed") for word in words):
             tense_info["tense"] = "past"
@@ -188,8 +191,11 @@ class IbaniRuleBasedTranslator:
         
         # Simple approach: first word is subject, last meaningful word is verb, middle words are objects
         if len(words) >= 2:
-            # First word is usually subject
-            structure["subject"].append(words[0])
+            # Handle "The X" pattern - subject is the word after "the"
+            if words[0].lower() == "the" and len(words) > 1:
+                structure["subject"].append(words[1])  # Subject is the word after "the"
+            else:
+                structure["subject"].append(words[0])  # First word is subject
             
             # Find the main verb (usually the last meaningful word or a known verb)
             main_verb = None
@@ -209,7 +215,7 @@ class IbaniRuleBasedTranslator:
             
             # Everything else is object or modifiers
             for word in words[1:]:
-                if word != main_verb:
+                if word != main_verb and word.lower() != "the":
                     structure["object"].append(word)
         
         return structure
@@ -219,24 +225,43 @@ class IbaniRuleBasedTranslator:
         if len(words) < 2:
             return words
         
-        # Detect tense and aspect from the original English words
-        tense_info = self.detect_tense_and_aspect(words)
+        # Keep original English words for structure analysis
+        original_words = words.copy()
         
-        # Identify sentence structure
-        structure = self.identify_sentence_structure(words)
+        # Detect tense and aspect from the original English words
+        tense_info = self.detect_tense_and_aspect(original_words)
+        
+        # Identify sentence structure using original English words
+        structure = self.identify_sentence_structure(original_words)
         
         # Apply SOV (Subject-Object-Verb) word order
         if self.grammar_rules["word_order"] == "SOV":
             result = []
             
-            # Add subject
-            result.extend(structure["subject"])
+            # Add subject (filter out auxiliary verbs and negation)
+            subject_words = []
+            for word in structure["subject"]:
+                if word.lower() not in ["have", "has", "had", "will", "shall", "am", "is", "are", "was", "were", "not", "n't", "the"]:
+                    # Translate the subject word
+                    translated_subject = self.translate_word(word)
+                    subject_words.append(translated_subject)
             
-            # Add object
-            result.extend(structure["object"])
+            # Add "má" (the) after the subject if "the" was in the original
+            if "the" in [w.lower() for w in words]:
+                # Put "má" after the translated subject (woman má, not má woman)
+                subject_words.append("má")
             
-            # Add modifiers
-            result.extend(structure["modifiers"])
+            result.extend(subject_words)
+            
+            # Add object (filter out auxiliary verbs and negation)
+            for word in structure["object"]:
+                if word.lower() not in ["have", "has", "had", "will", "shall", "am", "is", "are", "was", "were", "not", "n't", "the"]:
+                    result.append(word)
+            
+            # Add modifiers (filter out auxiliary verbs and negation)
+            for word in structure["modifiers"]:
+                if word.lower() not in ["have", "has", "had", "will", "shall", "am", "is", "are", "was", "were", "not", "n't", "the"]:
+                    result.append(word)
             
             # Add verb with proper morphology
             verb = structure["verb"]
@@ -263,14 +288,8 @@ class IbaniRuleBasedTranslator:
         if not words:
             return ""
         
-        # Translate each word
-        translated_words = [self.translate_word(word) for word in words]
-        
-        # Remove empty translations (articles, etc.)
-        translated_words = [word for word in translated_words if word.strip()]
-        
-        # Apply grammar rules
-        final_words = self.apply_grammar_rules(translated_words, tense)
+        # Apply grammar rules first using original English words
+        final_words = self.apply_grammar_rules(words, tense)
         
         # Join into Ibani sentence
         return " ".join(final_words)
