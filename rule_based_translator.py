@@ -5,14 +5,21 @@ This serves as a baseline before implementing ML-based translation.
 
 import json
 import re
+import os
 from typing import List, Dict, Optional
 
 
 class IbaniRuleBasedTranslator:
     def __init__(self, dictionary_path: str = "ibani_dict.json"):
         """Initialize the translator with Ibani dictionary."""
-        with open(dictionary_path, "r", encoding="utf-8") as f:
-            self.dictionary_data = json.load(f)
+        try:
+            with open(dictionary_path, "r", encoding="utf-8") as f:
+                self.dictionary_data = json.load(f)
+        except FileNotFoundError:
+            print(f"Dictionary file not found at: {dictionary_path}")
+            print(f"Current working directory: {os.getcwd()}")
+            print(f"Files in current directory: {os.listdir('.')}")
+            raise
         
         # Convert the new format to a lookup dictionary
         self.dictionary = {}

@@ -1,6 +1,6 @@
 """
 FastAPI server for English to Ibani translation.
-Provides REST API endpoints for both rule-based and ML-based translation.
+Rule-based translation service optimized for Vercel deployment.
 """
 
 from fastapi import FastAPI, HTTPException
@@ -9,19 +9,18 @@ from pydantic import BaseModel
 from typing import List, Optional
 import uvicorn
 import json
-from rule_based_translator import IbaniRuleBasedTranslator
-from huggingface_translator import IbaniHuggingFaceTranslator
 import os
+from rule_based_translator import IbaniRuleBasedTranslator
 
 
 # Initialize FastAPI app
 app = FastAPI(
     title="Ibani Translator API",
-    description="English to Ibani translation service with rule-based and ML-based approaches",
+    description="English to Ibani translation service using rule-based approach",
     version="1.0.0"
 )
 
-# Add CORS middleware to accept requests from any origin
+# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Allows all origins
@@ -29,27 +28,25 @@ app.add_middleware(
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
 )
-# Initialize translators
+
+# Initialize translator
 rule_based_translator = None
-ml_translator = None
 
 
 class TranslationRequest(BaseModel):
     text: str
-    method: str = "rule_based"  # "rule_based" or "ml"
     tense: str = "present"
 
 
 class TranslationResponse(BaseModel):
     original_text: str
     translated_text: str
-    method: str
+    method: str = "rule_based"
     confidence: Optional[float] = None
 
 
 class BatchTranslationRequest(BaseModel):
     texts: List[str]
-    method: str = "rule_based"
     tense: str = "present"
 
 
@@ -59,29 +56,41 @@ class BatchTranslationResponse(BaseModel):
 
 @app.on_event("startup")
 async def startup_event():
-    """Initialize translators on startup."""
-    global rule_based_translator, ml_translator
+    """Initialize translator on startup."""
+    global rule_based_translator
     
     print("🚀 Starting Ibani Translator API...")
+    print(f"Current working directory: {os.getcwd()}")
+    print(f"Files in current directory: {os.listdir('.')}")
+    
+    # Try different possible paths for the dictionary
+    possible_paths = [
+        "ibani_dict.json",
+        "./ibani_dict.json",
+        "/tmp/ibani_dict.json",
+        os.path.join(os.path.dirname(__file__), "ibani_dict.json")
+    ]
+    
+    dictionary_path = None
+    for path in possible_paths:
+        if os.path.exists(path):
+            dictionary_path = path
+            print(f"✅ Found dictionary at: {path}")
+            break
+    
+    if not dictionary_path:
+        print("❌ Dictionary file not found in any expected location")
+        print(f"Available files: {os.listdir('.')}")
+        return
     
     # Initialize rule-based translator
     try:
-        rule_based_translator = IbaniRuleBasedTranslator()
-        print("✅ Rule-based translator initialized")
+        rule_based_translator = IbaniRuleBasedTranslator(dictionary_path)
+        print("✅ Rule-based translator initialized successfully")
     except Exception as e:
         print(f"❌ Error initializing rule-based translator: {e}")
-    
-    # Initialize ML translator (if model exists)
-    try:
-        if os.path.exists("./ibani_model"):
-            ml_translator = IbaniHuggingFaceTranslator(model_path="./ibani_model")
-            print("✅ ML translator initialized with fine-tuned model")
-        else:
-            ml_translator = IbaniHuggingFaceTranslator()
-            print("✅ ML translator initialized with pre-trained model")
-    except Exception as e:
-        print(f"❌ Error initializing ML translator: {e}")
-        ml_translator = None
+        import traceback
+        traceback.print_exc()
 
 
 @app.get("/")
@@ -90,6 +99,8 @@ async def root():
     return {
         "message": "Ibani Translator API",
         "version": "1.0.0",
+        "method": "rule_based",
+        "rule_based_available": rule_based_translator is not None,
         "endpoints": {
             "translate": "/translate",
             "batch_translate": "/batch_translate",
@@ -105,7 +116,7 @@ async def health_check():
     return {
         "status": "healthy",
         "rule_based_available": rule_based_translator is not None,
-        "ml_available": ml_translator is not None
+        "method": "rule_based"
     }
 
 
@@ -113,30 +124,19 @@ async def health_check():
 async def translate_text(request: TranslationRequest):
     """Translate a single text from English to Ibani."""
     try:
-        if request.method == "rule_based":
-            if rule_based_translator is None:
-                raise HTTPException(status_code=500, detail="Rule-based translator not available")
-            
-            translated_text = rule_based_translator.translate_sentence(
-                request.text, 
-                tense=request.tense
-            )
-            confidence = 0.8  # Rule-based confidence estimate
-            
-        elif request.method == "ml":
-            if ml_translator is None:
-                raise HTTPException(status_code=500, detail="ML translator not available")
-            
-            translated_text = ml_translator.translate(request.text)
-            confidence = 0.9  # ML-based confidence estimate
-            
-        else:
-            raise HTTPException(status_code=400, detail="Invalid method. Use 'rule_based' or 'ml'")
+        if rule_based_translator is None:
+            raise HTTPException(status_code=500, detail="Rule-based translator not available")
+        
+        translated_text = rule_based_translator.translate_sentence(
+            request.text, 
+            tense=request.tense
+        )
+        confidence = 0.8  # Rule-based confidence estimate
         
         return TranslationResponse(
             original_text=request.text,
             translated_text=translated_text,
-            method=request.method,
+            method="rule_based",
             confidence=confidence
         )
         
@@ -148,33 +148,22 @@ async def translate_text(request: TranslationRequest):
 async def batch_translate_texts(request: BatchTranslationRequest):
     """Translate multiple texts from English to Ibani."""
     try:
+        if rule_based_translator is None:
+            raise HTTPException(status_code=500, detail="Rule-based translator not available")
+        
         translations = []
         
         for text in request.texts:
-            if request.method == "rule_based":
-                if rule_based_translator is None:
-                    raise HTTPException(status_code=500, detail="Rule-based translator not available")
-                
-                translated_text = rule_based_translator.translate_sentence(
-                    text, 
-                    tense=request.tense
-                )
-                confidence = 0.8
-                
-            elif request.method == "ml":
-                if ml_translator is None:
-                    raise HTTPException(status_code=500, detail="ML translator not available")
-                
-                translated_text = ml_translator.translate(text)
-                confidence = 0.9
-                
-            else:
-                raise HTTPException(status_code=400, detail="Invalid method. Use 'rule_based' or 'ml'")
+            translated_text = rule_based_translator.translate_sentence(
+                text, 
+                tense=request.tense
+            )
+            confidence = 0.8
             
             translations.append(TranslationResponse(
                 original_text=text,
                 translated_text=translated_text,
-                method=request.method,
+                method="rule_based",
                 confidence=confidence
             ))
         
@@ -188,7 +177,23 @@ async def batch_translate_texts(request: BatchTranslationRequest):
 async def get_dictionary():
     """Get the current Ibani dictionary."""
     try:
-        with open("ibani_dict.json", "r", encoding="utf-8") as f:
+        # Try different possible paths for the dictionary
+        possible_paths = [
+            "ibani_dict.json",
+            "./ibani_dict.json",
+            os.path.join(os.path.dirname(__file__), "ibani_dict.json")
+        ]
+        
+        dictionary_path = None
+        for path in possible_paths:
+            if os.path.exists(path):
+                dictionary_path = path
+                break
+        
+        if not dictionary_path:
+            raise HTTPException(status_code=404, detail="Dictionary file not found")
+        
+        with open(dictionary_path, "r", encoding="utf-8") as f:
             dictionary = json.load(f)
         return {
             "dictionary": dictionary,
@@ -203,7 +208,23 @@ async def get_dictionary():
 async def update_dictionary(entry: dict):
     """Add or update a dictionary entry in the comprehensive format."""
     try:
-        with open("ibani_dict.json", "r", encoding="utf-8") as f:
+        # Try different possible paths for the dictionary
+        possible_paths = [
+            "ibani_dict.json",
+            "./ibani_dict.json",
+            os.path.join(os.path.dirname(__file__), "ibani_dict.json")
+        ]
+        
+        dictionary_path = None
+        for path in possible_paths:
+            if os.path.exists(path):
+                dictionary_path = path
+                break
+        
+        if not dictionary_path:
+            raise HTTPException(status_code=404, detail="Dictionary file not found")
+        
+        with open(dictionary_path, "r", encoding="utf-8") as f:
             dictionary = json.load(f)
         
         # Validate entry format
@@ -218,7 +239,7 @@ async def update_dictionary(entry: dict):
         dictionary.append(entry)
         
         # Save updated dictionary
-        with open("ibani_dict.json", "w", encoding="utf-8") as f:
+        with open(dictionary_path, "w", encoding="utf-8") as f:
             json.dump(dictionary, f, ensure_ascii=False, indent=2)
         
         return {
