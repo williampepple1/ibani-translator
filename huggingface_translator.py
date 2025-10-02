@@ -19,7 +19,7 @@ from pathlib import Path
 
 
 class IbaniHuggingFaceTranslator:
-    def __init__(self, model_name: str = "Helsinki-NLP/opus-mt-en-sw", model_path: Optional[str] = None):
+    def __init__(self, model_name: str = "Helsinki-NLP/opus-mt-en-mul", model_path: Optional[str] = None):
         """
         Initialize the Hugging Face translator.
         
@@ -59,41 +59,36 @@ class IbaniHuggingFaceTranslator:
         dataset = Dataset.from_list(data)
         return dataset
     
-    def create_sample_training_data(self, output_file: str = "training_data.json"):
-        """Create sample training data using the comprehensive dictionary."""
-        # Load the comprehensive dictionary
-        try:
-            with open("ibani_dict.json", "r", encoding="utf-8") as f:
-                dictionary_data = json.load(f)
-        except FileNotFoundError:
-            print("Dictionary file not found, using basic examples")
-            dictionary_data = []
-        
-        # Create training examples using the dictionary
-        sample_data = []
-        
-        # Basic sentence patterns using dictionary entries
-        basic_sentences = [
-            "I eat fish",
-            "The woman goes", 
-            "We see the man",
-            "You drink water",
-            "The child runs",
-            "I am good",
-            "She is beautiful", 
-            "We are happy",
-            "The house is big",
-            "I love you",
-            "Good morning",
-            "Thank you",
-            "How are you",
-            "I am fine",
-            "What is your name",
-            "My name is John",
-            "Where are you going",
-            "I am going home",
-            "The sun is hot",
-            "The water is cold"
+    def create_sample_training_data(self, output_file: str = "natural_training_data.json"):
+        """Create comprehensive training data using the rule-based translator."""
+        # Create extensive training examples
+        training_sentences = [
+            # Basic sentences
+            "I eat fish", "I ate fish", "I will eat fish", "I have eaten fish", "I am eating fish",
+            "The woman goes", "The woman went", "The woman will go", "The woman has gone", "The woman is going",
+            "We see the man", "We saw the man", "We will see the man", "We have seen the man", "We are seeing the man",
+            "You drink water", "You drank water", "You will drink water", "You have drunk water", "You are drinking water",
+            "The child runs", "The child ran", "The child will run", "The child has run", "The child is running",
+            
+            # SOV examples
+            "The man slapped me", "The man will slap me", "The man has slapped me",
+            "The child sees the woman", "The child saw the woman", "The child will see the woman",
+            "I see you", "I saw you", "I will see you",
+            "The woman eats fish", "The woman ate fish", "The woman will eat fish",
+            
+            # More complex sentences
+            "The house is big", "The house was big", "The house will be big",
+            "I love you", "I loved you", "I will love you",
+            "Good morning", "Thank you", "How are you", "I am fine",
+            "What is your name", "My name is John", "Where are you going",
+            "I am going home", "The sun is hot", "The water is cold",
+            
+            # Additional examples for better training
+            "The dog barks", "The dog barked", "The dog will bark",
+            "The cat sleeps", "The cat slept", "The cat will sleep",
+            "The bird flies", "The bird flew", "The bird will fly",
+            "The fish swims", "The fish swam", "The fish will swim",
+            "The tree grows", "The tree grew", "The tree will grow"
         ]
         
         # Use rule-based translator to generate Ibani translations
@@ -101,7 +96,8 @@ class IbaniHuggingFaceTranslator:
             from rule_based_translator import IbaniRuleBasedTranslator
             rule_translator = IbaniRuleBasedTranslator()
             
-            for sentence in basic_sentences:
+            sample_data = []
+            for sentence in training_sentences:
                 ibani_translation = rule_translator.translate_sentence(sentence)
                 sample_data.append({
                     "translation": {
@@ -109,15 +105,18 @@ class IbaniHuggingFaceTranslator:
                         "ibani": ibani_translation
                     }
                 })
+            
+            print(f"Generated {len(sample_data)} training examples using rule-based translator")
+            
         except Exception as e:
             print(f"Error using rule-based translator: {e}")
             # Fallback to basic examples
             sample_data = [
-                {"translation": {"en": "I eat fish", "ibani": "a bia sibi"}},
-                {"translation": {"en": "The woman goes", "ibani": "inyengi zigha"}},
-                {"translation": {"en": "We see the man", "ibani": "ami kiri okuru"}},
-                {"translation": {"en": "You drink water", "ibani": "wori nwu min"}},
-                {"translation": {"en": "The child runs", "ibani": "tamuno gbara"}}
+                {"translation": {"en": "I eat fish", "ibani": "ịrị olokpó fíị"}},
+                {"translation": {"en": "The woman goes", "ibani": "ọ́rụ́ḅọ́ má mú"}},
+                {"translation": {"en": "We see the man", "ibani": "ami ówítụ́wọ ari"}},
+                {"translation": {"en": "You drink water", "ibani": "wori min na"}},
+                {"translation": {"en": "The child runs", "ibani": "tamuno mangi"}}
             ]
         
         with open(output_file, 'w', encoding='utf-8') as f:
@@ -150,11 +149,11 @@ class IbaniHuggingFaceTranslator:
         return model_inputs
     
     def train_model(self, 
-                   training_data_file: str = "training_data.json",
+                   training_data_file: str = "natural_training_data.json",
                    output_dir: str = "./ibani_model",
-                   num_epochs: int = 3,
-                   batch_size: int = 4,
-                   learning_rate: float = 2e-5):
+                   num_epochs: int = 10,
+                   batch_size: int = 2,
+                   learning_rate: float = 5e-5):
         """Train the model on English-Ibani data."""
         print("🚀 Starting model training...")
         
@@ -183,10 +182,12 @@ class IbaniHuggingFaceTranslator:
             weight_decay=0.01,
             save_total_limit=2,
             predict_with_generate=True,
-            logging_steps=10,
-            save_steps=100,
-            warmup_steps=10,
+            logging_steps=5,
+            save_steps=50,
+            warmup_steps=5,
             remove_unused_columns=False,
+            dataloader_drop_last=False,
+            gradient_accumulation_steps=2,
         )
         
         # Data collator
