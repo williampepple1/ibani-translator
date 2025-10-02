@@ -208,9 +208,13 @@ class IbaniRuleBasedTranslator:
                     main_verb = word
                     break
             
-            # If no verb found, use the last word
+            # Only treat the last word as a verb if it's actually a known verb
+            # Don't automatically use the last word as verb for noun phrases like "The Man"
             if not main_verb and len(words) > 1:
-                main_verb = words[-1]
+                last_word = words[-1].lower()
+                if (last_word in ["eat", "drink", "go", "come", "see", "hear", "speak", "walk", "run", "ate", "went", "eaten", "gone", "eating", "going"] or
+                    self.pos_info.get(last_word, "") in ["v.", "v"]):
+                    main_verb = words[-1]
             
             if main_verb:
                 structure["verb"].append(main_verb)
