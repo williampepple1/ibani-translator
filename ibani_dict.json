@@ -7,7 +7,22 @@
   {
     "Ibani_word": "á",
     "Pos": "pron.",
-    "word": "she, her"
+    "word": "her"
+  },
+  {
+    "Ibani_word": "á",
+    "Pos": "pron.",
+    "word": "she"
+  },
+  {
+    "Ibani_word": "ári",
+    "Pos": "pron.",
+    "word": "she"
+  },
+  {
+    "Ibani_word": "ári",
+    "Pos": "pron.",
+    "word": "her"
   },
   {
     "Ibani_word": "áa",
@@ -22,7 +37,7 @@
   {
     "Ibani_word": "aba",
     "Pos": "n.",
-    "word": "hammer-headed shark (Sphyrna spp. SPHYRNIDAE)"
+    "word": "hammer-headed shark"
   },
   {
     "Ibani_word": "ábá",
@@ -32,22 +47,22 @@
   {
     "Ibani_word": "abaji",
     "Pos": "n.",
-    "word": "sea, ocean (cf. ebezi)"
+    "word": "sea"
   },
   {
-    "Ibani_word": "abalama",
+    "Ibani_word": "abaji",
     "Pos": "n.",
-    "word": "dance group"
+    "word": "ocean"
   },
   {
-    "Ibani_word": "Abalama",
+    "Ibani_word": "ebezi",
     "Pos": "n.",
-    "word": "ancient town in Bonny"
+    "word": "ocean"
   },
   {
-    "Ibani_word": "Abalama bíē",
+    "Ibani_word": "ebezi",
     "Pos": "n.",
-    "word": "part of Abalama occupied by Longjohn’s family"
+    "word": "sea"
   },
   {
     "Ibani_word": "abana",
@@ -57,7 +72,7 @@
   {
     "Ibani_word": "ábára",
     "Pos": "n.",
-    "word": "wedge for drum to tighten skin (=kọ́lị)"
+    "word": "wedge for drum to tighten skin"
   },
   {
     "Ibani_word": "ábị́lá",
@@ -77,12 +92,12 @@
   {
     "Ibani_word": "ábōnta",
     "Pos": "n.",
-    "word": "praying mantis (= ngelengéle < Igbo)"
+    "word": "praying mantis"
   },
   {
     "Ibani_word": "aḅaḅa",
     "Pos": "v.",
-    "word": "carry something on the back"
+    "word": "carry"
   },
   {
     "Ibani_word": "áḅághá",
@@ -14012,7 +14027,11 @@
   {
     "Ibani_word": "tụwọ",
     "Pos": "n.",
-    "word": "child (pl. awọ)"
+    "word": "child"
+  },{
+    "Ibani_word": "awọ",
+    "Pos": "n.",
+    "word": "children"
   },
   {
     "Ibani_word": "tụwọ akpáa",

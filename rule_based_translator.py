@@ -118,23 +118,25 @@ class IbaniRuleBasedTranslator:
             else:
                 tense_info["tense"] = "present"
         
-        # Also check for present continuous without -ing (be + verb)
-        elif any(indicator in word_text for indicator in ["am", "is", "are"]) and not any(word.endswith("ed") for word in words):
-            # This might be present continuous without -ing form
-            tense_info["aspect"] = "progressive"
-            tense_info["tense"] = "present"
-        
-        # Check for simple past tense (regular verbs with -ed)
-        elif any(word.endswith("ed") for word in words):
+        # Check for simple past tense (regular verbs with -ed or irregular past forms)
+        elif any(word.endswith("ed") for word in words) or any(word in ["ate", "went", "came", "saw", "ran", "drank", "slept", "woke"] for word in words):
             tense_info["tense"] = "past"
+            tense_info["aspect"] = "simple"
         
         # Check for past tense with auxiliary verbs
         elif any(indicator in word_text for indicator in ["was", "were", "did"]):
             tense_info["tense"] = "past"
+            tense_info["aspect"] = "simple"
         
         # Check for future tense indicators
         elif any(indicator in word_text for indicator in ["will", "shall", "going to"]):
             tense_info["tense"] = "future"
+            tense_info["aspect"] = "simple"
+        
+        # Default: simple present (no special markers)
+        else:
+            tense_info["tense"] = "present"
+            tense_info["aspect"] = "simple"
         
         return tense_info
     
@@ -213,9 +215,11 @@ class IbaniRuleBasedTranslator:
             if main_verb:
                 structure["verb"].append(main_verb)
             
-            # Everything else is object or modifiers
+            # Everything else is object or modifiers (skip words already in subject)
             for word in words[1:]:
-                if word != main_verb and word.lower() != "the":
+                if (word != main_verb and 
+                    word.lower() != "the" and 
+                    word not in structure["subject"]):
                     structure["object"].append(word)
         
         return structure
@@ -256,12 +260,16 @@ class IbaniRuleBasedTranslator:
             # Add object (filter out auxiliary verbs and negation)
             for word in structure["object"]:
                 if word.lower() not in ["have", "has", "had", "will", "shall", "am", "is", "are", "was", "were", "not", "n't", "the"]:
-                    result.append(word)
+                    # Translate object words
+                    translated_object = self.translate_word(word)
+                    result.append(translated_object)
             
             # Add modifiers (filter out auxiliary verbs and negation)
             for word in structure["modifiers"]:
                 if word.lower() not in ["have", "has", "had", "will", "shall", "am", "is", "are", "was", "were", "not", "n't", "the"]:
-                    result.append(word)
+                    # Translate modifier words
+                    translated_modifier = self.translate_word(word)
+                    result.append(translated_modifier)
             
             # Add verb with proper morphology
             verb = structure["verb"]
@@ -325,7 +333,11 @@ def main():
         "The woman will go",  # Future
         "The woman has gone",  # Perfect
         "The woman is going",  # Progressive
-        "The woman will not go"  # Negative future
+        "The woman will not go",  # Negative future
+        "The man slapped me",  # SOV example
+        "The child sees the woman",  # SOV with object
+        "I see you",  # Simple SOV
+        "The woman eats fish"  # SOV with object
     ]
     
     print("Rule-based English to Ibani Translation:")
