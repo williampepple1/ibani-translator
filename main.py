@@ -33,6 +33,72 @@ app.add_middleware(
 rule_based_translator = None
 
 
+def create_fallback_translator():
+    """Create a minimal fallback translator with essential words only."""
+    class FallbackTranslator:
+        def __init__(self):
+            # Essential Ibani words for basic translation
+            self.dictionary = {
+                "i": "ịrị",
+                "you": "ị́rị́", 
+                "he": "ori",
+                "she": "ári",
+                "we": "wámịnị",
+                "they": "They",
+                "the": "má",
+                "a": "a",
+                "an": "an",
+                "eat": "fị́",
+                "drink": "ḅú",
+                "go": "mú",
+                "come": "ḅó",
+                "see": "ari",
+                "hear": "naá",
+                "speak": "kọọ́",
+                "run": "mangị́",
+                "sit": "kporofini",
+                "sleep": "muno",
+                "wake": "saghi",
+                "fish": "olokpó",
+                "water": "mingi",
+                "man": "ówítụ́wọ",
+                "woman": "ọ́rụ́ḅọ́",
+                "child": "tụwọ",
+                "dog": "dog",
+                "cat": "cat",
+                "house": "house",
+                "home": "home",
+                "good": "good",
+                "bad": "bad",
+                "big": "big",
+                "small": "small",
+                "hot": "hot",
+                "cold": "cold",
+                "happy": "happy",
+                "sad": "sad",
+                "tired": "tired",
+                "hungry": "hungry",
+                "thirsty": "thirsty"
+            }
+            
+        def translate_sentence(self, text, tense="present"):
+            """Simple word-by-word translation."""
+            words = text.lower().split()
+            translated_words = []
+            
+            for word in words:
+                # Remove punctuation for lookup
+                clean_word = word.strip(".,!?;:")
+                if clean_word in self.dictionary:
+                    translated_words.append(self.dictionary[clean_word])
+                else:
+                    translated_words.append(word)  # Keep original if not found
+            
+            return " ".join(translated_words)
+    
+    return FallbackTranslator()
+
+
 class TranslationRequest(BaseModel):
     text: str
     tense: str = "present"
@@ -68,11 +134,28 @@ async def startup_event():
     # Initialize rule-based translator
     try:
         rule_based_translator = IbaniRuleBasedTranslator()
-        print("✅ Rule-based translator initialized")
+        print("✅ Rule-based translator initialized with full dictionary")
     except Exception as e:
-        print(f"❌ Error initializing rule-based translator: {e}")
+        print(f"❌ Error initializing rule-based translator with full dictionary: {e}")
         import traceback
         traceback.print_exc()
+        
+        # Try with minimal dictionary
+        try:
+            print("🔄 Attempting to initialize with minimal dictionary...")
+            rule_based_translator = IbaniRuleBasedTranslator("ibani_dict_minimal.json")
+            print("✅ Rule-based translator initialized with minimal dictionary")
+        except Exception as minimal_error:
+            print(f"❌ Minimal dictionary also failed: {minimal_error}")
+            
+            # Try to create a hardcoded fallback translator
+            try:
+                print("🔄 Attempting to create hardcoded fallback translator...")
+                rule_based_translator = create_fallback_translator()
+                print("✅ Hardcoded fallback translator created")
+            except Exception as fallback_error:
+                print(f"❌ Fallback translator also failed: {fallback_error}")
+                rule_based_translator = None
 
 
 @app.get("/")
