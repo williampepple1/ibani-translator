@@ -60,6 +60,10 @@ async def startup_event():
     global rule_based_translator
     
     print("🚀 Starting Ibani Translator API...")
+    print(f"Current working directory: {os.getcwd()}")
+    print(f"Files in current directory: {os.listdir('.')}")
+    print(f"Looking for ibani_dict.json...")
+    print(f"File exists: {os.path.exists('ibani_dict.json')}")
     
     # Initialize rule-based translator
     try:
@@ -67,6 +71,8 @@ async def startup_event():
         print("✅ Rule-based translator initialized")
     except Exception as e:
         print(f"❌ Error initializing rule-based translator: {e}")
+        import traceback
+        traceback.print_exc()
 
 
 @app.get("/")
@@ -91,7 +97,10 @@ async def health_check():
     return {
         "status": "healthy",
         "rule_based_available": rule_based_translator is not None,
-        "method": "rule_based"
+        "method": "rule_based",
+        "working_directory": os.getcwd(),
+        "files_in_directory": os.listdir('.'),
+        "dictionary_exists": os.path.exists('ibani_dict.json')
     }
 
 
