@@ -7,8 +7,56 @@
   },
   {
     "translation": {
+      "en": "I ate fish",
+      "ibani": "ịrị olokpó fị́m"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will eat fish",
+      "ibani": "ịrị olokpó fị́bem"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have eaten fish",
+      "ibani": "ịrị olokpó fị́mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am eating fish",
+      "ibani": "ịrị olokpó fị́ari"
+    }
+  },
+  {
+    "translation": {
       "en": "The woman goes",
       "ibani": "ọ́rụ́ḅọ́ má goes"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman went",
+      "ibani": "ọ́rụ́ḅọ́ má múm"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman will go",
+      "ibani": "ọ́rụ́ḅọ́ má múbem"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman has gone",
+      "ibani": "ọ́rụ́ḅọ́ má múmam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman is going",
+      "ibani": "ọ́rụ́ḅọ́ má múari"
     }
   },
   {
@@ -19,8 +67,56 @@
   },
   {
     "translation": {
+      "en": "We saw the man",
+      "ibani": "wámịnị má fịghị́fịghị́ ówítụ́wọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "We will see the man",
+      "ibani": "wámịnị má ówítụ́wọ aribem"
+    }
+  },
+  {
+    "translation": {
+      "en": "We have seen the man",
+      "ibani": "wámịnị má seen ówítụ́wọmam"
+    }
+  },
+  {
+    "translation": {
+      "en": "We are seeing the man",
+      "ibani": "wámịnị má ari ówítụ́wọari"
+    }
+  },
+  {
+    "translation": {
       "en": "You drink water",
       "ibani": "ị́rị́ mingi ḅú"
+    }
+  },
+  {
+    "translation": {
+      "en": "You drank water",
+      "ibani": "ị́rị́ drank mingim"
+    }
+  },
+  {
+    "translation": {
+      "en": "You will drink water",
+      "ibani": "ị́rị́ mingi ḅúbem"
+    }
+  },
+  {
+    "translation": {
+      "en": "You have drunk water",
+      "ibani": "ị́rị́ drunk mingimam"
+    }
+  },
+  {
+    "translation": {
+      "en": "You are drinking water",
+      "ibani": "ị́rị́ ḅú mingiari"
     }
   },
   {
@@ -31,20 +127,98 @@
   },
   {
     "translation": {
-      "en": "I am good",
-      "ibani": "ịrị good"
+      "en": "The child ran",
+      "ibani": "tụwọ má mangị́m"
     }
   },
   {
     "translation": {
-      "en": "She is beautiful",
-      "ibani": "ári beautiful"
+      "en": "The child will run",
+      "ibani": "tụwọ má mangị́bem"
     }
   },
   {
     "translation": {
-      "en": "We are happy",
-      "ibani": "wámịnị happy"
+      "en": "The child has run",
+      "ibani": "tụwọ má mangị́mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The child is running",
+      "ibani": "tụwọ má mangị́ari"
+    }
+  },
+  {
+    "translation": {
+      "en": "The man slapped me",
+      "ibani": "ówítụ́wọ má slapped mem"
+    }
+  },
+  {
+    "translation": {
+      "en": "The man will slap me",
+      "ibani": "ówítụ́wọ má me ḅụ́rọ́bem"
+    }
+  },
+  {
+    "translation": {
+      "en": "The man has slapped me",
+      "ibani": "ówítụ́wọ má slapped memam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The child sees the woman",
+      "ibani": "tụwọ má ari ọ́rụ́ḅọ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "The child saw the woman",
+      "ibani": "tụwọ má fịghị́fịghị́ ọ́rụ́ḅọ́m"
+    }
+  },
+  {
+    "translation": {
+      "en": "The child will see the woman",
+      "ibani": "tụwọ má ọ́rụ́ḅọ́ aribem"
+    }
+  },
+  {
+    "translation": {
+      "en": "I see you",
+      "ibani": "ịrị ị́rị́ ari"
+    }
+  },
+  {
+    "translation": {
+      "en": "I saw you",
+      "ibani": "ịrị fịghị́fịghị́ ị́rị́m"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will see you",
+      "ibani": "ịrị ị́rị́ aribem"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman eats fish",
+      "ibani": "ọ́rụ́ḅọ́ má fị́ olokpó"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman ate fish",
+      "ibani": "ọ́rụ́ḅọ́ má olokpó fị́m"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman will eat fish",
+      "ibani": "ọ́rụ́ḅọ́ má olokpó fị́bem"
     }
   },
   {
@@ -55,8 +229,32 @@
   },
   {
     "translation": {
+      "en": "The house was big",
+      "ibani": "house má dụḅám"
+    }
+  },
+  {
+    "translation": {
+      "en": "The house will be big",
+      "ibani": "house má be dụḅábem"
+    }
+  },
+  {
+    "translation": {
       "en": "I love you",
       "ibani": "ịrị love ị́rị́"
+    }
+  },
+  {
+    "translation": {
+      "en": "I loved you",
+      "ibani": "ịrị loved ị́rị́m"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will love you",
+      "ibani": "ịrị love ị́rị́bem"
     }
   },
   {
@@ -117,6 +315,96 @@
     "translation": {
       "en": "The water is cold",
       "ibani": "mingi má cold"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog barks",
+      "ibani": "dog má barks"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog barked",
+      "ibani": "dog má barkedm"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog will bark",
+      "ibani": "dog má barkbem"
+    }
+  },
+  {
+    "translation": {
+      "en": "The cat sleeps",
+      "ibani": "cat má múnō"
+    }
+  },
+  {
+    "translation": {
+      "en": "The cat slept",
+      "ibani": "cat má sleptm"
+    }
+  },
+  {
+    "translation": {
+      "en": "The cat will sleep",
+      "ibani": "cat má múnōbem"
+    }
+  },
+  {
+    "translation": {
+      "en": "The bird flies",
+      "ibani": "pị́nāmbú má flies"
+    }
+  },
+  {
+    "translation": {
+      "en": "The bird flew",
+      "ibani": "pị́nāmbú má flew"
+    }
+  },
+  {
+    "translation": {
+      "en": "The bird will fly",
+      "ibani": "pị́nāmbú má fiibem"
+    }
+  },
+  {
+    "translation": {
+      "en": "The fish swims",
+      "ibani": "olokpó má swims"
+    }
+  },
+  {
+    "translation": {
+      "en": "The fish swam",
+      "ibani": "olokpó má swam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The fish will swim",
+      "ibani": "olokpó má swimbem"
+    }
+  },
+  {
+    "translation": {
+      "en": "The tree grows",
+      "ibani": "tree má grows"
+    }
+  },
+  {
+    "translation": {
+      "en": "The tree grew",
+      "ibani": "tree má grew"
+    }
+  },
+  {
+    "translation": {
+      "en": "The tree will grow",
+      "ibani": "tree má growbem"
     }
   }
 ]
