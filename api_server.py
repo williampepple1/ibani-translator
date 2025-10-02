@@ -17,8 +17,7 @@ import os
 app = FastAPI(
     title="Ibani Translator API",
     description="English to Ibani translation service with rule-based and ML-based approaches",
-    version="1.0.0",
-    lifespan=lifespan
+    version="1.0.0"
 )
 
 # Initialize translators
@@ -49,10 +48,8 @@ class BatchTranslationResponse(BaseModel):
     translations: List[TranslationResponse]
 
 
-from contextlib import asynccontextmanager
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
+@app.on_event("startup")
+async def startup_event():
     """Initialize translators on startup."""
     global rule_based_translator, ml_translator
     
@@ -76,8 +73,6 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         print(f"❌ Error initializing ML translator: {e}")
         ml_translator = None
-    
-    yield
 
 
 @app.get("/")
