@@ -4,6 +4,7 @@ Provides REST API endpoints for both rule-based and ML-based translation.
 """
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional
 import uvicorn
@@ -20,6 +21,14 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# Add CORS middleware to accept requests from any origin
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 # Initialize translators
 rule_based_translator = None
 ml_translator = None
