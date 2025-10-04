@@ -1,6 +1,6 @@
 """
 FastAPI server for English to Ibani translation.
-Rule-based translation service optimized for Vercel deployment.
+Supports both rule-based and model-based translation approaches.
 """
 
 from fastapi import FastAPI, HTTPException
@@ -11,12 +11,13 @@ import uvicorn
 import json
 import os
 from rule_based_translator import IbaniRuleBasedTranslator
+from huggingface_translator import IbaniHuggingFaceTranslator
 
 
 # Initialize FastAPI app
 app = FastAPI(
     title="Ibani Translator API",
-    description="English to Ibani translation service using rule-based approach",
+    description="English to Ibani translation service using both rule-based and model-based approaches",
     version="1.0.0"
 )
 
@@ -29,13 +30,15 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-# Initialize translator
+# Initialize translators
 rule_based_translator = None
+model_translator = None
 
 
 class TranslationRequest(BaseModel):
     text: str
     tense: str = "present"
+    method: str = "rule_based"  # "rule_based" or "model"
 
 
 class TranslationResponse(BaseModel):
@@ -48,6 +51,7 @@ class TranslationResponse(BaseModel):
 class BatchTranslationRequest(BaseModel):
     texts: List[str]
     tense: str = "present"
+    method: str = "rule_based"  # "rule_based" or "model"
 
 
 class BatchTranslationResponse(BaseModel):
@@ -56,8 +60,8 @@ class BatchTranslationResponse(BaseModel):
 
 @app.on_event("startup")
 async def startup_event():
-    """Initialize translator on startup."""
-    global rule_based_translator
+    """Initialize translators on startup."""
+    global rule_based_translator, model_translator
     
     print("🚀 Starting Ibani Translator API...")
     print(f"Current working directory: {os.getcwd()}")
@@ -91,6 +95,22 @@ async def startup_event():
         print(f"❌ Error initializing rule-based translator: {e}")
         import traceback
         traceback.print_exc()
+    
+    # Initialize model-based translator
+    try:
+        # Check if trained model exists
+        model_path = "./ibani_model"
+        if os.path.exists(model_path):
+            print(f"🤖 Loading trained model from {model_path}")
+            model_translator = IbaniHuggingFaceTranslator(model_path=model_path)
+        else:
+            print("🤖 Loading pre-trained model (no fine-tuned model found)")
+            model_translator = IbaniHuggingFaceTranslator()
+        print("✅ Model-based translator initialized successfully")
+    except Exception as e:
+        print(f"❌ Error initializing model-based translator: {e}")
+        import traceback
+        traceback.print_exc()
 
 
 @app.get("/")
@@ -99,12 +119,16 @@ async def root():
     return {
         "message": "Ibani Translator API",
         "version": "1.0.0",
-        "method": "rule_based",
+        "methods": ["rule_based", "model"] if model_translator else ["rule_based"],
         "rule_based_available": rule_based_translator is not None,
+        "model_available": model_translator is not None,
         "endpoints": {
-            "translate": "/translate",
-            "batch_translate": "/batch_translate",
+            "translate": "/translate (supports method parameter)",
+            "batch_translate": "/batch_translate (supports method parameter)",
+            "model_translate": "/model/translate",
+            "model_batch_translate": "/model/batch_translate",
             "health": "/health",
+            "model_health": "/model/health",
             "docs": "/docs"
         }
     }
@@ -116,27 +140,36 @@ async def health_check():
     return {
         "status": "healthy",
         "rule_based_available": rule_based_translator is not None,
-        "method": "rule_based"
+        "model_available": model_translator is not None,
+        "methods": ["rule_based", "model"] if model_translator else ["rule_based"]
     }
 
 
 @app.post("/translate", response_model=TranslationResponse)
 async def translate_text(request: TranslationRequest):
-    """Translate a single text from English to Ibani."""
+    """Translate a single text from English to Ibani using specified method."""
     try:
-        if rule_based_translator is None:
-            raise HTTPException(status_code=500, detail="Rule-based translator not available")
-        
-        translated_text = rule_based_translator.translate_sentence(
-            request.text, 
-            tense=request.tense
-        )
-        confidence = 0.8  # Rule-based confidence estimate
+        if request.method == "model":
+            if model_translator is None:
+                raise HTTPException(status_code=500, detail="Model-based translator not available")
+            
+            translated_text = model_translator.translate(request.text)
+            confidence = 0.7  # Model-based confidence estimate
+            
+        else:  # rule_based (default)
+            if rule_based_translator is None:
+                raise HTTPException(status_code=500, detail="Rule-based translator not available")
+            
+            translated_text = rule_based_translator.translate_sentence(
+                request.text, 
+                tense=request.tense
+            )
+            confidence = 0.8  # Rule-based confidence estimate
         
         return TranslationResponse(
             original_text=request.text,
             translated_text=translated_text,
-            method="rule_based",
+            method=request.method,
             confidence=confidence
         )
         
@@ -146,31 +179,73 @@ async def translate_text(request: TranslationRequest):
 
 @app.post("/batch_translate", response_model=BatchTranslationResponse)
 async def batch_translate_texts(request: BatchTranslationRequest):
-    """Translate multiple texts from English to Ibani."""
+    """Translate multiple texts from English to Ibani using specified method."""
     try:
-        if rule_based_translator is None:
-            raise HTTPException(status_code=500, detail="Rule-based translator not available")
-        
-        translations = []
-        
-        for text in request.texts:
-            translated_text = rule_based_translator.translate_sentence(
-                text, 
-                tense=request.tense
-            )
-            confidence = 0.8
+        if request.method == "model":
+            if model_translator is None:
+                raise HTTPException(status_code=500, detail="Model-based translator not available")
             
-            translations.append(TranslationResponse(
-                original_text=text,
-                translated_text=translated_text,
-                method="rule_based",
-                confidence=confidence
-            ))
+            # Use batch translation for efficiency
+            translated_texts = model_translator.batch_translate(request.texts)
+            translations = []
+            
+            for i, text in enumerate(request.texts):
+                translations.append(TranslationResponse(
+                    original_text=text,
+                    translated_text=translated_texts[i],
+                    method="model",
+                    confidence=0.7
+                ))
+        
+        else:  # rule_based (default)
+            if rule_based_translator is None:
+                raise HTTPException(status_code=500, detail="Rule-based translator not available")
+            
+            translations = []
+            
+            for text in request.texts:
+                translated_text = rule_based_translator.translate_sentence(
+                    text, 
+                    tense=request.tense
+                )
+                confidence = 0.8
+                
+                translations.append(TranslationResponse(
+                    original_text=text,
+                    translated_text=translated_text,
+                    method="rule_based",
+                    confidence=confidence
+                ))
         
         return BatchTranslationResponse(translations=translations)
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Batch translation error: {str(e)}")
+
+
+# Model-based specific endpoints
+@app.post("/model/translate", response_model=TranslationResponse)
+async def model_translate_text(request: TranslationRequest):
+    """Translate using model-based approach only."""
+    request.method = "model"
+    return await translate_text(request)
+
+
+@app.post("/model/batch_translate", response_model=BatchTranslationResponse)
+async def model_batch_translate_texts(request: BatchTranslationRequest):
+    """Batch translate using model-based approach only."""
+    request.method = "model"
+    return await batch_translate_texts(request)
+
+
+@app.get("/model/health")
+async def model_health_check():
+    """Health check for model-based translator."""
+    return {
+        "status": "healthy" if model_translator is not None else "unavailable",
+        "model_available": model_translator is not None,
+        "method": "model"
+    }
 
 
 @app.get("/dictionary")
