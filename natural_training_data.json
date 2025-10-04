@@ -1,0 +1,602 @@
+[
+  {
+    "translation": {
+      "en": "I eat fish",
+      "ibani": "ịrị olokpó fị́"
+    }
+  },
+  {
+    "translation": {
+      "en": "You drink water",
+      "ibani": "ị́rị́ mingi ḅú"
+    }
+  },
+  {
+    "translation": {
+      "en": "He sees the woman",
+      "ibani": "ori má ari ọ́rụ́ḅọ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "She goes home",
+      "ibani": "ári goes home"
+    }
+  },
+  {
+    "translation": {
+      "en": "We hear music",
+      "ibani": "wámịnị music naá"
+    }
+  },
+  {
+    "translation": {
+      "en": "They speak English",
+      "ibani": "They English kọọ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "The man walks",
+      "ibani": "ówítụ́wọ má walks"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman sits",
+      "ibani": "ọ́rụ́ḅọ́ má kporofini"
+    }
+  },
+  {
+    "translation": {
+      "en": "The child runs",
+      "ibani": "tụwọ má mangị́"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog barks",
+      "ibani": "dog má barks"
+    }
+  },
+  {
+    "translation": {
+      "en": "I ate fish",
+      "ibani": "ịrị olokpó fị́m"
+    }
+  },
+  {
+    "translation": {
+      "en": "You drank water",
+      "ibani": "ị́rị́ drank mingim"
+    }
+  },
+  {
+    "translation": {
+      "en": "He saw the woman",
+      "ibani": "ori má fịghị́fịghị́ ọ́rụ́ḅọ́m"
+    }
+  },
+  {
+    "translation": {
+      "en": "She went home",
+      "ibani": "ári home múm"
+    }
+  },
+  {
+    "translation": {
+      "en": "We heard music",
+      "ibani": "wámịnị heard music"
+    }
+  },
+  {
+    "translation": {
+      "en": "They spoke English",
+      "ibani": "They spoke english"
+    }
+  },
+  {
+    "translation": {
+      "en": "The man walked",
+      "ibani": "ówítụ́wọ má walkedm"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman sat",
+      "ibani": "ọ́rụ́ḅọ́ má sat"
+    }
+  },
+  {
+    "translation": {
+      "en": "The child ran",
+      "ibani": "tụwọ má mangị́m"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog barked",
+      "ibani": "dog má barkedm"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will eat fish",
+      "ibani": "ịrị olokpó fị́bem"
+    }
+  },
+  {
+    "translation": {
+      "en": "You will drink water",
+      "ibani": "ị́rị́ mingi ḅúbem"
+    }
+  },
+  {
+    "translation": {
+      "en": "He will see the woman",
+      "ibani": "ori má ọ́rụ́ḅọ́ aribem"
+    }
+  },
+  {
+    "translation": {
+      "en": "She will go home",
+      "ibani": "ári home múbem"
+    }
+  },
+  {
+    "translation": {
+      "en": "We will hear music",
+      "ibani": "wámịnị music naábem"
+    }
+  },
+  {
+    "translation": {
+      "en": "They will speak English",
+      "ibani": "They English kọọ́bem"
+    }
+  },
+  {
+    "translation": {
+      "en": "The man will walk",
+      "ibani": "ówítụ́wọ má walkbem"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman will sit",
+      "ibani": "ọ́rụ́ḅọ́ má kporofinibem"
+    }
+  },
+  {
+    "translation": {
+      "en": "The child will run",
+      "ibani": "tụwọ má mangị́bem"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog will bark",
+      "ibani": "dog má barkbem"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have eaten fish",
+      "ibani": "ịrị olokpó fị́mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "You have drunk water",
+      "ibani": "ị́rị́ drunk mingimam"
+    }
+  },
+  {
+    "translation": {
+      "en": "He has seen the woman",
+      "ibani": "ori má seen ọ́rụ́ḅọ́mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "She has gone home",
+      "ibani": "ári home múmam"
+    }
+  },
+  {
+    "translation": {
+      "en": "We have heard music",
+      "ibani": "wámịnị heard musicmam"
+    }
+  },
+  {
+    "translation": {
+      "en": "They have spoken English",
+      "ibani": "They spoken englishmam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The man has walked",
+      "ibani": "ówítụ́wọ má walkedmam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman has sat",
+      "ibani": "ọ́rụ́ḅọ́ má satmam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The child has run",
+      "ibani": "tụwọ má mangị́mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog has barked",
+      "ibani": "dog má barkedmam"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am eating fish",
+      "ibani": "ịrị olokpó fị́ari"
+    }
+  },
+  {
+    "translation": {
+      "en": "You are drinking water",
+      "ibani": "ị́rị́ ḅú mingiari"
+    }
+  },
+  {
+    "translation": {
+      "en": "He is seeing the woman",
+      "ibani": "ori má ari ọ́rụ́ḅọ́ari"
+    }
+  },
+  {
+    "translation": {
+      "en": "She is going home",
+      "ibani": "ári home múari"
+    }
+  },
+  {
+    "translation": {
+      "en": "We are hearing music",
+      "ibani": "wámịnị nyẹ́ná musicari"
+    }
+  },
+  {
+    "translation": {
+      "en": "They are speaking English",
+      "ibani": "They kọọ́ englishari"
+    }
+  },
+  {
+    "translation": {
+      "en": "The man is walking",
+      "ibani": "ówítụ́wọ má walkingari"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman is sitting",
+      "ibani": "ọ́rụ́ḅọ́ má sittingari"
+    }
+  },
+  {
+    "translation": {
+      "en": "The child is running",
+      "ibani": "tụwọ má mangị́ari"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog is barking",
+      "ibani": "dog má barkingari"
+    }
+  },
+  {
+    "translation": {
+      "en": "The man slapped me",
+      "ibani": "ówítụ́wọ má slapped mem"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman hit him",
+      "ibani": "ọ́rụ́ḅọ́ má hit him"
+    }
+  },
+  {
+    "translation": {
+      "en": "The child pushed her",
+      "ibani": "tụwọ má súmaá árim"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog bit me",
+      "ibani": "dog má bit me"
+    }
+  },
+  {
+    "translation": {
+      "en": "The cat scratched you",
+      "ibani": "cat má scratched ị́rị́m"
+    }
+  },
+  {
+    "translation": {
+      "en": "The bird pecked him",
+      "ibani": "pị́nāmbú má gbọ́ọ̄ himm"
+    }
+  },
+  {
+    "translation": {
+      "en": "The fish swam away",
+      "ibani": "olokpó má swam pághá"
+    }
+  },
+  {
+    "translation": {
+      "en": "The tree grew tall",
+      "ibani": "tree má grew tall"
+    }
+  },
+  {
+    "translation": {
+      "en": "The flower bloomed",
+      "ibani": "ńgóńgó má bloomedm"
+    }
+  },
+  {
+    "translation": {
+      "en": "The sun shone bright",
+      "ibani": "ịrụá má shone bright"
+    }
+  },
+  {
+    "translation": {
+      "en": "The man sees the woman",
+      "ibani": "ówítụ́wọ má ari ọ́rụ́ḅọ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman hears the man",
+      "ibani": "ọ́rụ́ḅọ́ má naá ówítụ́wọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "The child follows the dog",
+      "ibani": "tụwọ má dụ́wā dog"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog chases the cat",
+      "ibani": "dog má chases catmam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The cat catches the mouse",
+      "ibani": "cat má catches ị́sụ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "The bird flies high",
+      "ibani": "pị́nāmbú má flies high"
+    }
+  },
+  {
+    "translation": {
+      "en": "The fish swims deep",
+      "ibani": "olokpó má swims deep"
+    }
+  },
+  {
+    "translation": {
+      "en": "The tree stands tall",
+      "ibani": "tree má stands tall"
+    }
+  },
+  {
+    "translation": {
+      "en": "The flower smells sweet",
+      "ibani": "ńgóńgó má smells sweet"
+    }
+  },
+  {
+    "translation": {
+      "en": "The sun shines warm",
+      "ibani": "ịrụá má shines warm"
+    }
+  },
+  {
+    "translation": {
+      "en": "What is your name?",
+      "ibani": "What your ẹ́rẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "How are you?",
+      "ibani": "tọrọ́ pa ị́rị́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Where are you going?",
+      "ibani": "Where ị́rị́ múari"
+    }
+  },
+  {
+    "translation": {
+      "en": "When will you come?",
+      "ibani": "When ị́rị́ ḅóbem"
+    }
+  },
+  {
+    "translation": {
+      "en": "Why did you go?",
+      "ibani": "Why did ị́rị́ múm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Who is that man?",
+      "ibani": "Who ḅé ówítụ́wọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Which way is home?",
+      "ibani": "Which ḅárā home"
+    }
+  },
+  {
+    "translation": {
+      "en": "How much does it cost?",
+      "ibani": "tọrọ́ pa much does it cost"
+    }
+  },
+  {
+    "translation": {
+      "en": "What time is it?",
+      "ibani": "What time it"
+    }
+  },
+  {
+    "translation": {
+      "en": "Where is the house?",
+      "ibani": "Where má house"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good morning",
+      "ibani": "Good dede"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good evening",
+      "ibani": "Good ḅupiri"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thank you",
+      "ibani": "Thank ị́rị́"
+    }
+  },
+  {
+    "translation": {
+      "en": "You're welcome",
+      "ibani": "ị́rị́ re welcome"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm sorry",
+      "ibani": "ịrị m sị́nẹ́lị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Excuse me",
+      "ibani": "Excuse me"
+    }
+  },
+  {
+    "translation": {
+      "en": "Please help me",
+      "ibani": "páị̄, pásīsí ḅárásụ̄ányẹ́ me"
+    }
+  },
+  {
+    "translation": {
+      "en": "Can you help?",
+      "ibani": "Can ị́rị́ ḅárásụ̄ányẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "I need water",
+      "ibani": "ịrị need mingim"
+    }
+  },
+  {
+    "translation": {
+      "en": "I want food",
+      "ibani": "ịrị want fị́nyẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "I love you",
+      "ibani": "ịrị love ị́rị́"
+    }
+  },
+  {
+    "translation": {
+      "en": "I miss you",
+      "ibani": "ịrị ị́rị́ gbarị́"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm happy",
+      "ibani": "ịrị m happy"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm sad",
+      "ibani": "ịrị m sad"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm tired",
+      "ibani": "ịrị m tiredm"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm hungry",
+      "ibani": "ịrị m hungry"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm thirsty",
+      "ibani": "ịrị m thirsty"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm cold",
+      "ibani": "ịrị m cold"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm hot",
+      "ibani": "ịrị m hot"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm fine",
+      "ibani": "ịrị m ólóghógbẹ́"
+    }
+  }
+]
