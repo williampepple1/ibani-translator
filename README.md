@@ -198,16 +198,59 @@ You can use formats like:
 
 ## Deployment
 
-### Deploy to Hugging Face Hub
+### Model Loading Strategy
 
-```python
-from huggingface_translator import IbaniHuggingFaceTranslator
+The application intelligently loads models in this order:
 
-translator = IbaniHuggingFaceTranslator(model_path="./ibani_model")
-translator.push_to_hub("your-username/ibani-translator")
+1. **Local Model** (`./ibani_model`) - Used for local development
+2. **HuggingFace Hub** - Automatically downloads if local model not found
+3. **Base Model** - Falls back to Helsinki-NLP/opus-mt-en-mul if all else fails
+
+This allows you to:
+- Develop locally with your trained model
+- Deploy to cloud platforms without uploading large model files
+- Models are automatically cached after first download
+
+### Environment Variables
+
+```bash
+# HuggingFace Model Repository (used when local model is not found)
+HF_MODEL_REPO=williampepple1/ibani-translator
+
+# Local Model Path (for local development)
+LOCAL_MODEL_PATH=./ibani_model
+
+# Optional: HuggingFace Token (for private models)
+# HF_TOKEN=your_token_here
 ```
 
-### Docker Deployment
+### Deploy to Vercel (Recommended)
+
+**Quick Deploy:**
+
+1. Push your code to GitHub
+2. Import project in Vercel dashboard
+3. Set environment variable:
+   - `HF_MODEL_REPO` = `williampepple1/ibani-translator`
+4. Deploy!
+
+The model will be automatically loaded from HuggingFace Hub on Vercel.
+
+**For detailed instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)**
+
+### Deploy to Other Platforms
+
+#### Render / Railway / Heroku
+
+```bash
+# Set environment variable
+HF_MODEL_REPO=williampepple1/ibani-translator
+
+# Start command
+python api_server.py
+```
+
+#### Docker Deployment
 
 ```dockerfile
 FROM python:3.10-slim
@@ -218,6 +261,10 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+# Set environment variables
+ENV HF_MODEL_REPO=williampepple1/ibani-translator
+ENV LOCAL_MODEL_PATH=./ibani_model
+
 EXPOSE 8080
 CMD ["python", "api_server.py"]
 ```
@@ -225,7 +272,9 @@ CMD ["python", "api_server.py"]
 Build and run:
 ```bash
 docker build -t ibani-translator .
-docker run -p 8080:8080 ibani-translator
+docker run -p 8080:8080 \
+  -e HF_MODEL_REPO=williampepple1/ibani-translator \
+  ibani-translator
 ```
 
 ## Dependencies
