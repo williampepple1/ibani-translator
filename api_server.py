@@ -8,15 +8,49 @@ from pydantic import BaseModel
 from typing import List, Optional
 from huggingface_translator import IbaniHuggingFaceTranslator
 import uvicorn
+from contextlib import asynccontextmanager
 
 
+
+
+# Global translator instance
+translator = None
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Lifespan event handler for starting up and shutting down."""
+    global translator
+    print("Loading Ibani translation model...")
+    
+    # Get HuggingFace repo from environment variable or use default
+    hf_repo = os.getenv("HF_MODEL_REPO", "williampepple1/ibani-translator")
+    local_model_path = os.getenv("LOCAL_MODEL_PATH", "./ibani_model")
+    
+    print(f"Local model path: {local_model_path}")
+    print(f"HuggingFace repo: {hf_repo}")
+    
+    try:
+        translator = IbaniHuggingFaceTranslator(
+            model_path=local_model_path,
+            hf_repo=hf_repo
+        )
+        print("✓ Model loaded successfully!")
+    except Exception as e:
+        print(f"Failed to load model: {e}")
+    
+    yield
+    
+    # Shutdown logic if needed
+    print("Shutting down Ibani Translation API...")
 
 
 # Initialize FastAPI app
 app = FastAPI(
     title="Ibani Translation API",
     description="English to Ibani translation API using trained MarianMT model",
-    version="1.0.0"
+    version="1.0.0",
+    lifespan=lifespan
 )
 
 # Add CORS middleware
@@ -32,8 +66,7 @@ app.add_middleware(
 
 
 
-# Global translator instance
-translator = None
+
 
 
 class TranslationRequest(BaseModel):
@@ -63,24 +96,7 @@ class BatchTranslationResponse(BaseModel):
     count: int
 
 
-@app.on_event("startup")
-async def load_model():
-    """Load the model when the server starts."""
-    global translator
-    print("Loading Ibani translation model...")
-    
-    # Get HuggingFace repo from environment variable or use default
-    hf_repo = os.getenv("HF_MODEL_REPO", "williampepple1/ibani-translator")
-    local_model_path = os.getenv("LOCAL_MODEL_PATH", "./ibani_model")
-    
-    print(f"Local model path: {local_model_path}")
-    print(f"HuggingFace repo: {hf_repo}")
-    
-    translator = IbaniHuggingFaceTranslator(
-        model_path=local_model_path,
-        hf_repo=hf_repo
-    )
-    print("✓ Model loaded successfully!")
+
 
 
 @app.get("/")
