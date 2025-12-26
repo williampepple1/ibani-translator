@@ -1,180 +1,200 @@
 # Ibani Translator 🌍
 
-An English to Ibani translation system using both rule-based and machine learning approaches with Hugging Face transformers.
+A neural machine translation system for English to Ibani language using Hugging Face transformers.
 
 ## Features
 
-- **Rule-based Translation**: Grammar-aware translation with Ibani syntax rules
-- **ML-based Translation**: Neural machine translation using Hugging Face MarianMT
-- **REST API**: FastAPI service for easy integration
-- **Training Pipeline**: Custom model training on Ibani data
-- **Dictionary Management**: Extensible Ibani-English dictionary
+- **Neural Translation**: Fine-tuned MarianMT model for English to Ibani translation
+- **REST API**: FastAPI service with interactive documentation
+- **Training Pipeline**: Train custom models on your own Ibani data
+- **Batch Translation**: Translate multiple texts efficiently
+- **Model Hosting**: Ready for deployment to Hugging Face Hub
 
 ## Quick Start
 
-### 1. Setup Virtual Environment
-
-```bash
-# Windows
-python setup.py
-# Then activate with:
-venv\Scripts\activate
-
-# Linux/Mac
-python setup.py
-# Then activate with:
-source venv/bin/activate
-```
-
-### 2. Install Dependencies
+### 1. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run Rule-based Translator
-
-```bash
-python rule_based_translator.py
-```
-
-### 4. Run ML-based Translator
-
-```bash
-python huggingface_translator.py
-```
-
-### 5. Start API Server
+### 2. Start API Server
 
 ```bash
 python api_server.py
 ```
 
+The server will start at `http://localhost:8080`
+
 Visit `http://localhost:8080/docs` for interactive API documentation.
+
+### 3. Use the API Client
+
+```bash
+python api_client.py
+```
 
 ## Project Structure
 
 ```
 ibani-translator/
-├── requirements.txt          # Python dependencies
-├── setup.py                 # Environment setup script
-├── activate_env.bat         # Windows activation script
-├── activate_env.sh          # Linux/Mac activation script
-├── ibani_dict.json          # Ibani-English dictionary
-├── rule_based_translator.py # Rule-based translation
-├── huggingface_translator.py # ML-based translation
-├── api_server.py            # FastAPI server
-├── training_data.json       # Training dataset (auto-generated)
-└── README.md               # This file
+├── api_server.py               # FastAPI server
+├── api_client.py               # API client with examples
+├── API_USAGE.md               # Comprehensive API documentation
+├── huggingface_translator.py  # Neural translation core
+├── rule_based_translator.py   # Grammar rules and fallback
+├── train_from_ibani_eng.py    # Model training script
+├── ibani_dict.json            # Ibani-English dictionary
+├── ibani_eng.json             # Training data source
+├── ibani_eng.csv              # Training data (CSV format)
+├── ibani_eng_training_data.json # Formatted training data
+├── ibani_model/               # Trained model files
+├── requirements.txt           # Python dependencies
+└── README.md                  # This file
 ```
 
-## Usage Examples
+## Usage
 
-### Rule-based Translation
+### API Translation
 
-```python
-from rule_based_translator import IbaniRuleBasedTranslator
-
-translator = IbaniRuleBasedTranslator()
-result = translator.translate_sentence("I eat fish")
-print(result)  # Output: "mi sibi bia"
+#### Single Translation
+```bash
+curl -X POST "http://localhost:8080/translate" \
+     -H "Content-Type: application/json" \
+     -d '{"text": "I eat fish"}'
 ```
 
-### ML-based Translation
+**Response:**
+```json
+{
+  "source": "I eat fish",
+  "translation": "ịrị olokpó fíị",
+  "model": "ibani-translator"
+}
+```
+
+#### Batch Translation
+```bash
+curl -X POST "http://localhost:8080/batch-translate" \
+     -H "Content-Type: application/json" \
+     -d '{"texts": ["Good morning", "Thank you", "I love you"]}'
+```
+
+### Python Usage
 
 ```python
 from huggingface_translator import IbaniHuggingFaceTranslator
 
-translator = IbaniHuggingFaceTranslator()
+# Load trained model
+translator = IbaniHuggingFaceTranslator(model_path="./ibani_model")
+
+# Translate
 result = translator.translate("I eat fish")
-print(result)  # Output: "Mi sibi bia"
+print(result)
 ```
 
-### API Usage
+### API Client Usage
 
-```bash
-# Single translation
-curl -X POST "http://localhost:8080/translate" \
-     -H "Content-Type: application/json" \
-     -d '{"text": "I eat fish", "method": "rule_based"}'
+```python
+import requests
 
-# Batch translation
-curl -X POST "http://localhost:8080/batch_translate" \
-     -H "Content-Type: application/json" \
-     -d '{"texts": ["I eat fish", "The woman goes"], "method": "ml"}'
+response = requests.post(
+    "http://localhost:8080/translate",
+    json={"text": "I eat fish"}
+)
+
+result = response.json()
+print(f"Translation: {result['translation']}")
 ```
 
 ## Training Custom Model
 
-### 1. Prepare Training Data
+### 1. Prepare Your Data
 
-Create `training_data.json` with parallel English-Ibani sentences:
+Your data should be in JSON format with English and Ibani parallel texts:
 
 ```json
 [
-  {"translation": {"en": "I eat fish", "ibani": "Mi sibi bia"}},
-  {"translation": {"en": "The woman goes", "ibani": "Inyengi zigha"}}
+  {
+    "english_text": "I eat fish",
+    "ibani_text": "ịrị olokpó fíị"
+  },
+  {
+    "english_text": "Good morning",
+    "ibani_text": "ụ̀bọ́sị́ ọ́má"
+  }
 ]
 ```
 
 ### 2. Train the Model
 
-```python
-from huggingface_translator import IbaniHuggingFaceTranslator
-
-translator = IbaniHuggingFaceTranslator()
-translator.train_model(
-    training_data_file="training_data.json",
-    output_dir="./ibani_model",
-    num_epochs=5,
-    batch_size=4
-)
+```bash
+python train_from_ibani_eng.py
 ```
 
-## Grammar Rules
+This will:
+1. Extract training data from `ibani_eng.json`
+2. Train the MarianMT model
+3. Save the trained model to `./ibani_model`
+4. Test the model with sample translations
 
-The rule-based translator implements Ibani grammar rules:
+### 3. Customize Training
 
-- **Word Order**: Subject-Object-Verb (SOV)
-- **Tense Markers**: Present, past, future tense handling
-- **Negation**: Prefix-based negation
-- **Pronouns**: Proper pronoun translation
+Edit `train_from_ibani_eng.py` to adjust:
+- `num_epochs`: Number of training epochs (default: 5)
+- `batch_size`: Training batch size (default: 4)
+- `learning_rate`: Learning rate (default: 5e-5)
 
 ## API Endpoints
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/` | GET | API information |
-| `/health` | GET | Health check |
-| `/translate` | POST | Single text translation |
-| `/batch_translate` | POST | Multiple text translation |
-| `/dictionary` | GET | View dictionary |
-| `/dictionary` | POST | Update dictionary |
+| `/health` | GET | Health check and model status |
+| `/translate` | POST | Translate single text |
+| `/batch-translate` | POST | Translate multiple texts |
+| `/docs` | GET | Interactive API documentation |
 
-## Configuration
+For detailed API documentation, see [API_USAGE.md](API_USAGE.md)
 
-### Dictionary Management
+## Model Information
 
-Add new words to `ibani_dict.json`:
+- **Base Model**: Helsinki-NLP/opus-mt-en-mul
+- **Task**: English → Ibani Translation
+- **Framework**: Hugging Face Transformers
+- **Model Size**: ~294 MB
+- **Training Data**: Parallel English-Ibani sentence pairs
 
-```json
-{
-  "hello": "tam",
-  "goodbye": "tam",
-  "thank you": "tam"
-}
-```
+## Deployment
 
-### Model Configuration
-
-Modify training parameters in `huggingface_translator.py`:
+### Deploy to Hugging Face Hub
 
 ```python
-translator.train_model(
-    num_epochs=10,        # Training epochs
-    batch_size=8,         # Batch size
-    learning_rate=1e-5    # Learning rate
-)
+from huggingface_translator import IbaniHuggingFaceTranslator
+
+translator = IbaniHuggingFaceTranslator(model_path="./ibani_model")
+translator.push_to_hub("your-username/ibani-translator")
+```
+
+### Docker Deployment
+
+```dockerfile
+FROM python:3.10-slim
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
+
+EXPOSE 8080
+CMD ["python", "api_server.py"]
+```
+
+Build and run:
+```bash
+docker build -t ibani-translator .
+docker run -p 8080:8080 ibani-translator
 ```
 
 ## Dependencies
@@ -182,24 +202,35 @@ translator.train_model(
 - `transformers>=4.30.0` - Hugging Face transformers
 - `torch>=2.0.0` - PyTorch for ML models
 - `fastapi>=0.100.0` - Web API framework
+- `uvicorn>=0.22.0` - ASGI server
 - `datasets>=2.12.0` - Dataset handling
 - `sentencepiece>=0.1.99` - Tokenization
+
+## Performance
+
+- **Translation Speed**: ~100-200ms per sentence (CPU)
+- **Batch Processing**: More efficient for multiple texts
+- **GPU Support**: Automatic CUDA detection for faster inference
+- **Model Cache**: First load is slower, subsequent loads are instant
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **CUDA not available**: The model will use CPU if CUDA is not available
-2. **Memory issues**: Reduce batch size in training
-3. **Dictionary not found**: Ensure `ibani_dict.json` exists
-4. **Model loading errors**: Check if model files exist in the specified path
+**Problem**: Cannot connect to API
+- **Solution**: Ensure server is running with `python api_server.py`
 
-### Performance Tips
+**Problem**: Model not found
+- **Solution**: Train the model first with `python train_from_ibani_eng.py`
 
-- Use GPU for faster training and inference
-- Increase batch size if you have more memory
-- Use smaller models for faster inference
-- Cache translations for repeated requests
+**Problem**: Out of memory during training
+- **Solution**: Reduce `batch_size` in training parameters
+
+**Problem**: Slow translations
+- **Solution**: Use GPU if available, or reduce `num_beams` parameter
+
+**Problem**: Port 8080 already in use
+- **Solution**: Change port in `api_server.py`: `uvicorn.run(app, port=8081)`
 
 ## Contributing
 
@@ -215,10 +246,9 @@ This project is open source. Feel free to use and modify for your Ibani language
 
 ## Support
 
-For issues and questions:
-- Check the troubleshooting section
-- Review the API documentation at `/docs`
-- Test with the provided examples
+- Interactive API Docs: http://localhost:8080/docs
+- API Usage Guide: [API_USAGE.md](API_USAGE.md)
+- Check troubleshooting section above
 
 ---
 
