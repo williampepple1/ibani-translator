@@ -25,31 +25,59 @@ class IbaniHuggingFaceTranslator:
     English text to Ibani language using a fine-tuned MarianMT model.
     """
     
-    def __init__(self, model_name: str = "Helsinki-NLP/opus-mt-en-mul", model_path: Optional[str] = None):
+    def __init__(self, model_name: str = "Helsinki-NLP/opus-mt-en-mul", 
+                 model_path: Optional[str] = None,
+                 hf_repo: Optional[str] = None):
         """
         Initialize the Hugging Face translator.
         
         Args:
-            model_name: Pre-trained model to use as base (English-Swahili as starting point)
-            model_path: Path to fine-tuned model (if available)
+            model_name: Pre-trained model to use as base
+            model_path: Path to local fine-tuned model (if available)
+            hf_repo: HuggingFace Hub repository (e.g., "username/ibani-translator")
+                     Will be used if local model_path doesn't exist
         """
         self.model_name = model_name
         self.model_path = model_path
+        self.hf_repo = hf_repo
         
-        # Load tokenizer and model
+        # Load tokenizer and model with fallback logic
+        model_source = None
+        
+        # Try local path first
         if model_path and os.path.exists(model_path):
-            print(f"Loading fine-tuned model from {model_path}")
+            print(f"✓ Loading fine-tuned model from local path: {model_path}")
             self.tokenizer = MarianTokenizer.from_pretrained(model_path)
             self.model = MarianMTModel.from_pretrained(model_path)
+            model_source = "local"
+        
+        # Try HuggingFace Hub if local doesn't exist
+        elif hf_repo:
+            try:
+                print(f"Local model not found. Loading from HuggingFace Hub: {hf_repo}")
+                self.tokenizer = MarianTokenizer.from_pretrained(hf_repo)
+                self.model = MarianMTModel.from_pretrained(hf_repo)
+                model_source = "huggingface"
+                print(f"✓ Successfully loaded model from HuggingFace Hub")
+            except Exception as e:
+                print(f"Warning: Could not load from HuggingFace Hub: {e}")
+                print(f"Falling back to base model: {model_name}")
+                self.tokenizer = MarianTokenizer.from_pretrained(model_name)
+                self.model = MarianMTModel.from_pretrained(model_name)
+                model_source = "base"
+        
+        # Fall back to base model
         else:
-            print(f"Loading pre-trained model: {model_name}")
+            print(f"Loading base pre-trained model: {model_name}")
             self.tokenizer = MarianTokenizer.from_pretrained(model_name)
             self.model = MarianMTModel.from_pretrained(model_name)
+            model_source = "base"
         
         # Set device
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model.to(self.device)
-        print(f"Using device: {self.device}")
+        print(f"✓ Using device: {self.device}")
+        print(f"✓ Model source: {model_source}")
     
     def create_training_dataset(self, data_file: str = "training_data.json") -> Dataset:
         """Create training dataset from parallel English-Ibani data."""
