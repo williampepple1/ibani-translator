@@ -11,60 +11,51 @@ from huggingface_translator import IbaniHuggingFaceTranslator
 
 def prepare_training_data_from_ibani_eng(
     input_file: str = "ibani_eng.json",
-    output_file: str = "ibani_eng_training_data.json"
+    output_file: str = "ibani_eng_training_data.json",
+    dictionary_file: str = "ibani_dict.json"
 ) -> List[Dict[str, Dict[str, str]]]:
     """
-    Extract ibani_text and english_text from ibani_eng.json and format for training.
-    
-    Args:
-        input_file: Path to the input JSON file
-        output_file: Path to save the formatted training data
-        
-    Returns:
-        List of training examples in the required format
+    Extract data and augment with dictionary for better coverage.
     """
     print(f"Loading data from {input_file}...")
+    training_examples = []
+    
+    # Load primary data
     try:
         with open(input_file, 'r', encoding='utf-8') as f:
             data = json.load(f)
-    except FileNotFoundError:
-        print(f"Error: File '{input_file}' not found.")
-        raise
-    except json.JSONDecodeError as e:
-        print(f"Error: Invalid JSON in '{input_file}': {e}")
-        raise
-    
-    print(f"Loaded {len(data)} entries from {input_file}")
-    
-    # Extract only ibani_text and english_text
-    training_examples = []
-    
-    for entry in data:
-        english_text = entry.get("english_text", "").strip()
-        ibani_text = entry.get("ibani_text", "").strip()
-        
-        # Skip if either field is empty
-        if not english_text or not ibani_text:
-            continue
-        
-        # Format for Hugging Face training (needs "translation" field)
-        training_examples.append({
-            "translation": {
-                "en": english_text,
-                "ibani": ibani_text
-            }
-        })
-    
-    print(f"Extracted {len(training_examples)} valid training examples")
+            for entry in data:
+                en = entry.get("english_text", "").strip()
+                ib = entry.get("ibani_text", "").strip()
+                if en and ib:
+                    training_examples.append({"translation": {"en": en, "ibani": ib}})
+    except Exception as e:
+        print(f"Warning: Could not load primary data: {e}")
+
+    # Load dictionary data for augmentation (helps with unknown words and vocab)
+    try:
+        print(f"Augmenting with dictionary from {dictionary_file}...")
+        with open(dictionary_file, 'r', encoding='utf-8') as f:
+            dict_data = json.load(f)
+            for entry in dict_data:
+                en = entry.get("word", "").strip()
+                ib = entry.get("Ibani_word", "").strip()
+                if en and ib and "," not in en:  # Simple 1-to-1 mappings
+                    training_examples.append({"translation": {"en": en, "ibani": ib}})
+    except Exception as e:
+        print(f"Warning: Could not load dictionary: {e}")
+
+    # Add identity mappings for common names and English words (Copy Task)
+    # This helps the model realize some words shouldn't be "translated" to garbage
+    common_identities = ["John", "Mary", "Jesus", "David", "Abraham", "Peter", "Paul", "Lagos", "Nigeria", "Internet", "Computer"]
+    for word in common_identities:
+        training_examples.append({"translation": {"en": word, "ibani": word}})
+
+    print(f"Total training examples: {len(training_examples)}")
     
     # Save training data
-    try:
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(training_examples, f, ensure_ascii=False, indent=2)
-        print(f"Saved training data to {output_file}")
-    except IOError as e:
-        print(f"Error saving training data to '{output_file}': {e}")
-        raise
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(training_examples, f, ensure_ascii=False, indent=2)
     
     return training_examples
 

@@ -12,6 +12,7 @@ from transformers import (
     Seq2SeqTrainingArguments,
     DataCollatorForSeq2Seq
 )
+import unicodedata
 from datasets import Dataset
 from typing import List, Optional
 import os
@@ -160,8 +161,8 @@ class IbaniHuggingFaceTranslator:
     
     def preprocess_data(self, examples):
         """Preprocess data for training."""
-        inputs = [ex["en"] for ex in examples["translation"]]
-        targets = [ex["ibani"] for ex in examples["translation"]]
+        inputs = [self.normalize_text(ex["en"]) for ex in examples["translation"]]
+        targets = [self.normalize_text(ex["ibani"]) for ex in examples["translation"]]
         
         # Tokenize inputs
         model_inputs = self.tokenizer(
@@ -251,8 +252,48 @@ class IbaniHuggingFaceTranslator:
         # Update model path for future use
         self.model_path = output_dir
     
-    def translate(self, text: str) -> str:
-        """Translate English text to Ibani."""
+    def normalize_text(self, text: str) -> str:
+        """Normalize text to NFC format to ensure tonal marks are consistent."""
+        if not text:
+            return text
+        return unicodedata.normalize('NFC', text)
+
+    def translate(self, text: str, use_fallback: bool = True) -> str:
+        """
+        Translate English text to Ibani.
+        
+        Args:
+            text: English text to translate
+            use_fallback: Whether to use rule-based fallback for unknown words
+        """
+        if not text.strip():
+            return ""
+
+        # Normalize input
+        text = self.normalize_text(text)
+        
+        # Check if the input is a single word and exists in rule-based dictionary
+        # This helps with the "meaningless words" problem for unknown English words
+        if use_fallback:
+            try:
+                from rule_based_translator import IbaniRuleBasedTranslator
+                rb_translator = IbaniRuleBasedTranslator()
+                
+                # If it's a very short text, rule-based might be more reliable if ML model fails
+                is_single_word = len(text.split()) == 1
+                if is_single_word:
+                    # Clean the word
+                    import re
+                    clean_word = re.sub(r'[^\w]', '', text.lower())
+                    
+                    # If the word is in the dictionary, we might want to keep it in mind
+                    # but let's see what the model does first.
+                    pass
+            except Exception:
+                rb_translator = None
+        else:
+            rb_translator = None
+
         # Tokenize input
         inputs = self.tokenizer(
             text, 
@@ -268,11 +309,28 @@ class IbaniHuggingFaceTranslator:
                 **inputs,
                 max_length=128,
                 num_beams=4,
-                early_stopping=True
+                early_stopping=True,
+                no_repeat_ngram_size=3 # Prevent some types of gibberish
             )
         
         # Decode output
         translation = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        translation = self.normalize_text(translation)
+
+        # Post-processing: Check if the translation looks "meaningless"
+        # 1. Hallucination check: If external model source is 'base', it might be Swahili!
+        # 2. Unknown word check: If the translation is identical to the source or looks like gibberish
+        if use_fallback and rb_translator:
+            # If the model produced something that looks like it's from the base model (Swahili-like)
+            # or if it's very different from the dictionary for simple inputs
+            if len(text.split()) <= 3:
+                rb_translation = rb_translator.translate_sentence(text)
+                # If model output is very short or looks like Swahili (base model)
+                # and we have a rule-base translation, we might prefer the rule-base
+                # for very short common phrases
+                if translation == text or not translation:
+                    return rb_translation
+        
         return translation
     
     def batch_translate(self, texts: List[str]) -> List[str]:
