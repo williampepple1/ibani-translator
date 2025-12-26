@@ -2,3 +2,4 @@
 /__pycache__
 /ibani_model/*
 ibani_model/
+upload_to_hf.py
