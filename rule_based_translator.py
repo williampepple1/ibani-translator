@@ -76,7 +76,9 @@ class IbaniRuleBasedTranslator:
     def translate_word(self, word: str) -> str:
         """Translate a single English word to Ibani."""
         # Clean the word (remove punctuation, convert to lowercase)
-        clean_word = re.sub(r'[^\w]', '', word.lower())
+        # Clean the word (remove punctuation, keep letters and tonal marks)
+        # We use a regex that keeps alphanumeric characters and common combining marks
+        clean_word = re.sub(r'[^\w\u0300-\u036f\u0323]', '', word.lower())
         
         # Look up in dictionary
         translation = self.dictionary.get(clean_word, word)
@@ -298,7 +300,8 @@ class IbaniRuleBasedTranslator:
     def translate_sentence(self, sentence: str, tense: str = "present") -> str:
         """Translate an English sentence to Ibani."""
         # Tokenize the sentence
-        words = re.findall(r"\b\w+\b", sentence)
+        # Tokenize the sentence, keeping words with their tonal marks
+        words = re.findall(r"[\w\u0300-\u036f\u0323]+", sentence)
         
         if not words:
             return ""

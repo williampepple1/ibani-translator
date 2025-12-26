@@ -258,7 +258,7 @@ class IbaniHuggingFaceTranslator:
             return text
         return unicodedata.normalize('NFC', text)
 
-    def translate(self, text: str, use_fallback: bool = True) -> str:
+    def translate(self, text: str, use_fallback: bool = False) -> str:
         """
         Translate English text to Ibani.
         

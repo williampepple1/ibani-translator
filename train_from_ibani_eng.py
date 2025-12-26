@@ -32,18 +32,18 @@ def prepare_training_data_from_ibani_eng(
     except Exception as e:
         print(f"Warning: Could not load primary data: {e}")
 
-    # Load dictionary data for augmentation (helps with unknown words and vocab)
-    try:
-        print(f"Augmenting with dictionary from {dictionary_file}...")
-        with open(dictionary_file, 'r', encoding='utf-8') as f:
-            dict_data = json.load(f)
-            for entry in dict_data:
-                en = entry.get("word", "").strip()
-                ib = entry.get("Ibani_word", "").strip()
-                if en and ib and "," not in en:  # Simple 1-to-1 mappings
-                    training_examples.append({"translation": {"en": en, "ibani": ib}})
-    except Exception as e:
-        print(f"Warning: Could not load dictionary: {e}")
+    # Load dictionary data for augmentation (REMOVED as per user request to not use it as fallback)
+    # try:
+    #     print(f"Augmenting with dictionary from {dictionary_file}...")
+    #     with open(dictionary_file, 'r', encoding='utf-8') as f:
+    #         dict_data = json.load(f)
+    #         for entry in dict_data:
+    #             en = entry.get("word", "").strip()
+    #             ib = entry.get("Ibani_word", "").strip()
+    #             if en and ib and "," not in en:  # Simple 1-to-1 mappings
+    #                 training_examples.append({"translation": {"en": en, "ibani": ib}})
+    # except Exception as e:
+    #     print(f"Warning: Could not load dictionary: {e}")
 
     # Add identity mappings for common names and English words (Copy Task)
     # This helps the model realize some words shouldn't be "translated" to garbage
