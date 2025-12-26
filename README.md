@@ -61,15 +61,15 @@ ibani-translator/
 ```bash
 curl -X POST "http://localhost:8080/translate" \
      -H "Content-Type: application/json" \
-     -d '{"text": "I eat fish"}'
+     -d '{"text": "I am eating fish"}'
 ```
 
 **Response:**
 ```json
 {
-  "source": "I eat fish",
-  "translation": "ịrị olokpó fíị",
-  "model": "ibani-translator"
+    "source": "I am eating fish",
+    "translation": "A nji fịarị",
+    "model": "ibani-translator"
 }
 ```
 
@@ -89,7 +89,7 @@ from huggingface_translator import IbaniHuggingFaceTranslator
 translator = IbaniHuggingFaceTranslator(model_path="./ibani_model")
 
 # Translate
-result = translator.translate("I eat fish")
+result = translator.translate("I am eating fish")
 print(result)
 ```
 
@@ -100,7 +100,7 @@ import requests
 
 response = requests.post(
     "http://localhost:8080/translate",
-    json={"text": "I eat fish"}
+    json={"text": "I am eating fish"}
 )
 
 result = response.json()
@@ -116,12 +116,12 @@ Your data should be in JSON format with English and Ibani parallel texts:
 ```json
 [
   {
-    "english_text": "I eat fish",
-    "ibani_text": "ịrị olokpó fíị"
+    "english_text": "I am eating fish",
+    "ibani_text": "A nji fịarị"
   },
   {
-    "english_text": "Good morning",
-    "ibani_text": "ụ̀bọ́sị́ ọ́má"
+    "english_text": "my father is joseph",
+    "ibani_text": "i daa ma anịị Josef"
   }
 ]
 ```
