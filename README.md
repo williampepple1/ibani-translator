@@ -199,12 +199,46 @@ docker run -p 8080:8080 ibani-translator
 
 ## Dependencies
 
-- `transformers>=4.30.0` - Hugging Face transformers
-- `torch>=2.0.0` - PyTorch for ML models
-- `fastapi>=0.100.0` - Web API framework
-- `uvicorn>=0.22.0` - ASGI server
-- `datasets>=2.12.0` - Dataset handling
-- `sentencepiece>=0.1.99` - Tokenization
+### Core Requirements
+
+All dependencies are listed in `requirements.txt`. Key packages include:
+
+- **Machine Learning & NLP**
+  - `transformers==4.56.2` - Hugging Face transformers
+  - `torch==2.8.0` - PyTorch for ML models
+  - `sentencepiece==0.2.1` - Tokenization
+  - `tokenizers==0.22.1` - Fast tokenizers
+  - `safetensors==0.6.2` - Safe model serialization
+  - `datasets==4.1.1` - Dataset handling
+  - `accelerate==1.10.1` - Distributed training
+
+- **Web API & Server**
+  - `fastapi==0.118.0` - Web API framework
+  - `uvicorn==0.37.0` - ASGI server
+  - `Flask==3.1.2` - Alternative web framework
+  - `starlette==0.48.0` - ASGI framework
+  - `pydantic==2.11.9` - Data validation
+
+- **Data Processing**
+  - `pandas==2.3.3` - Data manipulation
+  - `numpy==2.3.3` - Numerical computing
+  - `scikit-learn==1.7.2` - Machine learning utilities
+  - `scipy==1.16.2` - Scientific computing
+
+- **Hugging Face Integration**
+  - `huggingface-hub==0.35.3` - Model hosting and sharing
+  - `hf_transfer==0.1.9` - Fast model uploads (optional)
+
+- **Utilities**
+  - `requests==2.32.5` - HTTP client
+  - `tqdm==4.67.1` - Progress bars
+  - `PyYAML==6.0.3` - YAML support
+  - `click==8.3.0` - CLI utilities
+
+Install all dependencies with:
+```bash
+pip install -r requirements.txt
+```
 
 ## Performance
 
