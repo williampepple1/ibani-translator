@@ -276,12 +276,46 @@ class IbaniHuggingFaceTranslator:
         return translation
     
     def batch_translate(self, texts: List[str]) -> List[str]:
-        """Translate multiple texts at once."""
-        translations = []
-        for text in texts:
-            translation = self.translate(text)
-            translations.append(translation)
-        return translations
+        """Translate multiple texts at once using batch processing."""
+        # Filter empty strings but keep track of indices to restore them later
+        non_empty_texts = []
+        non_empty_indices = []
+        
+        for i, text in enumerate(texts):
+            if text and text.strip():
+                non_empty_texts.append(text)
+                non_empty_indices.append(i)
+        
+        if not non_empty_texts:
+            return [""] * len(texts)
+            
+        # Tokenize batch
+        inputs = self.tokenizer(
+            non_empty_texts, 
+            return_tensors="pt", 
+            padding=True, 
+            truncation=True,
+            max_length=128
+        ).to(self.device)
+        
+        # Generate batch translation
+        with torch.no_grad():
+            outputs = self.model.generate(
+                **inputs,
+                max_length=128,
+                num_beams=4,
+                early_stopping=True
+            )
+        
+        # Decode batch output
+        decoded = self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
+        
+        # Reconstruct result with empty strings in original positions
+        results = [""] * len(texts)
+        for i, translation in zip(non_empty_indices, decoded):
+            results[i] = translation
+            
+        return results
 
 
 def main():

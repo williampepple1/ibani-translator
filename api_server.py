@@ -7,14 +7,10 @@ from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 from typing import List, Optional
 from huggingface_translator import IbaniHuggingFaceTranslator
-from slowapi import Limiter, _rate_limit_exceeded_handler
-from slowapi.util import get_remote_address
-from slowapi.errors import RateLimitExceeded
 import uvicorn
 
 
-# Initialize rate limiter
-limiter = Limiter(key_func=get_remote_address)
+
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -23,9 +19,7 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Add rate limiter to app state
-app.state.limiter = limiter
-app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
 
 # Global translator instance
 translator = None
@@ -79,28 +73,21 @@ async def load_model():
 
 
 @app.get("/")
-@limiter.limit("30/minute")
-async def root(request: Request):
+async def root():
     """Root endpoint with API information."""
     return {
         "message": "Ibani Translation API",
         "version": "1.0.0",
         "endpoints": {
-            "/translate": "POST - Translate single text (20 requests/minute)",
-            "/batch-translate": "POST - Translate multiple texts (5 requests/minute)",
-            "/health": "GET - Check API health (30 requests/minute)"
-        },
-        "rate_limits": {
-            "translate": "20 per minute",
-            "batch_translate": "5 per minute",
-            "other_endpoints": "30 per minute"
+            "/translate": "POST - Translate single text",
+            "/batch-translate": "POST - Translate multiple texts",
+            "/health": "GET - Check API health"
         }
     }
 
 
 @app.get("/health")
-@limiter.limit("30/minute")
-async def health_check(request: Request):
+async def health_check():
     """Health check endpoint."""
     if translator is None:
         raise HTTPException(status_code=503, detail="Model not loaded")
@@ -112,15 +99,13 @@ async def health_check(request: Request):
 
 
 @app.post("/translate", response_model=TranslationResponse)
-@limiter.limit("20/minute")
-async def translate(http_request: Request, request: TranslationRequest):
+async def translate(request: TranslationRequest):
     """
     Translate English text to Ibani.
     
     Rate limit: 20 requests per minute per IP address.
     
     Args:
-        http_request: FastAPI Request object (for rate limiting)
         request: TranslationRequest with text to translate
         
     Returns:
@@ -143,8 +128,7 @@ async def translate(http_request: Request, request: TranslationRequest):
 
 
 @app.post("/batch-translate", response_model=BatchTranslationResponse)
-@limiter.limit("5/minute")
-async def batch_translate(http_request: Request, request: BatchTranslationRequest):
+async def batch_translate(request: BatchTranslationRequest):
     """
     Translate multiple English texts to Ibani.
     
@@ -152,7 +136,6 @@ async def batch_translate(http_request: Request, request: BatchTranslationReques
     Maximum 50 texts per request.
     
     Args:
-        http_request: FastAPI Request object (for rate limiting)
         request: BatchTranslationRequest with list of texts
         
     Returns:
@@ -172,12 +155,14 @@ async def batch_translate(http_request: Request, request: BatchTranslationReques
         )
     
     try:
+        # Use optimized batch translation
+        translated_texts = translator.batch_translate(request.texts)
+        
         translations = []
-        for text in request.texts:
-            if text.strip():
-                translation = translator.translate(text)
+        for source, translation in zip(request.texts, translated_texts):
+            if source.strip():
                 translations.append(TranslationResponse(
-                    source=text,
+                    source=source,
                     translation=translation
                 ))
         
