@@ -13,12 +13,18 @@ from transformers import (
     DataCollatorForSeq2Seq
 )
 from datasets import Dataset
-from typing import List, Dict, Optional
+from typing import List, Optional
 import os
-from pathlib import Path
 
 
 class IbaniHuggingFaceTranslator:
+    """
+    English to Ibani neural machine translation using Hugging Face MarianMT.
+    
+    This class provides training and inference capabilities for translating
+    English text to Ibani language using a fine-tuned MarianMT model.
+    """
+    
     def __init__(self, model_name: str = "Helsinki-NLP/opus-mt-en-mul", model_path: Optional[str] = None):
         """
         Initialize the Hugging Face translator.
@@ -108,7 +114,7 @@ class IbaniHuggingFaceTranslator:
             
             print(f"Generated {len(sample_data)} training examples using rule-based translator")
             
-        except Exception as e:
+        except (ImportError, AttributeError, ValueError, RuntimeError) as e:
             print(f"Error using rule-based translator: {e}")
             # Fallback to basic examples
             sample_data = [
@@ -155,7 +161,7 @@ class IbaniHuggingFaceTranslator:
                    batch_size: int = 2,
                    learning_rate: float = 5e-5):
         """Train the model on English-Ibani data."""
-        print("🚀 Starting model training...")
+        print("Starting model training...")
         
         # Create training dataset
         dataset = self.create_training_dataset(training_data_file)
@@ -167,10 +173,8 @@ class IbaniHuggingFaceTranslator:
             remove_columns=dataset.column_names
         )
         
-        # Split into train and validation
-        train_size = int(0.8 * len(tokenized_dataset))
-        train_dataset = tokenized_dataset.select(range(train_size))
-        eval_dataset = tokenized_dataset.select(range(train_size, len(tokenized_dataset)))
+        # Use all data for training
+        train_dataset = tokenized_dataset
         
         # Training arguments
         training_args = Seq2SeqTrainingArguments(
@@ -214,7 +218,7 @@ class IbaniHuggingFaceTranslator:
         trainer.save_model()
         self.tokenizer.save_pretrained(output_dir)
         
-        print(f"✅ Model training completed! Model saved to {output_dir}")
+        print(f"Model training completed! Model saved to {output_dir}")
         
         # Update model path for future use
         self.model_path = output_dir
@@ -254,7 +258,7 @@ class IbaniHuggingFaceTranslator:
 
 def main():
     """Example usage of the Hugging Face translator."""
-    print("🤖 Hugging Face English to Ibani Translator")
+    print("Hugging Face English to Ibani Translator")
     print("=" * 50)
     
     # Initialize translator

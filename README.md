@@ -50,7 +50,7 @@ python huggingface_translator.py
 python api_server.py
 ```
 
-Visit `http://localhost:8000/docs` for interactive API documentation.
+Visit `http://localhost:8080/docs` for interactive API documentation.
 
 ## Project Structure
 
@@ -94,12 +94,12 @@ print(result)  # Output: "Mi sibi bia"
 
 ```bash
 # Single translation
-curl -X POST "http://localhost:8000/translate" \
+curl -X POST "http://localhost:8080/translate" \
      -H "Content-Type: application/json" \
      -d '{"text": "I eat fish", "method": "rule_based"}'
 
 # Batch translation
-curl -X POST "http://localhost:8000/batch_translate" \
+curl -X POST "http://localhost:8080/batch_translate" \
      -H "Content-Type: application/json" \
      -d '{"texts": ["I eat fish", "The woman goes"], "method": "ml"}'
 ```

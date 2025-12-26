@@ -1,0 +1,161 @@
+"""
+FastAPI server for Ibani translation API endpoint.
+"""
+
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from typing import List, Optional
+from huggingface_translator import IbaniHuggingFaceTranslator
+import uvicorn
+
+
+# Initialize FastAPI app
+app = FastAPI(
+    title="Ibani Translation API",
+    description="English to Ibani translation API using trained MarianMT model",
+    version="1.0.0"
+)
+
+# Global translator instance
+translator = None
+
+
+class TranslationRequest(BaseModel):
+    """Request model for translation."""
+    text: str
+    max_length: Optional[int] = 128
+    num_beams: Optional[int] = 4
+
+
+class BatchTranslationRequest(BaseModel):
+    """Request model for batch translation."""
+    texts: List[str]
+    max_length: Optional[int] = 128
+    num_beams: Optional[int] = 4
+
+
+class TranslationResponse(BaseModel):
+    """Response model for translation."""
+    source: str
+    translation: str
+    model: str = "ibani-translator"
+
+
+class BatchTranslationResponse(BaseModel):
+    """Response model for batch translation."""
+    translations: List[TranslationResponse]
+    count: int
+
+
+@app.on_event("startup")
+async def load_model():
+    """Load the model when the server starts."""
+    global translator
+    print("Loading Ibani translation model...")
+    translator = IbaniHuggingFaceTranslator(model_path="./ibani_model")
+    print("✓ Model loaded successfully!")
+
+
+@app.get("/")
+async def root():
+    """Root endpoint with API information."""
+    return {
+        "message": "Ibani Translation API",
+        "version": "1.0.0",
+        "endpoints": {
+            "/translate": "POST - Translate single text",
+            "/batch-translate": "POST - Translate multiple texts",
+            "/health": "GET - Check API health"
+        }
+    }
+
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint."""
+    if translator is None:
+        raise HTTPException(status_code=503, detail="Model not loaded")
+    return {
+        "status": "healthy",
+        "model_loaded": True,
+        "model_path": "./ibani_model"
+    }
+
+
+@app.post("/translate", response_model=TranslationResponse)
+async def translate(request: TranslationRequest):
+    """
+    Translate English text to Ibani.
+    
+    Args:
+        request: TranslationRequest with text to translate
+        
+    Returns:
+        TranslationResponse with original text and translation
+    """
+    if translator is None:
+        raise HTTPException(status_code=503, detail="Model not loaded")
+    
+    if not request.text.strip():
+        raise HTTPException(status_code=400, detail="Text cannot be empty")
+    
+    try:
+        translation = translator.translate(request.text)
+        return TranslationResponse(
+            source=request.text,
+            translation=translation
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Translation error: {str(e)}")
+
+
+@app.post("/batch-translate", response_model=BatchTranslationResponse)
+async def batch_translate(request: BatchTranslationRequest):
+    """
+    Translate multiple English texts to Ibani.
+    
+    Args:
+        request: BatchTranslationRequest with list of texts
+        
+    Returns:
+        BatchTranslationResponse with all translations
+    """
+    if translator is None:
+        raise HTTPException(status_code=503, detail="Model not loaded")
+    
+    if not request.texts:
+        raise HTTPException(status_code=400, detail="Texts list cannot be empty")
+    
+    try:
+        translations = []
+        for text in request.texts:
+            if text.strip():
+                translation = translator.translate(text)
+                translations.append(TranslationResponse(
+                    source=text,
+                    translation=translation
+                ))
+        
+        return BatchTranslationResponse(
+            translations=translations,
+            count=len(translations)
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Translation error: {str(e)}")
+
+
+def main():
+    """Run the API server."""
+    print("Starting Ibani Translation API Server...")
+    print("=" * 60)
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=8080,
+        log_level="info"
+    )
+
+
+if __name__ == "__main__":
+    main()
+
