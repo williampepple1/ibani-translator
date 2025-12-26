@@ -6,6 +6,7 @@ A neural machine translation system for English to Ibani language using Hugging 
 
 - **Neural Translation**: Fine-tuned MarianMT model for English to Ibani translation
 - **REST API**: FastAPI service with interactive documentation
+- **Rate Limiting**: Built-in protection against abuse (IP-based rate limits)
 - **Training Pipeline**: Train custom models on your own Ibani data
 - **Batch Translation**: Translate multiple texts efficiently
 - **Model Hosting**: Ready for deployment to Hugging Face Hub
@@ -147,15 +148,45 @@ Edit `train_from_ibani_eng.py` to adjust:
 
 ## API Endpoints
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/` | GET | API information |
-| `/health` | GET | Health check and model status |
-| `/translate` | POST | Translate single text |
-| `/batch-translate` | POST | Translate multiple texts |
-| `/docs` | GET | Interactive API documentation |
+| Endpoint | Method | Description | Rate Limit |
+|----------|--------|-------------|------------|
+| `/` | GET | API information | 30/minute |
+| `/health` | GET | Health check and model status | 30/minute |
+| `/translate` | POST | Translate single text | 20/minute |
+| `/batch-translate` | POST | Translate multiple texts | 5/minute |
+| `/docs` | GET | Interactive API documentation | No limit |
 
 For detailed API documentation, see [API_USAGE.md](API_USAGE.md)
+
+## Security Features
+
+### Rate Limiting
+
+The API includes built-in rate limiting to protect against abuse and ensure fair usage:
+
+- **IP-based tracking**: Rate limits are applied per IP address
+- **Different limits per endpoint**: More restrictive limits on resource-intensive operations
+- **Automatic 429 responses**: Exceeding rate limits returns HTTP 429 (Too Many Requests)
+- **Batch size limits**: Maximum 50 texts per batch request
+
+**Rate Limits:**
+- `/translate`: 20 requests per minute per IP
+- `/batch-translate`: 5 requests per minute per IP (max 50 texts/request)
+- `/health`, `/`: 30 requests per minute per IP
+
+**Customizing Rate Limits:**
+
+Edit the limits in `api_server.py`:
+```python
+@limiter.limit("20/minute")  # Change to desired limit
+async def translate(http_request: Request, request: TranslationRequest):
+    ...
+```
+
+You can use formats like:
+- `"20/minute"` - 20 requests per minute
+- `"100/hour"` - 100 requests per hour
+- `"1000/day"` - 1000 requests per day
 
 ## Model Information
 
@@ -215,6 +246,7 @@ All dependencies are listed in `requirements.txt`. Key packages include:
 - **Web API & Server**
   - `fastapi==0.118.0` - Web API framework
   - `uvicorn==0.37.0` - ASGI server
+  - `slowapi==0.1.9` - Rate limiting for FastAPI
   - `Flask==3.1.2` - Alternative web framework
   - `starlette==0.48.0` - ASGI framework
   - `pydantic==2.11.9` - Data validation
