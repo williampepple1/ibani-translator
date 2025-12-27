@@ -161,17 +161,6 @@ curl https://your-project.vercel.app/health
 2. Consider using a smaller base model
 3. Optimize model with quantization
 
-### Rate Limiting
-
-The API includes built-in rate limiting:
-- `/translate`: 20 requests/minute per IP
-- `/batch-translate`: 5 requests/minute per IP
-
-To adjust limits, edit `api_server.py`:
-```python
-@limiter.limit("50/minute")  # Increase limit
-async def translate(http_request: Request, request: TranslationRequest):
-```
 
 ## Custom Domain
 
@@ -199,8 +188,7 @@ Vercel provides built-in monitoring:
 ## Security
 
 1. **HTTPS**: Automatically enabled by Vercel
-2. **Rate Limiting**: Built-in protection against abuse
-3. **CORS**: Configure in `api_server.py` if needed:
+2. **CORS**: Configure in `api_server.py` if needed:
 
 ```python
 from fastapi.middleware.cors import CORSMiddleware
