@@ -256,8 +256,8 @@ class IbaniHuggingFaceTranslator:
         self.model_path = output_dir
     
     def _augment_tokenizer_from_data(self, dataset):
-        """Check dataset for special characters and add them to tokenizer if missing."""
-        print("Checking for missing special characters in tokenizer...")
+        """Add word fragments containing special characters to prevent spacing issues."""
+        print("Checking for special characters and adding word fragments...")
         
         all_text = ""
         for ex in dataset:
@@ -275,66 +275,76 @@ class IbaniHuggingFaceTranslator:
         special_chars = [c for c in unique_chars if c not in ignore_chars and ord(c) > 127]
         
         if not special_chars:
-            print("No special characters found to add.")
+            print("No special characters found.")
             return
 
-        print(f"Found {len(special_chars)} potential special characters.")
+        print(f"Found {len(special_chars)} special characters.")
         
-        # Filter for characters not in vocabulary
+        # CRITICAL: Instead of adding individual characters, add common word fragments
+        # This prevents spacing issues
         vocab = self.tokenizer.get_vocab()
-        missing_chars = [c for c in special_chars if c not in vocab]
         
-        # CRITICAL: Prioritize ḅ and á - these are the problematic ones
+        # Priority characters that cause spacing issues
         priority_chars = ['ḅ', 'Ḅ', 'á', 'Á']
         
-        # Separate priority characters from others
-        priority_missing = [c for c in priority_chars if c in missing_chars]
-        other_missing = [c for c in missing_chars if c not in priority_chars]
+        # Collect word fragments containing these characters from the dataset
+        word_fragments = set()
         
-        # Check if they tokenize properly
-        actually_missing = []
+        for ex in dataset:
+            ibani_text = ex["translation"]["ibani"]
+            words = ibani_text.split()
+            
+            for word in words:
+                # If word contains priority characters, add common fragments
+                for char in priority_chars:
+                    if char in word:
+                        # Add the character with surrounding context
+                        idx = word.find(char)
+                        
+                        # Add fragments like "ḅe", "ḅẹ", "aḅ", etc.
+                        if idx > 0:
+                            word_fragments.add(word[idx-1:idx+2])  # char with 1 before and 1 after
+                        if idx < len(word) - 1:
+                            word_fragments.add(word[idx:idx+2])    # char with 1 after
+                        
+                        # Also add the full word if it's short
+                        if len(word) <= 8:
+                            word_fragments.add(word)
         
-        # Add priority characters FIRST and ALWAYS
-        for c in priority_missing:
-            actually_missing.append(c)
-            print(f"   ⚠️  PRIORITY: '{c}' is missing - will be added FIRST")
+        # Filter fragments not in vocabulary
+        missing_fragments = [f for f in word_fragments if f not in vocab and len(f) > 1]
         
-        # Check other characters
-        for c in other_missing:
-            tokens = self.tokenizer.tokenize(c)
-            if not tokens or all(t in [' ', '<unk>', 'uniquely_unknown_token_id'] for t in tokens):
-                actually_missing.append(c)
-            elif c in 'ḄḅḌḍẸẹỊịỌọỤụ':  # Core Ibani characters
-                actually_missing.append(c)
-
-        if not actually_missing:
-            print("All special characters are already handled by the tokenizer.")
+        if not missing_fragments:
+            print("All word fragments already in vocabulary.")
             return
         
-        print(f"Adding {len(actually_missing)} missing tokens to tokenizer:")
-        print(f"   Priority (ḅ, á): {[c for c in actually_missing if c in priority_chars]}")
-        print(f"   Others: {[c for c in actually_missing if c not in priority_chars]}")
+        # Limit to most common fragments (top 50)
+        missing_fragments = sorted(missing_fragments)[:50]
         
-        num_added = self.tokenizer.add_tokens(actually_missing)
+        print(f"Adding {len(missing_fragments)} word fragments to tokenizer:")
+        print(f"   Sample fragments: {missing_fragments[:10]}")
+        
+        num_added = self.tokenizer.add_tokens(missing_fragments)
         print(f"Added {num_added} tokens.")
         
         if num_added > 0:
             self.model.resize_token_embeddings(len(self.tokenizer))
             print(f"Resized model embeddings to {len(self.tokenizer)}")
             
-            # VERIFY that ḅ and á were actually added
-            print("\n🔍 Verifying critical characters:")
-            for char in priority_chars:
-                if char in actually_missing:
-                    token_id = self.tokenizer.convert_tokens_to_ids(char)
-                    test_tokens = self.tokenizer.tokenize(char)
-                    print(f"   '{char}': ID={token_id}, tokenizes to: {test_tokens}")
+            # Test tokenization
+            print("\n🔍 Testing tokenization:")
+            test_words = ['ḅẹlẹma', 'ọ́rụ́ḅọ́', 'árị']
+            for word in test_words:
+                if word in all_text:
+                    tokens = self.tokenizer.tokenize(word)
+                    print(f"   '{word}' → {tokens}")
 
     def normalize_text(self, text: str) -> str:
         """Normalize text to NFC format to ensure tonal marks are consistent."""
         if not text:
             return text
         return unicodedata.normalize('NFC', text)
+    
 
     def translate(self, text: str, use_fallback: bool = False) -> str:
         """
