@@ -194,6 +194,9 @@ class IbaniHuggingFaceTranslator:
         
         # Create training dataset
         dataset = self.create_training_dataset(training_data_file)
+
+        # Augment tokenizer with special characters from the dataset
+        self._augment_tokenizer_from_data(dataset)
         
         # Preprocess the data
         tokenized_dataset = dataset.map(
@@ -252,6 +255,81 @@ class IbaniHuggingFaceTranslator:
         # Update model path for future use
         self.model_path = output_dir
     
+    def _augment_tokenizer_from_data(self, dataset):
+        """Check dataset for special characters and add them to tokenizer if missing."""
+        print("Checking for missing special characters in tokenizer...")
+        
+        all_text = ""
+        for ex in dataset:
+            all_text += ex["translation"]["en"] + " " + ex["translation"]["ibani"]
+        
+        # Normalize text first
+        all_text = self.normalize_text(all_text)
+        
+        # Find all unique characters
+        unique_chars = set(all_text)
+        
+        # Characters to ignore (standard ASCII and common punctuation)
+        ignore_chars = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,?!:;()\"'- ")
+        
+        special_chars = [c for c in unique_chars if c not in ignore_chars and ord(c) > 127]
+        
+        if not special_chars:
+            print("No special characters found to add.")
+            return
+
+        print(f"Found {len(special_chars)} potential special characters.")
+        
+        # Filter for characters not in vocabulary
+        vocab = self.tokenizer.get_vocab()
+        missing_chars = [c for c in special_chars if c not in vocab]
+        
+        # CRITICAL: Prioritize ḅ and á - these are the problematic ones
+        priority_chars = ['ḅ', 'Ḅ', 'á', 'Á']
+        
+        # Separate priority characters from others
+        priority_missing = [c for c in priority_chars if c in missing_chars]
+        other_missing = [c for c in missing_chars if c not in priority_chars]
+        
+        # Check if they tokenize properly
+        actually_missing = []
+        
+        # Add priority characters FIRST and ALWAYS
+        for c in priority_missing:
+            actually_missing.append(c)
+            print(f"   ⚠️  PRIORITY: '{c}' is missing - will be added FIRST")
+        
+        # Check other characters
+        for c in other_missing:
+            tokens = self.tokenizer.tokenize(c)
+            if not tokens or all(t in [' ', '<unk>', 'uniquely_unknown_token_id'] for t in tokens):
+                actually_missing.append(c)
+            elif c in 'ḄḅḌḍẸẹỊịỌọỤụ':  # Core Ibani characters
+                actually_missing.append(c)
+
+        if not actually_missing:
+            print("All special characters are already handled by the tokenizer.")
+            return
+        
+        print(f"Adding {len(actually_missing)} missing tokens to tokenizer:")
+        print(f"   Priority (ḅ, á): {[c for c in actually_missing if c in priority_chars]}")
+        print(f"   Others: {[c for c in actually_missing if c not in priority_chars]}")
+        
+        num_added = self.tokenizer.add_tokens(actually_missing)
+        print(f"Added {num_added} tokens.")
+        
+        if num_added > 0:
+            self.model.resize_token_embeddings(len(self.tokenizer))
+            print(f"Resized model embeddings to {len(self.tokenizer)}")
+            
+            # VERIFY that ḅ and á were actually added
+            print("\n🔍 Verifying critical characters:")
+            for char in priority_chars:
+                if char in actually_missing:
+                    token_id = self.tokenizer.convert_tokens_to_ids(char)
+                    test_tokens = self.tokenizer.tokenize(char)
+                    print(f"   '{char}': ID={token_id}, tokenizes to: {test_tokens}")
+
     def normalize_text(self, text: str) -> str:
         """Normalize text to NFC format to ensure tonal marks are consistent."""
         if not text:
