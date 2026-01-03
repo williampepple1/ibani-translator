@@ -211,7 +211,8 @@ class IbaniHuggingFaceTranslator:
         # Training arguments
         training_args = Seq2SeqTrainingArguments(
             output_dir=output_dir,
-            eval_strategy="no",  # Disable evaluation for simplicity
+            # Use evaluation_strategy instead of eval_strategy for compatibility
+            # eval_strategy="no",  # Disable evaluation for simplicity
             learning_rate=learning_rate,
             per_device_train_batch_size=batch_size,
             num_train_epochs=num_epochs,
@@ -330,14 +331,6 @@ class IbaniHuggingFaceTranslator:
         if num_added > 0:
             self.model.resize_token_embeddings(len(self.tokenizer))
             print(f"Resized model embeddings to {len(self.tokenizer)}")
-            
-            # Test tokenization
-            print("\n🔍 Testing tokenization:")
-            test_words = ['ḅẹlẹma', 'ọ́rụ́ḅọ́', 'árị']
-            for word in test_words:
-                if word in all_text:
-                    tokens = self.tokenizer.tokenize(word)
-                    print(f"   '{word}' → {tokens}")
 
     def normalize_text(self, text: str) -> str:
         """Normalize text to NFC format to ensure tonal marks are consistent."""
