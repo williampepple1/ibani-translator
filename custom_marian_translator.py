@@ -43,15 +43,21 @@ class SentencePieceTokenizerWrapper:
     def __len__(self):
         return self.sp.get_piece_size()
     
-    def __call__(self, text, max_length=128, truncation=True, padding=False, 
+    def __call__(self, text=None, max_length=128, truncation=True, padding=False, 
                  return_tensors=None, text_target=None):
         """Tokenize text (compatible with HuggingFace interface)."""
         
+        # Use text_target if provided (for labels), otherwise use text
+        input_text = text_target if text_target is not None else text
+        
+        if input_text is None:
+            raise ValueError("Either 'text' or 'text_target' must be provided")
+        
         # Handle batch input
-        if isinstance(text, list):
-            texts = text
+        if isinstance(input_text, list):
+            texts = input_text
         else:
-            texts = [text]
+            texts = [input_text]
         
         # Encode
         input_ids = []
