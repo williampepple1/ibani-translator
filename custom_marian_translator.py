@@ -124,8 +124,16 @@ class CustomMarianTranslator:
             padding="max_length"
         )
         
-        model_inputs["labels"] = labels["input_ids"]
+        # Replace padding token id with -100 so it's ignored by loss
+        labels_ids = labels["input_ids"]
+        labels_ids = [
+            [(label if label != self.tokenizer.pad_token_id else -100) for label in label_seq]
+            for label_seq in labels_ids
+        ]
+        
+        model_inputs["labels"] = labels_ids
         return model_inputs
+
     
     def train_model(self,
                    training_data_file: str,
