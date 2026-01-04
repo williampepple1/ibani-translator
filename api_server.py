@@ -56,7 +56,8 @@ async def load_model():
     
     # Get HuggingFace repo from environment variable or use default
     hf_repo = os.getenv("HF_MODEL_REPO", "williampepple1/ibani-translator")
-    local_model_path = os.getenv("LOCAL_MODEL_PATH", "./ibani_model")
+    # Use the CSV-trained model by default (better special character support)
+    local_model_path = os.getenv("LOCAL_MODEL_PATH", "./ibani_csv_model")
     
     print(f"Local model path: {local_model_path}")
     print(f"HuggingFace repo: {hf_repo}")
@@ -90,7 +91,7 @@ async def health_check():
     return {
         "status": "healthy",
         "model_loaded": True,
-        "model_path": "./ibani_model"
+        "model_path": "./ibani_csv_model"
     }
 
 
