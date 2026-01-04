@@ -106,7 +106,7 @@ class SentencePieceTokenizerWrapper:
         """Decode batch of sequences."""
         return [self.decode(seq, skip_special_tokens) for seq in sequences]
     
-    def pad(self, encoded_inputs, padding=True, max_length=None, return_tensors=None):
+    def pad(self, encoded_inputs, padding=True, max_length=None, return_tensors=None, **kwargs):
         """Pad encoded inputs (required by DataCollator)."""
         # Handle dict or list of dicts
         if isinstance(encoded_inputs, dict):
