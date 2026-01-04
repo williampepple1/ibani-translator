@@ -1,182 +1,27 @@
 """
 Train MarianMT with custom SentencePiece tokenizer for Ibani.
-This combines the speed of MarianMT with perfect character preservation.
-Uses a simple SentencePiece wrapper instead of PreTrainedTokenizerFast.
+Uses T5Tokenizer as a wrapper - fully compatible with HuggingFace!
 """
 
 import json
 import torch
 from transformers import (
     MarianMTModel,
+    T5Tokenizer,
     Seq2SeqTrainer,
     Seq2SeqTrainingArguments,
     DataCollatorForSeq2Seq,
 )
 from datasets import Dataset
-from typing import List, Dict, Optional
+from typing import Optional
 import os
-import sentencepiece as spm
-import numpy as np
-
-
-class SentencePieceTokenizerWrapper:
-    """Simple wrapper around SentencePiece for HuggingFace compatibility."""
-    
-    def __init__(self, model_path: str):
-        self.sp = spm.SentencePieceProcessor()
-        self.sp.load(model_path)
-        
-        # Special tokens
-        self.pad_token = "<pad>"
-        self.eos_token = "</s>"
-        self.unk_token = "<unk>"
-        self.bos_token = "<s>"
-        
-        # Token IDs
-        self.pad_token_id = self.sp.piece_to_id(self.pad_token)
-        self.eos_token_id = self.sp.piece_to_id(self.eos_token)
-        self.unk_token_id = self.sp.piece_to_id(self.unk_token)
-        self.bos_token_id = self.sp.piece_to_id(self.bos_token)
-        
-        self.model_max_length = 512
-    
-    def __len__(self):
-        return self.sp.get_piece_size()
-    
-    def __call__(self, text=None, max_length=128, truncation=True, padding=False, 
-                 return_tensors=None, text_target=None):
-        """Tokenize text (compatible with HuggingFace interface)."""
-        
-        # Use text_target if provided (for labels), otherwise use text
-        input_text = text_target if text_target is not None else text
-        
-        if input_text is None:
-            raise ValueError("Either 'text' or 'text_target' must be provided")
-        
-        # Handle batch input
-        if isinstance(input_text, list):
-            texts = input_text
-        else:
-            texts = [input_text]
-        
-        # Encode
-        input_ids = []
-        for t in texts:
-            ids = self.sp.encode_as_ids(t)
-            # Truncate
-            if truncation and len(ids) > max_length:
-                ids = ids[:max_length]
-            # Pad
-            if padding and len(ids) < max_length:
-                ids = ids + [self.pad_token_id] * (max_length - len(ids))
-            input_ids.append(ids)
-        
-        # Create attention mask
-        attention_mask = [[1 if id != self.pad_token_id else 0 for id in ids] 
-                         for ids in input_ids]
-        
-        result = {
-            "input_ids": input_ids,
-            "attention_mask": attention_mask
-        }
-        
-        # Convert to tensors if requested
-        if return_tensors == "pt":
-            result["input_ids"] = torch.tensor(result["input_ids"])
-            result["attention_mask"] = torch.tensor(result["attention_mask"])
-        
-        return result
-    
-    def encode(self, text, add_special_tokens=True):
-        """Encode text to IDs."""
-        return self.sp.encode_as_ids(text)
-    
-    def decode(self, token_ids, skip_special_tokens=True):
-        """Decode IDs to text."""
-        if isinstance(token_ids, torch.Tensor):
-            token_ids = token_ids.tolist()
-        
-        # Remove padding if skip_special_tokens
-        if skip_special_tokens:
-            token_ids = [id for id in token_ids if id not in [self.pad_token_id, self.eos_token_id, self.bos_token_id]]
-        
-        return self.sp.decode_ids(token_ids)
-    
-    def batch_decode(self, sequences, skip_special_tokens=True):
-        """Decode batch of sequences."""
-        return [self.decode(seq, skip_special_tokens) for seq in sequences]
-    
-    def pad(self, encoded_inputs, padding=True, max_length=None, return_tensors=None, **kwargs):
-        """Pad encoded inputs (required by DataCollator)."""
-        # Handle dict or list of dicts
-        if isinstance(encoded_inputs, dict):
-            # Single example
-            batch = [encoded_inputs]
-        else:
-            batch = encoded_inputs
-        
-        # Get max length
-        if max_length is None:
-            max_length = max(len(item["input_ids"]) for item in batch)
-        
-        # Pad each item
-        padded_batch = {
-            "input_ids": [],
-            "attention_mask": []
-        }
-        
-        if "labels" in batch[0]:
-            padded_batch["labels"] = []
-        
-        for item in batch:
-            # Pad input_ids
-            input_ids = item["input_ids"]
-            if isinstance(input_ids, torch.Tensor):
-                input_ids = input_ids.tolist()
-            
-            padded_ids = input_ids + [self.pad_token_id] * (max_length - len(input_ids))
-            padded_batch["input_ids"].append(padded_ids)
-            
-            # Pad attention_mask
-            if "attention_mask" in item:
-                attention_mask = item["attention_mask"]
-                if isinstance(attention_mask, torch.Tensor):
-                    attention_mask = attention_mask.tolist()
-                padded_mask = attention_mask + [0] * (max_length - len(attention_mask))
-            else:
-                padded_mask = [1] * len(input_ids) + [0] * (max_length - len(input_ids))
-            padded_batch["attention_mask"].append(padded_mask)
-            
-            # Pad labels if present
-            if "labels" in item:
-                labels = item["labels"]
-                if isinstance(labels, torch.Tensor):
-                    labels = labels.tolist()
-                # Use -100 for padding in labels (ignored by loss)
-                padded_labels = labels + [-100] * (max_length - len(labels))
-                padded_batch["labels"].append(padded_labels)
-        
-        # Convert to tensors if requested
-        if return_tensors == "pt":
-            for key in padded_batch:
-                padded_batch[key] = torch.tensor(padded_batch[key])
-        
-        return padded_batch
-
-    
-    def save_pretrained(self, save_directory):
-        """Save tokenizer (copy the .model file)."""
-        import shutil
-        os.makedirs(save_directory, exist_ok=True)
-        # Save a marker file
-        with open(os.path.join(save_directory, "tokenizer_config.json"), 'w') as f:
-            json.dump({"tokenizer_class": "SentencePieceTokenizerWrapper"}, f)
+import shutil
 
 
 class CustomMarianTranslator:
     """
     MarianMT with custom SentencePiece tokenizer for Ibani.
-    Best of both worlds: MarianMT speed + perfect character preservation.
+    Uses T5Tokenizer wrapper for full HuggingFace compatibility.
     """
     
     def __init__(self,
@@ -198,21 +43,43 @@ class CustomMarianTranslator:
         if model_path and os.path.exists(model_path):
             print(f"✓ Loading fine-tuned model from: {model_path}")
             self.model = MarianMTModel.from_pretrained(model_path)
-            # Load custom tokenizer
-            if tokenizer_model and os.path.exists(tokenizer_model):
-                self.tokenizer = SentencePieceTokenizerWrapper(tokenizer_model)
-            else:
-                raise ValueError("Tokenizer model path required for fine-tuned model")
+            # Load tokenizer from saved model
+            self.tokenizer = T5Tokenizer.from_pretrained(model_path)
             model_source = "local"
         else:
             print(f"Loading base model: {base_model}")
             self.model = MarianMTModel.from_pretrained(base_model)
             
-            # Use custom tokenizer if provided
+            # Use T5Tokenizer with custom SentencePiece model
             if tokenizer_model and os.path.exists(tokenizer_model):
                 print(f"✓ Loading custom tokenizer: {tokenizer_model}")
-                self.tokenizer = SentencePieceTokenizerWrapper(tokenizer_model)
-                # Resize model embeddings to match new tokenizer
+                
+                # Create temporary directory for T5Tokenizer
+                temp_dir = "temp_tokenizer"
+                os.makedirs(temp_dir, exist_ok=True)
+                
+                # Copy SentencePiece model
+                shutil.copy(tokenizer_model, os.path.join(temp_dir, "spiece.model"))
+                
+                # Create minimal tokenizer config
+                tokenizer_config = {
+                    "model_max_length": 512,
+                    "eos_token": "</s>",
+                    "unk_token": "<unk>",
+                    "pad_token": "<pad>",
+                    "extra_ids": 0
+                }
+                
+                with open(os.path.join(temp_dir, "tokenizer_config.json"), 'w') as f:
+                    json.dump(tokenizer_config, f)
+                
+                # Load T5Tokenizer
+                self.tokenizer = T5Tokenizer.from_pretrained(temp_dir, legacy=False)
+                
+                # Clean up temp directory
+                shutil.rmtree(temp_dir)
+                
+                # Resize model embeddings
                 self.model.resize_token_embeddings(len(self.tokenizer))
                 print(f"✓ Resized model embeddings to {len(self.tokenizer)}")
             else:
@@ -312,7 +179,7 @@ class CustomMarianTranslator:
             model=self.model,
             args=training_args,
             train_dataset=tokenized_dataset,
-            tokenizer=self.tokenizer,
+            processing_class=self.tokenizer,  # Use processing_class instead of tokenizer
             data_collator=data_collator,
         )
         
@@ -326,8 +193,7 @@ class CustomMarianTranslator:
         trainer.save_model()
         self.tokenizer.save_pretrained(output_dir)
         
-        # Also save the tokenizer model file
-        import shutil
+        # Also save the original tokenizer model file
         if self.tokenizer_model:
             shutil.copy(self.tokenizer_model, os.path.join(output_dir, "tokenizer.model"))
         
@@ -370,7 +236,7 @@ def main():
     print("="*70)
     print("MarianMT with Custom Tokenizer for Ibani")
     print("="*70)
-    print("Combines MarianMT speed with perfect character preservation!")
+    print("Using T5Tokenizer wrapper - fully compatible!")
     print("="*70)
     
     # Check if custom tokenizer exists
