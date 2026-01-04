@@ -1,22 +1,112 @@
 """
 Train MarianMT with custom SentencePiece tokenizer for Ibani.
 This combines the speed of MarianMT with perfect character preservation.
+Uses a simple SentencePiece wrapper instead of PreTrainedTokenizerFast.
 """
 
 import json
 import torch
 from transformers import (
     MarianMTModel,
-    MarianTokenizer,
     Seq2SeqTrainer,
     Seq2SeqTrainingArguments,
     DataCollatorForSeq2Seq,
-    PreTrainedTokenizerFast
 )
 from datasets import Dataset
 from typing import List, Dict, Optional
 import os
 import sentencepiece as spm
+import numpy as np
+
+
+class SentencePieceTokenizerWrapper:
+    """Simple wrapper around SentencePiece for HuggingFace compatibility."""
+    
+    def __init__(self, model_path: str):
+        self.sp = spm.SentencePieceProcessor()
+        self.sp.load(model_path)
+        
+        # Special tokens
+        self.pad_token = "<pad>"
+        self.eos_token = "</s>"
+        self.unk_token = "<unk>"
+        self.bos_token = "<s>"
+        
+        # Token IDs
+        self.pad_token_id = self.sp.piece_to_id(self.pad_token)
+        self.eos_token_id = self.sp.piece_to_id(self.eos_token)
+        self.unk_token_id = self.sp.piece_to_id(self.unk_token)
+        self.bos_token_id = self.sp.piece_to_id(self.bos_token)
+        
+        self.model_max_length = 512
+    
+    def __len__(self):
+        return self.sp.get_piece_size()
+    
+    def __call__(self, text, max_length=128, truncation=True, padding=False, 
+                 return_tensors=None, text_target=None):
+        """Tokenize text (compatible with HuggingFace interface)."""
+        
+        # Handle batch input
+        if isinstance(text, list):
+            texts = text
+        else:
+            texts = [text]
+        
+        # Encode
+        input_ids = []
+        for t in texts:
+            ids = self.sp.encode_as_ids(t)
+            # Truncate
+            if truncation and len(ids) > max_length:
+                ids = ids[:max_length]
+            # Pad
+            if padding and len(ids) < max_length:
+                ids = ids + [self.pad_token_id] * (max_length - len(ids))
+            input_ids.append(ids)
+        
+        # Create attention mask
+        attention_mask = [[1 if id != self.pad_token_id else 0 for id in ids] 
+                         for ids in input_ids]
+        
+        result = {
+            "input_ids": input_ids,
+            "attention_mask": attention_mask
+        }
+        
+        # Convert to tensors if requested
+        if return_tensors == "pt":
+            result["input_ids"] = torch.tensor(result["input_ids"])
+            result["attention_mask"] = torch.tensor(result["attention_mask"])
+        
+        return result
+    
+    def encode(self, text, add_special_tokens=True):
+        """Encode text to IDs."""
+        return self.sp.encode_as_ids(text)
+    
+    def decode(self, token_ids, skip_special_tokens=True):
+        """Decode IDs to text."""
+        if isinstance(token_ids, torch.Tensor):
+            token_ids = token_ids.tolist()
+        
+        # Remove padding if skip_special_tokens
+        if skip_special_tokens:
+            token_ids = [id for id in token_ids if id not in [self.pad_token_id, self.eos_token_id, self.bos_token_id]]
+        
+        return self.sp.decode_ids(token_ids)
+    
+    def batch_decode(self, sequences, skip_special_tokens=True):
+        """Decode batch of sequences."""
+        return [self.decode(seq, skip_special_tokens) for seq in sequences]
+    
+    def save_pretrained(self, save_directory):
+        """Save tokenizer (copy the .model file)."""
+        import shutil
+        os.makedirs(save_directory, exist_ok=True)
+        # Save a marker file
+        with open(os.path.join(save_directory, "tokenizer_config.json"), 'w') as f:
+            json.dump({"tokenizer_class": "SentencePieceTokenizerWrapper"}, f)
 
 
 class CustomMarianTranslator:
@@ -38,13 +128,17 @@ class CustomMarianTranslator:
             model_path: Path to fine-tuned model (if available)
         """
         self.base_model = base_model
+        self.tokenizer_model = tokenizer_model
         
         # Load model
         if model_path and os.path.exists(model_path):
             print(f"✓ Loading fine-tuned model from: {model_path}")
             self.model = MarianMTModel.from_pretrained(model_path)
-            # Load custom tokenizer from saved model
-            self.tokenizer = PreTrainedTokenizerFast.from_pretrained(model_path)
+            # Load custom tokenizer
+            if tokenizer_model and os.path.exists(tokenizer_model):
+                self.tokenizer = SentencePieceTokenizerWrapper(tokenizer_model)
+            else:
+                raise ValueError("Tokenizer model path required for fine-tuned model")
             model_source = "local"
         else:
             print(f"Loading base model: {base_model}")
@@ -53,13 +147,12 @@ class CustomMarianTranslator:
             # Use custom tokenizer if provided
             if tokenizer_model and os.path.exists(tokenizer_model):
                 print(f"✓ Loading custom tokenizer: {tokenizer_model}")
-                self.tokenizer = self._create_custom_tokenizer(tokenizer_model)
+                self.tokenizer = SentencePieceTokenizerWrapper(tokenizer_model)
                 # Resize model embeddings to match new tokenizer
                 self.model.resize_token_embeddings(len(self.tokenizer))
                 print(f"✓ Resized model embeddings to {len(self.tokenizer)}")
             else:
-                print("⚠️  Using base MarianMT tokenizer (not recommended for Ibani)")
-                self.tokenizer = MarianTokenizer.from_pretrained(base_model)
+                raise ValueError("Custom tokenizer model path is required")
             
             model_source = "base"
         
@@ -68,36 +161,6 @@ class CustomMarianTranslator:
         self.model.to(self.device)
         print(f"✓ Using device: {self.device}")
         print(f"✓ Model source: {model_source}")
-    
-    def _create_custom_tokenizer(self, sp_model_path: str):
-        """Create HuggingFace tokenizer from SentencePiece model."""
-        # Load SentencePiece model
-        sp = spm.SentencePieceProcessor()
-        sp.load(sp_model_path)
-        
-        # Create vocab dict
-        vocab = {sp.id_to_piece(i): i for i in range(sp.get_piece_size())}
-        
-        # Save vocab to file
-        vocab_file = sp_model_path.replace('.model', '_hf.json')
-        with open(vocab_file, 'w', encoding='utf-8') as f:
-            json.dump(vocab, f, ensure_ascii=False)
-        
-        # Create tokenizer
-        tokenizer = PreTrainedTokenizerFast(
-            tokenizer_file=None,
-            vocab_file=vocab_file,
-            unk_token="<unk>",
-            bos_token="<s>",
-            eos_token="</s>",
-            pad_token="<pad>",
-            model_max_length=512
-        )
-        
-        # Set the SentencePiece model for encoding
-        tokenizer.backend_tokenizer.model = sp_model_path
-        
-        return tokenizer
     
     def create_training_dataset(self, data_file: str) -> Dataset:
         """Create training dataset from JSON file."""
@@ -199,6 +262,11 @@ class CustomMarianTranslator:
         trainer.save_model()
         self.tokenizer.save_pretrained(output_dir)
         
+        # Also save the tokenizer model file
+        import shutil
+        if self.tokenizer_model:
+            shutil.copy(self.tokenizer_model, os.path.join(output_dir, "tokenizer.model"))
+        
         print(f"✓ Model training completed! Saved to {output_dir}")
     
     def translate(self, text: str, max_length: int = 128) -> str:
@@ -213,7 +281,10 @@ class CustomMarianTranslator:
             max_length=max_length,
             truncation=True,
             padding=True
-        ).to(self.device)
+        )
+        
+        # Move to device
+        inputs = {k: v.to(self.device) for k, v in inputs.items()}
         
         # Generate
         with torch.no_grad():
