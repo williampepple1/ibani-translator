@@ -106,6 +106,64 @@ class SentencePieceTokenizerWrapper:
         """Decode batch of sequences."""
         return [self.decode(seq, skip_special_tokens) for seq in sequences]
     
+    def pad(self, encoded_inputs, padding=True, max_length=None, return_tensors=None):
+        """Pad encoded inputs (required by DataCollator)."""
+        # Handle dict or list of dicts
+        if isinstance(encoded_inputs, dict):
+            # Single example
+            batch = [encoded_inputs]
+        else:
+            batch = encoded_inputs
+        
+        # Get max length
+        if max_length is None:
+            max_length = max(len(item["input_ids"]) for item in batch)
+        
+        # Pad each item
+        padded_batch = {
+            "input_ids": [],
+            "attention_mask": []
+        }
+        
+        if "labels" in batch[0]:
+            padded_batch["labels"] = []
+        
+        for item in batch:
+            # Pad input_ids
+            input_ids = item["input_ids"]
+            if isinstance(input_ids, torch.Tensor):
+                input_ids = input_ids.tolist()
+            
+            padded_ids = input_ids + [self.pad_token_id] * (max_length - len(input_ids))
+            padded_batch["input_ids"].append(padded_ids)
+            
+            # Pad attention_mask
+            if "attention_mask" in item:
+                attention_mask = item["attention_mask"]
+                if isinstance(attention_mask, torch.Tensor):
+                    attention_mask = attention_mask.tolist()
+                padded_mask = attention_mask + [0] * (max_length - len(attention_mask))
+            else:
+                padded_mask = [1] * len(input_ids) + [0] * (max_length - len(input_ids))
+            padded_batch["attention_mask"].append(padded_mask)
+            
+            # Pad labels if present
+            if "labels" in item:
+                labels = item["labels"]
+                if isinstance(labels, torch.Tensor):
+                    labels = labels.tolist()
+                # Use -100 for padding in labels (ignored by loss)
+                padded_labels = labels + [-100] * (max_length - len(labels))
+                padded_batch["labels"].append(padded_labels)
+        
+        # Convert to tensors if requested
+        if return_tensors == "pt":
+            for key in padded_batch:
+                padded_batch[key] = torch.tensor(padded_batch[key])
+        
+        return padded_batch
+
+    
     def save_pretrained(self, save_directory):
         """Save tokenizer (copy the .model file)."""
         import shutil
