@@ -13,7 +13,8 @@ __pycache__/
 /ibani_model/*
 ibani_model/
 checkpoint-*/
-
+ibani_csv_model/
+ibani_ortho_model/
 # Environment variables
 .env
 .env.local
