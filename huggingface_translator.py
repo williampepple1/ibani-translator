@@ -94,70 +94,21 @@ class IbaniHuggingFaceTranslator:
         dataset = Dataset.from_list(data)
         return dataset
     
-    def create_sample_training_data(self, output_file: str = "natural_training_data.json"):
-        """Create comprehensive training data using the rule-based translator."""
-        # Create extensive training examples
-        training_sentences = [
-            # Basic sentences
-            "I eat fish", "I ate fish", "I will eat fish", "I have eaten fish", "I am eating fish",
-            "The woman goes", "The woman went", "The woman will go", "The woman has gone", "The woman is going",
-            "We see the man", "We saw the man", "We will see the man", "We have seen the man", "We are seeing the man",
-            "You drink water", "You drank water", "You will drink water", "You have drunk water", "You are drinking water",
-            "The child runs", "The child ran", "The child will run", "The child has run", "The child is running",
-            
-            # SOV examples
-            "The man slapped me", "The man will slap me", "The man has slapped me",
-            "The child sees the woman", "The child saw the woman", "The child will see the woman",
-            "I see you", "I saw you", "I will see you",
-            "The woman eats fish", "The woman ate fish", "The woman will eat fish",
-            
-            # More complex sentences
-            "The house is big", "The house was big", "The house will be big",
-            "I love you", "I loved you", "I will love you",
-            "Good morning", "Thank you", "How are you", "I am fine",
-            "What is your name", "My name is John", "Where are you going",
-            "I am going home", "The sun is hot", "The water is cold",
-            
-            # Additional examples for better training
-            "The dog barks", "The dog barked", "The dog will bark",
-            "The cat sleeps", "The cat slept", "The cat will sleep",
-            "The bird flies", "The bird flew", "The bird will fly",
-            "The fish swims", "The fish swam", "The fish will swim",
-            "The tree grows", "The tree grew", "The tree will grow"
-        ]
+    def create_sample_training_data(self, output_file: str = \"natural_training_data.json\"):
+        """Create basic sample training data with basic examples."""
         
-        # Use rule-based translator to generate Ibani translations
-        try:
-            from rule_based_translator import IbaniRuleBasedTranslator
-            rule_translator = IbaniRuleBasedTranslator()
-            
-            sample_data = []
-            for sentence in training_sentences:
-                ibani_translation = rule_translator.translate_sentence(sentence)
-                sample_data.append({
-                    "translation": {
-                        "en": sentence,
-                        "ibani": ibani_translation
-                    }
-                })
-            
-            print(f"Generated {len(sample_data)} training examples using rule-based translator")
-            
-        except (ImportError, AttributeError, ValueError, RuntimeError) as e:
-            print(f"Error using rule-based translator: {e}")
-            # Fallback to basic examples
-            sample_data = [
-                {"translation": {"en": "I eat fish", "ibani": "ịrị olokpó fíị"}},
-                {"translation": {"en": "The woman goes", "ibani": "ọ́rụ́ḅọ́ má mú"}},
-                {"translation": {"en": "We see the man", "ibani": "ami ówítụ́wọ ari"}},
-                {"translation": {"en": "You drink water", "ibani": "wori min na"}},
-                {"translation": {"en": "The child runs", "ibani": "tamuno mangi"}}
-            ]
+        # Basic sample training data
+        sample_data = [
+            {"translation": {"en": "I eat fish", "ibani": "ịrị finji fíị"}},
+            {"translation": {"en": "The woman goes", "ibani": "ọ́rụ́ḅọ́ má mú"}},
+            {"translation": {"en": "We see the man", "ibani": "Wamini ówítụ́wọ ari"}},
+            {"translation": {"en": "The child runs", "ibani": "Tuwo ma mangi"}}
+        ]
         
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(sample_data, f, ensure_ascii=False, indent=2)
         
-        print(f"Created training data with {len(sample_data)} examples using comprehensive dictionary")
+        print(f"Created training data with {len(sample_data)} basic examples")
     
     def preprocess_data(self, examples):
         """Preprocess data for training."""
@@ -184,7 +135,7 @@ class IbaniHuggingFaceTranslator:
         return model_inputs
     
     def train_model(self, 
-                   training_data_file: str = "natural_training_data.json",
+                   training_data_file: str = "ibani_eng_training_data.json",
                    output_dir: str = "./ibani_model",
                    num_epochs: int = 10,
                    batch_size: int = 2,
@@ -339,13 +290,12 @@ class IbaniHuggingFaceTranslator:
         return unicodedata.normalize('NFC', text)
     
 
-    def translate(self, text: str, use_fallback: bool = False) -> str:
+    def translate(self, text: str) -> str:
         """
         Translate English text to Ibani.
         
         Args:
             text: English text to translate
-            use_fallback: Whether to use rule-based fallback for unknown words
         """
         if not text.strip():
             return ""
@@ -353,27 +303,6 @@ class IbaniHuggingFaceTranslator:
         # Normalize input
         text = self.normalize_text(text)
         
-        # Check if the input is a single word and exists in rule-based dictionary
-        # This helps with the "meaningless words" problem for unknown English words
-        if use_fallback:
-            try:
-                from rule_based_translator import IbaniRuleBasedTranslator
-                rb_translator = IbaniRuleBasedTranslator()
-                
-                # If it's a very short text, rule-based might be more reliable if ML model fails
-                is_single_word = len(text.split()) == 1
-                if is_single_word:
-                    # Clean the word
-                    import re
-                    clean_word = re.sub(r'[^\w]', '', text.lower())
-                    
-                    # If the word is in the dictionary, we might want to keep it in mind
-                    # but let's see what the model does first.
-                    pass
-            except Exception:
-                rb_translator = None
-        else:
-            rb_translator = None
 
         # Tokenize input
         inputs = self.tokenizer(
@@ -398,20 +327,7 @@ class IbaniHuggingFaceTranslator:
         translation = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
         translation = self.normalize_text(translation)
 
-        # Post-processing: Check if the translation looks "meaningless"
-        # 1. Hallucination check: If external model source is 'base', it might be Swahili!
-        # 2. Unknown word check: If the translation is identical to the source or looks like gibberish
-        if use_fallback and rb_translator:
-            # If the model produced something that looks like it's from the base model (Swahili-like)
-            # or if it's very different from the dictionary for simple inputs
-            if len(text.split()) <= 3:
-                rb_translation = rb_translator.translate_sentence(text)
-                # If model output is very short or looks like Swahili (base model)
-                # and we have a rule-base translation, we might prefer the rule-base
-                # for very short common phrases
-                if translation == text or not translation:
-                    return rb_translation
-        
+
         return translation
     
     def batch_translate(self, texts: List[str]) -> List[str]:

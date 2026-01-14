@@ -42,13 +42,13 @@ ibani-translator/
 ├── api_client.py               # API client with examples
 ├── API_USAGE.md               # Comprehensive API documentation
 ├── huggingface_translator.py  # Neural translation core
-├── rule_based_translator.py   # Grammar rules and fallback
 ├── train_from_ibani_eng.py    # Model training script
-├── ibani_dict.json            # Ibani-English dictionary
+
 ├── ibani_eng.json             # Training data source
 ├── ibani_eng.csv              # Training data (CSV format)
 ├── ibani_eng_training_data.json # Formatted training data
-├── ibani_model/               # Trained model files
+├── ibani_single_words.csv     # Single word translations
+├── ibani_model/               # Trained model files (output directory)
 ├── requirements.txt           # Python dependencies
 └── README.md                  # This file
 ```

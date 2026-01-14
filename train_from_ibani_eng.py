@@ -12,7 +12,6 @@ from huggingface_translator import IbaniHuggingFaceTranslator
 def prepare_training_data_from_ibani_eng(
     input_file: str = "ibani_eng.json",
     output_file: str = "ibani_eng_training_data.json",
-    dictionary_file: str = "ibani_dict.json"
 ) -> List[Dict[str, Dict[str, str]]]:
     """
     Extract data and augment with dictionary for better coverage.
