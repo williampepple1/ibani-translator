@@ -7,6 +7,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional
 from huggingface_translator import IbaniHuggingFaceTranslator
+from ibani_ortho import decode_ibani_text
 import uvicorn
 
 
@@ -56,7 +57,8 @@ async def load_model():
     
     # Get HuggingFace repo from environment variable or use default
     hf_repo = os.getenv("HF_MODEL_REPO", "williampepple1/ibani-translator")
-    local_model_path = os.getenv("LOCAL_MODEL_PATH", "./ibani_model")
+    # Use the ortho model (with ḅ and á character support)
+    local_model_path = os.getenv("LOCAL_MODEL_PATH", "./ibani_ortho_model")
     
     print(f"Local model path: {local_model_path}")
     print(f"HuggingFace repo: {hf_repo}")
@@ -90,7 +92,7 @@ async def health_check():
     return {
         "status": "healthy",
         "model_loaded": True,
-        "model_path": "./ibani_model"
+        "model_path": "./ibani_csv_model"
     }
 
 
@@ -112,7 +114,9 @@ async def translate(payload: TranslationRequest):
         raise HTTPException(status_code=400, detail="Text cannot be empty")
     
     try:
-        translation = translator.translate(payload.text)
+        raw_translation = translator.translate(payload.text)
+        # Decode ḅ and á characters
+        translation = decode_ibani_text(raw_translation)
         return TranslationResponse(
             source=payload.text,
             translation=translation
@@ -151,7 +155,9 @@ async def batch_translate(payload: BatchTranslationRequest):
         translations = []
         for text in payload.texts:
             if text.strip():
-                translation = translator.translate(text)
+                raw_translation = translator.translate(text)
+                # Decode ḅ and á characters
+                translation = decode_ibani_text(raw_translation)
                 translations.append(TranslationResponse(
                     source=text,
                     translation=translation
