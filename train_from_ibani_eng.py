@@ -1,6 +1,6 @@
 """
-Train the model using ibani_eng.json file.
-Extracts only ibani_text and english_text fields for training.
+Train the model using ibani_eng_training_data.json file.
+Trains directly on the prepared training data.
 """
 
 import json
@@ -31,21 +31,6 @@ def prepare_training_data_from_ibani_eng(
     except Exception as e:
         print(f"Warning: Could not load primary data: {e}")
 
-    # Load dictionary data for augmentation (REMOVED as per user request to not use it as fallback)
-    # try:
-    #     print(f"Augmenting with dictionary from {dictionary_file}...")
-    #     with open(dictionary_file, 'r', encoding='utf-8') as f:
-    #         dict_data = json.load(f)
-    #         for entry in dict_data:
-    #             en = entry.get("word", "").strip()
-    #             ib = entry.get("Ibani_word", "").strip()
-    #             if en and ib and "," not in en:  # Simple 1-to-1 mappings
-    #                 training_examples.append({"translation": {"en": en, "ibani": ib}})
-    # except Exception as e:
-    #     print(f"Warning: Could not load dictionary: {e}")
-
-    # Add identity mappings for common names and English words (Copy Task)
-    # This helps the model realize some words shouldn't be "translated" to garbage
     common_identities = ["John", "Mary", "Jesus", "David", "Abraham", "Peter", "Paul", "Lagos", "Nigeria", "Internet", "Computer"]
     for word in common_identities:
         training_examples.append({"translation": {"en": word, "ibani": word}})
@@ -147,24 +132,12 @@ def test_trained_model(model_path: str = "./ibani_model") -> None:
 
 
 def main() -> None:
-    """Main function to train model from ibani_eng.json."""
-    print("Ibani Model Training from ibani_eng.json")
+    """Main function to train model from ibani_eng_training_data.json."""
+    print("Ibani Model Training from ibani_eng_training_data.json")
     print("=" * 50)
     
-    # Step 1: Prepare training data
-    print("\nStep 1: Preparing training data from ibani_eng.json...")
-    try:
-        training_examples = prepare_training_data_from_ibani_eng()
-    except (FileNotFoundError, json.JSONDecodeError, IOError, ValueError) as e:
-        print(f"Failed to prepare training data: {e}")
-        return
-    
-    if len(training_examples) == 0:
-        print("No training examples found! Exiting.")
-        return
-    
-    # Step 2: Train the model
-    print("\nStep 2: Training the model...")
+    # Train the model directly from ibani_eng_training_data.json
+    print("\nStep 1: Training the model from ibani_eng_training_data.json...")
     try:
         model_path = train_model_with_ibani_eng_data(
             training_data_file="ibani_eng_training_data.json",
@@ -176,8 +149,9 @@ def main() -> None:
             AttributeError, TypeError) as e:
         print(f"Failed to train model: {e}")
         return
-    # Step 3: Test the trained model
-    print("\nStep 3: Testing the trained model...")
+    
+    # Step 2: Test the trained model
+    print("\nStep 2: Testing the trained model...")
     test_trained_model(model_path)
     print("\nTraining pipeline completed!")
     print(f"Model saved to: {model_path}")

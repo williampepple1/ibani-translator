@@ -94,7 +94,7 @@ class IbaniHuggingFaceTranslator:
         dataset = Dataset.from_list(data)
         return dataset
     
-    def create_sample_training_data(self, output_file: str = \"natural_training_data.json\"):
+    def create_sample_training_data(self, output_file: str = "natural_training_data.json"):
         """Create basic sample training data with basic examples."""
         
         # Basic sample training data
