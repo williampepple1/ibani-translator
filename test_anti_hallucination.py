@@ -26,6 +26,8 @@ def main():
         ("I eat fish", "Should translate (exists in training data)"),
         ("The woman goes", "Should translate (exists in training data)"),
         ("Abraham was the father of Isaac", "Should translate (exists in training data)"),
+        # Mixed known and unknown words
+        ("The Jet", "Should translate 'the' (ma) and keep 'Jet' as is -> 'Jet ma' or similar"),
         
         # These likely don't exist in training data
         ("I love programming", "Should return original (not in training data)"),

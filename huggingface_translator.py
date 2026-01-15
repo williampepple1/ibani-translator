@@ -13,8 +13,9 @@ from transformers import (
     DataCollatorForSeq2Seq
 )
 import unicodedata
+import re
 from datasets import Dataset
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, Set
 import os
 from difflib import SequenceMatcher
 
@@ -30,7 +31,8 @@ class IbaniHuggingFaceTranslator:
     def __init__(self, model_name: str = "Helsinki-NLP/opus-mt-en-mul", 
                  model_path: Optional[str] = None,
                  hf_repo: Optional[str] = None,
-                 training_data_file: str = "ibani_eng_training_data.json"):
+                 training_data_file: str = "ibani_eng_training_data.json",
+                 dictionary_file: str = "ibani_single_words.csv"):
         """
         Initialize the Hugging Face translator.
         
@@ -40,6 +42,7 @@ class IbaniHuggingFaceTranslator:
             hf_repo: HuggingFace Hub repository (e.g., "username/ibani-translator")
                      Will be used if local model_path doesn't exist
             training_data_file: Path to training data for validation lookup
+            dictionary_file: Path to the single words dictionary CSV
         """
         self.model_name = model_name
         self.model_path = model_path
@@ -47,7 +50,13 @@ class IbaniHuggingFaceTranslator:
         
         # Load training data for anti-hallucination validation
         self.translation_lookup = {}
+        self.en_to_ib_map = {}
+        self.ib_to_en_map = {}
+        self.known_en_words = set()
+        self.known_ib_words = set()
+        
         self._load_training_data_lookup(training_data_file)
+        self._load_dictionary(dictionary_file)
         
         # Load tokenizer and model with fallback logic
         model_source = None
@@ -300,6 +309,7 @@ class IbaniHuggingFaceTranslator:
         """
         Load training data into a lookup dictionary for anti-hallucination validation.
         Creates a mapping of normalized English text to Ibani translations.
+        Also builds word-level mappings for hallucination detection.
         """
         if not os.path.exists(training_data_file):
             print(f"Warning: Training data file '{training_data_file}' not found.")
@@ -313,14 +323,59 @@ class IbaniHuggingFaceTranslator:
             # Build lookup dictionary with normalized keys
             for item in data:
                 if "translation" in item:
-                    en_text = self.normalize_text(item["translation"]["en"].strip().lower())
-                    ibani_text = self.normalize_text(item["translation"]["ibani"].strip())
-                    self.translation_lookup[en_text] = ibani_text
+                    en_text = item["translation"]["en"].strip()
+                    ib_text = item["translation"]["ibani"].strip()
+                    
+                    norm_en = self.normalize_text(en_text.lower())
+                    norm_ib = self.normalize_text(ib_text)
+                    
+                    self.translation_lookup[norm_en] = norm_ib
+                    
+                    # Basic word-level mapping from short sentences (1-3 words)
+                    en_words = re.findall(r'\w+', en_text.lower())
+                    ib_words = re.findall(r'\w+', ib_text.lower())
+                    
+                    for w in en_words: self.known_en_words.add(w)
+                    for w in ib_words: self.known_ib_words.add(w)
+                    
+                    # If it's a very short sentence, we can assume mapping
+                    if len(en_words) <= 2 and len(ib_words) <= 2:
+                        for e_w in en_words:
+                            for i_w in ib_words:
+                                self.en_to_ib_map[e_w] = i_w
+                                if i_w not in self.ib_to_en_map: self.ib_to_en_map[i_w] = set()
+                                self.ib_to_en_map[i_w].add(e_w)
             
             print(f"✓ Loaded {len(self.translation_lookup)} translation pairs for validation")
         except Exception as e:
             print(f"Warning: Could not load training data: {e}")
             print("Anti-hallucination validation will be disabled.")
+
+    def _load_dictionary(self, dictionary_file: str):
+        """Load single word dictionary from CSV."""
+        if not os.path.exists(dictionary_file):
+            print(f"Warning: Dictionary file '{dictionary_file}' not found.")
+            return
+        
+        try:
+            import csv
+            with open(dictionary_file, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    # CSV format: Word (Ibani), Meaning (English)
+                    ib_word = self.normalize_text(row['Word'].strip().lower())
+                    en_meaning = self.normalize_text(row['Meaning'].strip().lower())
+                    
+                    # Meanings can have multiples, take first or clean
+                    en_word = re.findall(r'\w+', en_meaning)[0] if re.findall(r'\w+', en_meaning) else en_meaning
+                    
+                    self.ib_to_en_map.setdefault(ib_word, set()).add(en_word)
+                    self.en_to_ib_map[en_word] = ib_word
+                    self.known_en_words.add(en_word)
+                    self.known_ib_words.add(ib_word)
+            print(f"✓ Loaded {len(self.ib_to_en_map)} words from dictionary")
+        except Exception as e:
+            print(f"Warning: Could not load dictionary: {e}")
     
     def _find_best_match(self, text: str, threshold: float = 0.85) -> Optional[str]:
         """
@@ -372,17 +427,13 @@ class IbaniHuggingFaceTranslator:
         original_text = text
         text = self.normalize_text(text)
         
-        # If validation is enabled, check training data first
+        # 1. Full Sentence Lookup (High Priority)
         if use_validation and self.translation_lookup:
             validated_translation = self._find_best_match(text)
             if validated_translation:
                 return validated_translation
-            else:
-                # No match found in training data - return original input
-                print(f"Warning: No translation found for '{text}' in training data. Returning original text.")
-                return original_text
 
-        # If validation is disabled or no training data, use model
+        # 2. Neural Translation with Token-Level Hallucination Filter
         # Tokenize input
         inputs = self.tokenizer(
             text, 
@@ -399,15 +450,60 @@ class IbaniHuggingFaceTranslator:
                 max_length=128,
                 num_beams=4,
                 early_stopping=True,
-                no_repeat_ngram_size=3 # Prevent some types of gibberish
+                no_repeat_ngram_size=3
             )
         
         # Decode output
         translation = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
         translation = self.normalize_text(translation)
+        
+        if not use_validation:
+            return translation
 
+        # 3. Token-Level Validation (Hallucination Detection)
+        # If the model output contains Ibani words that map to English words NOT in the input,
+        # it's likely a hallucination of an OOV word.
+        en_tokens = set(re.findall(r'\w+', text.lower()))
+        ib_tokens = re.findall(r'\w+', translation) # Keep case for structural tokens maybe, but processing usually lower
+        
+        final_tokens = []
+        # We need to preserve punctuation and structure as much as possible, 
+        # so we'll do a simple split and replace.
+        words_in_output = translation.split()
+        
+        for word in words_in_output:
+            clean_word = re.sub(r'[^\w]', '', word).lower()
+            if not clean_word:
+                final_tokens.append(word)
+                continue
+                
+            # Check if this Ibani word corresponds to a different English word
+            meanings = self.ib_to_en_map.get(clean_word, set())
+            
+            is_hallucination = False
+            if meanings:
+                # If ALL possible English meanings for this Ibani word are NOT in the input,
+                # then this Ibani word is likely a hallucination of something else.
+                if not any(m in en_tokens for m in meanings):
+                    is_hallucination = True
+            
+            if is_hallucination:
+                # Try to find which English word from the input was likely meant to be here.
+                # A simple heuristic: find an English word in input that isn't known to be elsewhere in output.
+                # But to keep it simple as requested: "non-existent words should show in original form"
+                # We'll try to find an input word that is NOT in known_en_words (an OOV word)
+                oov_input_words = [w for w in en_tokens if w not in self.known_en_words]
+                if oov_input_words:
+                    # Replace with the first OOV word found (or a better heuristic)
+                    # For "The Jet", "Jet" is OOV. If output is "Man ma", "Man" is hallucination.
+                    # We replace "Man" with "Jet".
+                    final_tokens.append(word.replace(re.sub(r'[^\w]', '', word), oov_input_words[0]))
+                else:
+                    final_tokens.append(word)
+            else:
+                final_tokens.append(word)
 
-        return translation
+        return " ".join(final_tokens)
     
     def batch_translate(self, texts: List[str]) -> List[str]:
         """Translate multiple texts at once."""
