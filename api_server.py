@@ -58,15 +58,18 @@ async def load_model():
     hf_repo = os.getenv("HF_MODEL_REPO", "williampepple1/ibani-translator")
     # Use the trained model directory
     local_model_path = os.getenv("LOCAL_MODEL_PATH", "./ibani_model")
+    training_data_file = os.getenv("TRAINING_DATA_FILE", "./ibani_eng_training_data.json")
     
     print(f"Local model path: {local_model_path}")
     print(f"HuggingFace repo: {hf_repo}")
+    print(f"Training data file: {training_data_file}")
     
     translator = IbaniHuggingFaceTranslator(
         model_path=local_model_path,
-        hf_repo=hf_repo
+        hf_repo=hf_repo,
+        training_data_file=training_data_file
     )
-    print("✓ Model loaded successfully!")
+    print("✓ Model loaded successfully!")I wa
 
 
 @app.get("/")

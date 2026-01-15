@@ -14,8 +14,9 @@ from transformers import (
 )
 import unicodedata
 from datasets import Dataset
-from typing import List, Optional
+from typing import List, Optional, Dict
 import os
+from difflib import SequenceMatcher
 
 
 class IbaniHuggingFaceTranslator:
@@ -28,7 +29,8 @@ class IbaniHuggingFaceTranslator:
     
     def __init__(self, model_name: str = "Helsinki-NLP/opus-mt-en-mul", 
                  model_path: Optional[str] = None,
-                 hf_repo: Optional[str] = None):
+                 hf_repo: Optional[str] = None,
+                 training_data_file: str = "ibani_eng_training_data.json"):
         """
         Initialize the Hugging Face translator.
         
@@ -37,10 +39,15 @@ class IbaniHuggingFaceTranslator:
             model_path: Path to local fine-tuned model (if available)
             hf_repo: HuggingFace Hub repository (e.g., "username/ibani-translator")
                      Will be used if local model_path doesn't exist
+            training_data_file: Path to training data for validation lookup
         """
         self.model_name = model_name
         self.model_path = model_path
         self.hf_repo = hf_repo
+        
+        # Load training data for anti-hallucination validation
+        self.translation_lookup = {}
+        self._load_training_data_lookup(training_data_file)
         
         # Load tokenizer and model with fallback logic
         model_source = None
@@ -289,21 +296,93 @@ class IbaniHuggingFaceTranslator:
             return text
         return unicodedata.normalize('NFC', text)
     
+    def _load_training_data_lookup(self, training_data_file: str):
+        """
+        Load training data into a lookup dictionary for anti-hallucination validation.
+        Creates a mapping of normalized English text to Ibani translations.
+        """
+        if not os.path.exists(training_data_file):
+            print(f"Warning: Training data file '{training_data_file}' not found.")
+            print("Anti-hallucination validation will be disabled.")
+            return
+        
+        try:
+            with open(training_data_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            # Build lookup dictionary with normalized keys
+            for item in data:
+                if "translation" in item:
+                    en_text = self.normalize_text(item["translation"]["en"].strip().lower())
+                    ibani_text = self.normalize_text(item["translation"]["ibani"].strip())
+                    self.translation_lookup[en_text] = ibani_text
+            
+            print(f"✓ Loaded {len(self.translation_lookup)} translation pairs for validation")
+        except Exception as e:
+            print(f"Warning: Could not load training data: {e}")
+            print("Anti-hallucination validation will be disabled.")
+    
+    def _find_best_match(self, text: str, threshold: float = 0.85) -> Optional[str]:
+        """
+        Find the best matching translation from training data.
+        
+        Args:
+            text: Normalized English text to match
+            threshold: Minimum similarity score (0-1) to consider a match
+        
+        Returns:
+            Ibani translation if a good match is found, None otherwise
+        """
+        if not self.translation_lookup:
+            return None
+        
+        normalized_text = text.strip().lower()
+        
+        # First try exact match
+        if normalized_text in self.translation_lookup:
+            return self.translation_lookup[normalized_text]
+        
+        # Try fuzzy matching for close matches
+        best_match = None
+        best_score = 0.0
+        
+        for key, value in self.translation_lookup.items():
+            # Calculate similarity
+            similarity = SequenceMatcher(None, normalized_text, key).ratio()
+            
+            if similarity > best_score and similarity >= threshold:
+                best_score = similarity
+                best_match = value
+        
+        return best_match
 
-    def translate(self, text: str) -> str:
+    def translate(self, text: str, use_validation: bool = True) -> str:
         """
         Translate English text to Ibani.
         
         Args:
             text: English text to translate
+            use_validation: If True, validate translation against training data
+                          and return original text if no match found
         """
         if not text.strip():
             return ""
 
         # Normalize input
+        original_text = text
         text = self.normalize_text(text)
         
+        # If validation is enabled, check training data first
+        if use_validation and self.translation_lookup:
+            validated_translation = self._find_best_match(text)
+            if validated_translation:
+                return validated_translation
+            else:
+                # No match found in training data - return original input
+                print(f"Warning: No translation found for '{text}' in training data. Returning original text.")
+                return original_text
 
+        # If validation is disabled or no training data, use model
         # Tokenize input
         inputs = self.tokenizer(
             text, 

@@ -5,6 +5,7 @@ A neural machine translation system for English to Ibani language using Hugging 
 ## Features
 
 - **Neural Translation**: Fine-tuned MarianMT model for English to Ibani translation
+- **Anti-Hallucination**: Returns original text if translation doesn't exist in training data
 - **REST API**: FastAPI service with interactive documentation
 - **Training Pipeline**: Train custom models on your own Ibani data
 - **Batch Translation**: Translate multiple texts efficiently
