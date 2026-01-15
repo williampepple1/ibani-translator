@@ -69,7 +69,7 @@ async def load_model():
         hf_repo=hf_repo,
         training_data_file=training_data_file
     )
-    print("✓ Model loaded successfully!")I wa
+    print("✓ Model loaded successfully!")
 
 
 @app.get("/")

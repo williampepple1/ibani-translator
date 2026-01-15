@@ -7,18 +7,24 @@ The Ibani translator now includes an **anti-hallucination mechanism** that preve
 ## How It Works
 
 ### 1. Training Data Lookup
+
 When the translator is initialized, it loads all translation pairs from `ibani_eng_training_data.json` into a lookup dictionary:
+
 - English text (normalized and lowercased) → Ibani translation
 - Approximately 32,650 translation pairs loaded
 
 ### 2. Translation Validation
+
 When you request a translation:
+
 1. **Exact Match Check**: First checks if the input exactly matches any English text in the training data
 2. **Fuzzy Match Check**: If no exact match, uses similarity scoring (threshold: 85%) to find close matches
 3. **Fallback**: If no match is found, returns the original input text instead of hallucinating
 
 ### 3. Similarity Threshold
+
 The fuzzy matching uses a similarity score of **0.85 (85%)** to account for:
+
 - Minor spelling variations
 - Punctuation differences
 - Case differences (already normalized)
@@ -123,6 +129,7 @@ python test_anti_hallucination.py
 ```
 
 This will test various inputs:
+
 - ✓ Phrases in training data (will translate)
 - ✓ Phrases NOT in training data (will return original)
 - ✓ Gibberish text (will return original)
@@ -130,11 +137,13 @@ This will test various inputs:
 ## Performance Considerations
 
 ### Memory
+
 - The lookup dictionary loads ~32,650 translation pairs into memory
 - Approximately 3-5 MB of additional memory usage
 - Negligible impact for most deployments
 
 ### Speed
+
 - **Exact match**: O(1) - instant lookup
 - **Fuzzy match**: O(n) where n = number of training pairs
 - For 32,650 pairs, fuzzy matching takes ~0.1-0.5 seconds
@@ -145,6 +154,7 @@ This will test various inputs:
 If you have a very large training dataset and need faster fuzzy matching:
 
 1. **Disable fuzzy matching** - only use exact matches:
+
    ```python
    def _find_best_match(self, text: str, threshold: float = 1.0):
        # threshold=1.0 means only exact matches
@@ -163,6 +173,7 @@ If you have a very large training dataset and need faster fuzzy matching:
 ## Future Enhancements
 
 Potential improvements:
+
 - [ ] Add word-level matching for single words
 - [ ] Implement n-gram based partial matching
 - [ ] Add confidence scores to API responses
