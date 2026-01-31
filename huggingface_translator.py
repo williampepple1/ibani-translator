@@ -4,6 +4,11 @@ This implements training and inference for neural machine translation.
 """
 
 import json
+import os
+import re
+import unicodedata
+from typing import List, Optional, Dict
+
 import torch
 from transformers import (
     MarianMTModel, 
@@ -12,10 +17,7 @@ from transformers import (
     Seq2SeqTrainingArguments,
     DataCollatorForSeq2Seq
 )
-import unicodedata
 from datasets import Dataset
-from typing import List, Optional, Dict
-import os
 
 
 class IbaniHuggingFaceTranslator:
@@ -273,6 +275,22 @@ class IbaniHuggingFaceTranslator:
             return text
         return unicodedata.normalize('NFC', text)
     
+    def fix_ibani_spacing(self, text: str) -> str:
+        """Remove unwanted spaces around special Ibani characters (á, ḅ)."""
+        if not text:
+            return text
+        
+        # Characters that should not have spaces around them when part of a word
+        special_chars = ['á', 'Á', 'ḅ', 'Ḅ']
+        
+        for char in special_chars:
+            # Remove space before the character (when preceded by a letter)
+            text = re.sub(r'([a-zA-Zạẹịọụ])\s+' + re.escape(char), r'\1' + char, text)
+            # Remove space after the character (when followed by a letter)
+            text = re.sub(re.escape(char) + r'\s+([a-zA-Zạẹịọụ])', char + r'\1', text)
+        
+        return text
+    
     def translate(self, text: str) -> str:
         """
         Translate English text to Ibani.
@@ -308,6 +326,7 @@ class IbaniHuggingFaceTranslator:
         # Decode output
         translation = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
         translation = self.normalize_text(translation)
+        translation = self.fix_ibani_spacing(translation)
         
         return translation
     
