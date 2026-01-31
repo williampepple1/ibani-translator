@@ -18,7 +18,7 @@ app = FastAPI(
 )
 
 # Global translator instance
-translator = None
+TRANSLATOR = None
 
 
 class TranslationRequest(BaseModel):
@@ -51,7 +51,7 @@ class BatchTranslationResponse(BaseModel):
 @app.on_event("startup")
 async def load_model():
     """Load the model when the server starts."""
-    global translator
+    global TRANSLATOR
     print("Loading Ibani translation model...")
     
     # Get HuggingFace repo from environment variable or use default
@@ -62,7 +62,7 @@ async def load_model():
     print(f"Local model path: {local_model_path}")
     print(f"HuggingFace repo: {hf_repo}")
     
-    translator = IbaniHuggingFaceTranslator(
+    TRANSLATOR = IbaniHuggingFaceTranslator(
         model_path=local_model_path,
         hf_repo=hf_repo
     )
@@ -106,14 +106,14 @@ async def translate(payload: TranslationRequest):
     Returns:
         TranslationResponse with original text and translation
     """
-    if translator is None:
+    if TRANSLATOR is None:
         raise HTTPException(status_code=503, detail="Model not loaded")
     
     if not payload.text.strip():
         raise HTTPException(status_code=400, detail="Text cannot be empty")
     
     try:
-        translation = translator.translate(payload.text)
+        translation = TRANSLATOR.translate(payload.text)
         return TranslationResponse(
             source=payload.text,
             translation=translation
@@ -135,7 +135,7 @@ async def batch_translate(payload: BatchTranslationRequest):
     Returns:
         BatchTranslationResponse with all translations
     """
-    if translator is None:
+    if TRANSLATOR is None:
         raise HTTPException(status_code=503, detail="Model not loaded")
     
     if not payload.texts:
@@ -152,7 +152,7 @@ async def batch_translate(payload: BatchTranslationRequest):
         translations = []
         for text in payload.texts:
             if text.strip():
-                translation = translator.translate(text)
+                translation = TRANSLATOR.translate(text)
                 translations.append(TranslationResponse(
                     source=text,
                     translation=translation
