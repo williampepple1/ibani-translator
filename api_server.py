@@ -3,22 +3,53 @@ FastAPI server for Ibani translation API endpoint.
 """
 
 import os
+from contextlib import asynccontextmanager
+from typing import List, Optional
+
+import uvicorn
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from typing import List, Optional
+
 from huggingface_translator import IbaniHuggingFaceTranslator
-import uvicorn
 
-
-# Initialize FastAPI app
-app = FastAPI(
-    title="Ibani Translation API",
-    description="English to Ibani translation API using trained MarianMT model",
-    version="1.0.0"
-)
 
 # Global translator instance
 TRANSLATOR = None
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Lifespan context manager for startup and shutdown events."""
+    global TRANSLATOR
+    print("Loading Ibani translation model...")
+    
+    # Get HuggingFace repo from environment variable or use default
+    hf_repo = os.getenv("HF_MODEL_REPO", "williampepple1/ibani-translator")
+    # Use the trained model directory
+    local_model_path = os.getenv("LOCAL_MODEL_PATH", "./ibani_model")
+    
+    print(f"Local model path: {local_model_path}")
+    print(f"HuggingFace repo: {hf_repo}")
+    
+    TRANSLATOR = IbaniHuggingFaceTranslator(
+        model_path=local_model_path,
+        hf_repo=hf_repo
+    )
+    print("✓ Model loaded successfully!")
+    
+    yield  # Server runs here
+    
+    # Cleanup on shutdown (if needed)
+    print("Shutting down Ibani Translation API...")
+
+
+# Initialize FastAPI app with lifespan
+app = FastAPI(
+    title="Ibani Translation API",
+    description="English to Ibani translation API using trained MarianMT model",
+    version="1.0.0",
+    lifespan=lifespan
+)
 
 
 class TranslationRequest(BaseModel):
@@ -48,27 +79,6 @@ class BatchTranslationResponse(BaseModel):
     count: int
 
 
-@app.on_event("startup")
-async def load_model():
-    """Load the model when the server starts."""
-    global TRANSLATOR
-    print("Loading Ibani translation model...")
-    
-    # Get HuggingFace repo from environment variable or use default
-    hf_repo = os.getenv("HF_MODEL_REPO", "williampepple1/ibani-translator")
-    # Use the trained model directory
-    local_model_path = os.getenv("LOCAL_MODEL_PATH", "./ibani_model")
-    
-    print(f"Local model path: {local_model_path}")
-    print(f"HuggingFace repo: {hf_repo}")
-    
-    TRANSLATOR = IbaniHuggingFaceTranslator(
-        model_path=local_model_path,
-        hf_repo=hf_repo
-    )
-    print("✓ Model loaded successfully!")
-
-
 @app.get("/")
 async def root():
     """Root endpoint with API information."""
@@ -86,7 +96,7 @@ async def root():
 @app.get("/health")
 async def health_check():
     """Health check endpoint."""
-    if translator is None:
+    if TRANSLATOR is None:
         raise HTTPException(status_code=503, detail="Model not loaded")
     return {
         "status": "healthy",

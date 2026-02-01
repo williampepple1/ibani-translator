@@ -280,14 +280,29 @@ class IbaniHuggingFaceTranslator:
         if not text:
             return text
         
-        # Characters that should not have spaces around them when part of a word
+        # All Ibani letters (including special characters) that can appear in words
+        ibani_letters = (
+            r'a-zA-Z'           # Basic ASCII letters
+            r'ạẹịọụ'            # Vowels with dot below (lowercase)
+            r'ẠẸỊỌỤ'            # Vowels with dot below (uppercase)
+            r'áéíóú'            # Vowels with acute (lowercase)
+            r'ÁÉÍÓÚ'            # Vowels with acute (uppercase)
+            r'àèìòù'            # Vowels with grave (lowercase)
+            r'ÀÈÌÒÙ'            # Vowels with grave (uppercase)
+            r'ḅ'                # B with dot below (lowercase)
+            r'Ḅ'                # B with dot below (uppercase)
+            r'ńṅ'               # N with diacritics (lowercase)
+            r'ŃṄ'               # N with diacritics (uppercase)
+        )
+        
+        # Characters that cause spacing issues
         special_chars = ['á', 'Á', 'ḅ', 'Ḅ']
         
         for char in special_chars:
-            # Remove space before the character (when preceded by a letter)
-            text = re.sub(r'([a-zA-Zạẹịọụ])\s+' + re.escape(char), r'\1' + char, text)
-            # Remove space after the character (when followed by a letter)
-            text = re.sub(re.escape(char) + r'\s+([a-zA-Zạẹịọụ])', char + r'\1', text)
+            # Remove space before the character (when preceded by any Ibani letter)
+            text = re.sub(r'([' + ibani_letters + r'])\s+' + re.escape(char), r'\1' + char, text)
+            # Remove space after the character (when followed by any Ibani letter)
+            text = re.sub(re.escape(char) + r'\s+([' + ibani_letters + r'])', char + r'\1', text)
         
         return text
     
