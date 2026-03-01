@@ -51067,12 +51067,6 @@
   },
   {
     "translation": {
-      "en": "pass",
-      "ibani": "ḅọ́rọ́"
-    }
-  },
-  {
-    "translation": {
       "en": "save",
       "ibani": "ḅọrọmá"
     }
@@ -54223,12 +54217,6 @@
   },
   {
     "translation": {
-      "en": "act",
-      "ibani": "fịnịḅárá"
-    }
-  },
-  {
-    "translation": {
       "en": "shape",
       "ibani": "fịnịḅárá"
     }
@@ -55177,12 +55165,6 @@
   },
   {
     "translation": {
-      "en": "sit",
-      "ibani": "gọgị́"
-    }
-  },
-  {
-    "translation": {
       "en": "duck",
       "ibani": "gọ́gọ"
     }
@@ -55581,12 +55563,6 @@
     "translation": {
       "en": "masquerade",
       "ibani": "Igu"
-    }
-  },
-  {
-    "translation": {
-      "en": "money",
-      "ibani": "igbighi"
     }
   },
   {
@@ -60415,12 +60391,6 @@
   },
   {
     "translation": {
-      "en": "useless thing",
-      "ibani": "nyẹ́ḅụ́ụsọ́ghányẹ́ẹ"
-    }
-  },
-  {
-    "translation": {
       "en": "teacher",
       "ibani": "nyẹ́díéḅọ́"
     }
@@ -60843,12 +60813,6 @@
     "translation": {
       "en": "shark's nickname",
       "ibani": "ogbónji"
-    }
-  },
-  {
-    "translation": {
-      "en": "club head",
-      "ibani": "ogbosị́bị́daḅọ"
     }
   },
   {
@@ -61777,12 +61741,6 @@
   },
   {
     "translation": {
-      "en": "war",
-      "ibani": "owu"
-    }
-  },
-  {
-    "translation": {
       "en": "fight",
       "ibani": "owu"
     }
@@ -62403,12 +62361,6 @@
     "translation": {
       "en": "manager",
       "ibani": "ọrụtọḅọ́"
-    }
-  },
-  {
-    "translation": {
-      "en": "woman",
-      "ibani": "ọ́rụ́ḅọ́"
     }
   },
   {
@@ -65005,18 +64957,6 @@
   },
   {
     "translation": {
-      "en": "hill",
-      "ibani": "tụ́ndụ́"
-    }
-  },
-  {
-    "translation": {
-      "en": "chalk",
-      "ibani": "turú"
-    }
-  },
-  {
-    "translation": {
       "en": "ask for more",
       "ibani": "tụ́-tụ́"
     }
@@ -65295,6 +65235,6840 @@
     "translation": {
       "en": "place",
       "ibani": "yọ́ yọ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Listen and learn.",
+      "ibani": "Pughu sị dawọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "We are learning something.",
+      "ibani": "Wa nye dawọ-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "We learnt yesterday.",
+      "ibani": "Bịa ene wa nye dawọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "I had a dream.",
+      "ibani": "A dawọ kọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Why are you dreaming?",
+      "ibani": "Ị tegosi dawọ kọ-arị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "What are you selling?",
+      "ibani": "Ị te dẹrị-arị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm not selling anything.",
+      "ibani": "A dẹrị-arị nye ofori"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm not selling anything.",
+      "ibani": "A nye dẹrịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Why are you laughing?",
+      "ibani": "Ị tegosi dẹrị-arị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am not laughing at you",
+      "ibani": "A ịdẹrịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "I didn't laugh at you.",
+      "ibani": "A ịdẹrịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am teaching them something.",
+      "ibani": "A nye pa n'die-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Please can you teach us something?",
+      "ibani": "Paịsịsị ị ine nye pa wa die ḅẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "to share",
+      "ibani": "die"
+    }
+  },
+  {
+    "translation": {
+      "en": "Please share the food for them.",
+      "ibani": "Paịsịsị, fịnye ma die n'pịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Share the biscuits among them.",
+      "ibani": "Ịkịka ma die n'pịrị nnị ogbobie"
+    }
+  },
+  {
+    "translation": {
+      "en": "Come let me show you something.",
+      "ibani": "Ḅo A nye pa ịdie"
+    }
+  },
+  {
+    "translation": {
+      "en": "Please show him where it is.",
+      "ibani": "Paịsịsị pa ọ die anị fịnị nga"
+    }
+  },
+  {
+    "translation": {
+      "en": "look at",
+      "ibani": "dighí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Look at that thing.",
+      "ibani": "Anị nye ma dighi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Look at my reader.",
+      "ibani": "Ịye godiri ma dighi"
+    }
+  },
+  {
+    "translation": {
+      "en": "rope, cord",
+      "ibani": "díghí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Loose the rope from its leg.",
+      "ibani": "Dighi ma fima anị ḅụọ ḅụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "The rope is holding his leg.",
+      "ibani": "Dighi ma ọ ḅụọ ọlọ-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and carry the plates.",
+      "ibani": "Mu ẹfẹrẹ ma dighi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Carry the bag into the house.",
+      "ibani": "Akpa ma dighi warị ma sọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "be calm",
+      "ibani": "dii"
+    }
+  },
+  {
+    "translation": {
+      "en": "You people should stay calm.",
+      "ibani": "Ọmini ọḅụ dii ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Why is this place calm?",
+      "ibani": "Mienga tegosi dii fịnị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will come to your house this night.",
+      "ibani": "Mie dii A ịwarị ḅo ḅẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go back",
+      "ibani": "Ọḅụda"
+    }
+  },
+  {
+    "translation": {
+      "en": "Put away your bags",
+      "ibani": "Ịye akpa ma sii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Keep the bags on the shelf",
+      "ibani": "Akpa ma pa nni nye pa warịwarị nga warị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Drop that box",
+      "ibani": "Igbe ma koroma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Bring out your sleeping clothes",
+      "ibani": "Ị pa munomuno bite ma pagha ma ḅo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go to bed",
+      "ibani": "Mu muno"
+    }
+  },
+  {
+    "translation": {
+      "en": "Close the door",
+      "ibani": "Ḅụpọ ma gbẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Open the windows",
+      "ibani": "Wẹndẹrẹ ma fịndị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Open the windows",
+      "ibani": "fọrụ ḅụpọ ma fịndị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sit down",
+      "ibani": "Kpọrọfịnị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Take out your brooms",
+      "ibani": "Ịye sundu ma pagha ma ḅo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sweep the floor",
+      "ibani": "Kiri ma ọfị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Keep the floor clean",
+      "ibani": "Kiri ma mie sị anị fịafịa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Keep the floor clean",
+      "ibani": "Kiri ma fịafịa ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Keep the floor clean",
+      "ibani": "Kiri ma warị fịafịa ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "arrow",
+      "ibani": "dịa"
+    }
+  },
+  {
+    "translation": {
+      "en": "They're shooting arrows at us.",
+      "ibani": "Nnị dịa pa wa tẹarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Shoot the arrow at them.",
+      "ibani": "Dịa ma pa n'tẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "trap",
+      "ibani": "dị́a"
+    }
+  },
+  {
+    "translation": {
+      "en": "Set a trap for the antelope.",
+      "ibani": "Dịa tuu tụḅara pịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "The trap has caught an antelope.",
+      "ibani": "Dịa ma tụbara kuu mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The hare is running.",
+      "ibani": "Duu ma mangị-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Catch the hare.",
+      "ibani": "Duu ma kuu"
+    }
+  },
+  {
+    "translation": {
+      "en": "His father left an inheritance for him.",
+      "ibani": "O'daa duu warịso ọpịrịm"
+    }
+  },
+  {
+    "translation": {
+      "en": "This is my inheritance.",
+      "ibani": "Mie ịye duu"
+    }
+  },
+  {
+    "translation": {
+      "en": "corpse, ghost",
+      "ibani": "dụ́á"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog's corpse is there.",
+      "ibani": "Obiri ma dụa anịnga imim"
+    }
+  },
+  {
+    "translation": {
+      "en": "They will bring his corpse to town today.",
+      "ibani": "Nnị ori dụa pa ama ḅo bẹm mimgba ene"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have a farm.",
+      "ibani": "A dụa nyanam"
+    }
+  },
+  {
+    "translation": {
+      "en": "This is farming time.",
+      "ibani": "Mie dụa-dịpị saa biri"
+    }
+  },
+  {
+    "translation": {
+      "en": "She will go with me to the market tomorrow.",
+      "ibani": "Á ịduwa fẹ mu ḅẹ ḅaa-ene"
+    }
+  },
+  {
+    "translation": {
+      "en": "Do not follow that man again.",
+      "ibani": "Mịnị anị ḅọ ḅe dụa ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "bury the dead",
+      "ibani": "dụ́á dípí"
+    }
+  },
+  {
+    "translation": {
+      "en": "They went for burial.",
+      "ibani": "Nnị dụa-dịpị mum"
+    }
+  },
+  {
+    "translation": {
+      "en": "They will bury their chief's corpse next year.",
+      "ibani": "Nnị nna Alaḅọ dụa dịpị bẹm je kụra"
+    }
+  },
+  {
+    "translation": {
+      "en": "farm; plant",
+      "ibani": "dụa dipí"
+    }
+  },
+  {
+    "translation": {
+      "en": "She does farming.",
+      "ibani": "A dụa dịpị dịpịm"
+    }
+  },
+  {
+    "translation": {
+      "en": "He knows how to farm.",
+      "ibani": "O dụa dịpị dịm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and plant the yam for me.",
+      "ibani": "Mu ḅuru ma dịpị ọkọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Food and To Eat Something",
+      "ibani": "Fịnyẹ na Nyẹ-fị na"
+    }
+  },
+  {
+    "translation": {
+      "en": "Food",
+      "ibani": "Fịnye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Eat",
+      "ibani": "Fị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Eat something",
+      "ibani": "Nyẹ Fị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am eating (something).",
+      "ibani": "A nyẹ fịarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "What are you eating?",
+      "ibani": "Ị tẹ fịarị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am eating yam.",
+      "ibani": "A ḅuru fịarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am eating rice.",
+      "ibani": "A ọrọsị fịarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am eating roasted yam.",
+      "ibani": "A fọọ buru fịarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am eating beans.",
+      "ibani": "A akịdị fịarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Will you eat?",
+      "ibani": "Ị nyẹ-fị bẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will not eat.",
+      "ibani": "A nyefị bịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "I don't want to eat.",
+      "ibani": "A nyẹ-fị dọụgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "He doesn't want to eat.",
+      "ibani": "O nyẹ-fị dọụgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "she will not eat.",
+      "ibani": "Á nyẹ-fị bịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "She has not eaten.",
+      "ibani": "Na á nyẹ-fịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm hungry (for food).",
+      "ibani": "Fịnye ịtarịarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm hungry (for food).",
+      "ibani": "ḅuru ịtarịarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "What do you want to eat?",
+      "ibani": "Ị tẹ (nyẹ) fị dọghụ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I want to eat yam and pepper soup.",
+      "ibani": "A ḅuru na ọḅa fụlọ na fị dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and carry your food.",
+      "ibani": "Mu ịye fịnye dighi akị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have carried my food.",
+      "ibani": "A ịye fịnyẹ dighi akị mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "Food Quality and Status",
+      "ibani": "Fịnyẹ ma Angịmam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The food has soured.",
+      "ibani": "Fịnyẹ má  ịngịmam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The food has soured.",
+      "ibani": "Fịnyẹ má angịmam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The fish is rotten.",
+      "ibani": "Nji má ḅụrụmam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The food is on the table.",
+      "ibani": "Fịnyẹ má opu ịkasị ọ́gọ́nọ́ ḅụ imim"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog's food is under the table.",
+      "ibani": "Obiri fị́nyẹ ma ịkasị suu imim"
+    }
+  },
+  {
+    "translation": {
+      "en": "What type of food are you eating?",
+      "ibani": "I tẹ fịnyẹ fịarị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am eating rice.",
+      "ibani": "A ọbịọ fịnyẹ fịarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am eating pottage rice.",
+      "ibani": "A pírī ọrọsị fịarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Come and cook the food.",
+      "ibani": "Ḅo fịnyẹ ma sọọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Can you cook?",
+      "ibani": "I ine fịnyẹ sọ bẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes, I can cook.",
+      "ibani": "Iiin, A ine fịnyẹ sọ bẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "The food is cooked (done).",
+      "ibani": "Fịnye ma bịa mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The food is not cooked (not done).",
+      "ibani": "Fịnye ma na bịagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "This woman is cooking in her kitchen.",
+      "ibani": "Mie ọrụḅọ ma fịnye sọọ-arị arị ḅurusu bie"
+    }
+  },
+  {
+    "translation": {
+      "en": "Cooking and Serving Food",
+      "ibani": "Fịnyẹ Sọọ na Nyẹ-fị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Have you cooked the food?",
+      "ibani": "Ị fịnye ma sọọ ma?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm still cooking it, I'm not done yet.",
+      "ibani": "A pa anị sọọ-arị, na A miesogha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Will the food be enough for us?",
+      "ibani": "Fịnye ma (anị) wa laa bẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes, it will be enough for us.",
+      "ibani": "Ịịn, anị wa laa ḅẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "No, it will not be enough for us.",
+      "ibani": "Ofori o, anị wa laa bịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Has the food reached you? (Is it enough for you?)",
+      "ibani": "Fịnye ma (anị) ọ laa ma?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes, it has reached us.",
+      "ibani": "Ịịn, anị wa laa mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "No, it has not reached us.",
+      "ibani": "Ofori o, anị na wa laagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Won't they eat the food?",
+      "ibani": "Nnị fịnye ma fị bịgha?"
+    }
+  },
+  {
+    "translation": {
+      "en": "They will eat the food.",
+      "ibani": "N'fịnye ma fị ḅẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "They are still waiting; they want to eat the food.",
+      "ibani": "N'pa kuruari, n'fịnye ma fị dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Hurry up and go give them the food.",
+      "ibani": "Alala mie sị mu fịnye ma pa n'pịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Dagogo has taken my food.",
+      "ibani": "Dagogo ịye fịnye ma akị mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "He is eating it in the kitchen.",
+      "ibani": "Orị ḅurusu ma bie anị fịarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Lies",
+      "ibani": "Epele"
+    }
+  },
+  {
+    "translation": {
+      "en": "This man is a liar.",
+      "ibani": "Mie owutụwọ ma ọ epele titi ḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Why are you being deceitful?",
+      "ibani": "Ị tegosi epele ti-arị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Compound",
+      "ibani": "Ẹpẹlẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yard",
+      "ibani": "Ẹpẹlẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "This is our courtyard.",
+      "ibani": "Mie wamịna ẹpẹlẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Our compound is large.",
+      "ibani": "Wamịna ẹpẹlẹ dụḅam"
+    }
+  },
+  {
+    "translation": {
+      "en": "Draughts (Game)",
+      "ibani": "Ẹpẹlẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "They are playing draughts.",
+      "ibani": "Nnị ẹpẹlẹ tịarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Will you play draughts?",
+      "ibani": "Ị ẹpẹlẹ ti ḅẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I don't like playing draughts.",
+      "ibani": "A ẹpẹlẹ ti ḅẹlẹmagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Speak",
+      "ibani": "Ẹ́gẹ́rẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Talk",
+      "ibani": "Ẹ́gẹ́rẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "My friend, come let's talk.",
+      "ibani": "Ịnangụọ, ḅo wa ẹgẹrẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "We are still talking.",
+      "ibani": "Wa pa ẹgẹrẹ-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will talk with him.",
+      "ibani": "A ọnana ẹgẹrẹ bẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will talk with them.",
+      "ibani": "A n'dụwa ẹgẹrẹ bẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "He knows how to talk big (exaggeration).",
+      "ibani": "Orị opu ẹgẹrẹ kọ dim"
+    }
+  },
+  {
+    "translation": {
+      "en": "Word",
+      "ibani": "Ẹ́GẸ́RẸ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "My brother, your words are difficult.",
+      "ibani": "Ịnumboru owutụwọ ịye ẹgẹrẹ ma ḅụdam"
+    }
+  },
+  {
+    "translation": {
+      "en": "Please interpret your statement.",
+      "ibani": "Paịsịsị mie ẹgẹrẹ ma daa-dugho"
+    }
+  },
+  {
+    "translation": {
+      "en": "Name",
+      "ibani": "Ẹ̀rẹ̀"
+    }
+  },
+  {
+    "translation": {
+      "en": "What is your name?",
+      "ibani": "Ịye ẹrẹ ọ tẹnye?"
+    }
+  },
+  {
+    "translation": {
+      "en": "My name is Dabelema.",
+      "ibani": "Ịye ẹrẹ ọ Daḅẹlẹma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Female",
+      "ibani": "Ẹ́rẹ̄"
+    }
+  },
+  {
+    "translation": {
+      "en": "Where are the ladies?",
+      "ibani": "Ẹrẹ-apụ ma n'tenga imi?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Gentlemen and ladies, you are welcome.",
+      "ibani": "Ama na ẹrẹ na, ọḅoma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Left",
+      "ibani": "Ẹrẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "This is my left hand.",
+      "ibani": "Mie ịye ẹrẹ ḅara"
+    }
+  },
+  {
+    "translation": {
+      "en": "My left leg is paining me.",
+      "ibani": "Ịye ẹrẹ ḅụọ ma ịḅaa-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sharpen (Knife or Razor)",
+      "ibani": "Farị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and sharpen the knife there.",
+      "ibani": "Mu kịngị ma farị anịnga"
+    }
+  },
+  {
+    "translation": {
+      "en": "They have sharpened the knife.",
+      "ibani": "Nnị kịngị ma farị mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sound or Beat by Drum or Hand)",
+      "ibani": "Farị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Beat the drum.",
+      "ibani": "Akwa ma farị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Why are you beating the drum?",
+      "ibani": "Ịtegosi akwa ma farị-arị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Comprehension",
+      "ibani": "Kanyiḅo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Comprehension",
+      "ibani": "Akanya"
+    }
+  },
+  {
+    "translation": {
+      "en": "A dog lives with us at home.",
+      "ibani": "Obiri wa nana warịbie nga ngam"
+    }
+  },
+  {
+    "translation": {
+      "en": "Of what use is a dog to us?",
+      "ibani": "Obiri tẹ sọnyẹ nyana wa pịrị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "A dog keeps thieves away.",
+      "ibani": "Obiri furu-apụ dẹ pághámaá pághámaám"
+    }
+  },
+  {
+    "translation": {
+      "en": "Why does a dog bark at thieves?",
+      "ibani": "Obiri tegosi ikere ikere furu apụ pịrị pịrị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "It is because thieves are our enemies.",
+      "ibani": "Furu-apụ ọ wamịna irouna-apụ gosi"
+    }
+  },
+  {
+    "translation": {
+      "en": "They steal our valuable things.",
+      "ibani": "Nnị wamina nyẹlaa nye furu furum"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thieves are not good people.",
+      "ibani": "Furu-apụ ibi apụgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "A dog is also a good hunter.",
+      "ibani": "Obiri sọ ibi namatẹbọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "It kills small animals for us to eat.",
+      "ibani": "Anị kala nama ba bam sị wa pẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "bird",
+      "ibani": "feni"
+    }
+  },
+  {
+    "translation": {
+      "en": "The bird is flying.",
+      "ibani": "fini ma fii-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Who killed the bird?",
+      "ibani": "Ọ tụwọ fini ma ḅaa?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Quench the fire.",
+      "ibani": "Fịnị ma bima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Who quenched the fire?",
+      "ibani": "Ọ tụwọ fịnị ma bịma?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Light the fire.",
+      "ibani": "Fịnị ma tọndị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and stay there.",
+      "ibani": "Mu anịnga fịnị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Where are you staying?",
+      "ibani": "Ị tẹnga fịnị-arị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "him",
+      "ibani": "Ọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Give the thing to him.",
+      "ibani": "Nye ma pa ọpịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Carry him to the house.",
+      "ibani": "Ọ dighi pa warị mu"
+    }
+  },
+  {
+    "translation": {
+      "en": "you people",
+      "ibani": "Ọ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Where are you people going to?",
+      "ibani": "Ọ tẹnga muarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "My father said",
+      "ibani": "Ịda ḅẹm sị"
+    }
+  },
+  {
+    "translation": {
+      "en": "My father said",
+      "ibani": "Ịda ḅẹm ḅẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "I should give you people a drink.",
+      "ibani": "A ịru pa ọ́pịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "it",
+      "ibani": "Ọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "is",
+      "ibani": "Ọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "it is",
+      "ibani": "Ọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "My name is Ibifubara.",
+      "ibani": "Ịye ẹrẹ ọ Ibifụḅara"
+    }
+  },
+  {
+    "translation": {
+      "en": "Who is it that is there?",
+      "ibani": "Ọ tụwọ anịnga imi?"
+    }
+  },
+  {
+    "translation": {
+      "en": "leak",
+      "ibani": "Firi"
+    }
+  },
+  {
+    "translation": {
+      "en": "The drum is leaking.",
+      "ibani": "Gangas ma firi-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "The house roofing sheet is leaking.",
+      "ibani": "Warị ma osu ẹfẹrẹ firi-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "work",
+      "ibani": "Fịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm working.",
+      "ibani": "A fịrị wangị-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Will you go to work?",
+      "ibani": "Ị fịrị mu ḅẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes, I will go to work.",
+      "ibani": "Ịịn, A fịrị mu ḅẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "No, I will not go to work today.",
+      "ibani": "Ofori o, mịngba ene A fịrị mu ḅịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "send message",
+      "ibani": "Fịrịmaa"
+    }
+  },
+  {
+    "translation": {
+      "en": "I went to drop a message for him.",
+      "ibani": "A mu oku fịrịma ọpịrịm"
+    }
+  },
+  {
+    "translation": {
+      "en": "I went to drop a message for him.",
+      "ibani": "A mu ḅịpị fịrịma ọpịrịm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Did you go and send a message?",
+      "ibani": "Ị mu fịrị fịrịma?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Did you go and send a message?",
+      "ibani": "Ị mu oku fịrịma?"
+    }
+  },
+  {
+    "translation": {
+      "en": "close",
+      "ibani": "gbẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and close the box.",
+      "ibani": "Mu igbe ma gbẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Why did you close the door?",
+      "ibani": "Ị tegosi bụpọ ma gbẹẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "pay",
+      "ibani": "gbẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Come and pay me my money.",
+      "ibani": "Ḅo ịye igbi ma pa ịgbẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and pay the woman you're owing a debt.",
+      "ibani": "Mu I' saa pa ọlọarị ọrụḅọ ma gbẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and pay the woman you are owing money.",
+      "ibani": "Ị saa pa ọlọ ọrụḅọ ma mu arị igbi pa a'gbẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "grind",
+      "ibani": "gbẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "When you buy the pepper",
+      "ibani": "Ị sani fẹ ḅo saa"
+    }
+  },
+  {
+    "translation": {
+      "en": "give it to them to grind.",
+      "ibani": "pa n'pịrị sị n'gbẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "What are you grinding?",
+      "ibani": "Ị te gbẹẹ-arị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am grinding pepper.",
+      "ibani": "A sanị gbẹẹ-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "sow",
+      "ibani": "gbii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Come let me sow your dress.",
+      "ibani": "Ḅo A ịye-bite gbii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sow your clothes by yourself.",
+      "ibani": "Barana ịye-bite gbịị"
+    }
+  },
+  {
+    "translation": {
+      "en": "to throw",
+      "ibani": "gbii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Throw the stone at them.",
+      "ibani": "mgbolu ma pa n'gbii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Why did you throw the stone at them?",
+      "ibani": "Ị tegosi mgbọlụ pa n'gbii?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Stop throwing stones at the market.",
+      "ibani": "Mịnị mgbọlụ pa fẹ-sịrị gbii ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "look for",
+      "ibani": "dọghụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "sought for",
+      "ibani": "dọghụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "What are you looking for?",
+      "ibani": "Ị te dọghụ-arị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm looking for my clothes.",
+      "ibani": "A ịye bite dọghụ-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "want",
+      "ibani": "dọghụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "I want to go home.",
+      "ibani": "A warị mu dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "I want to speak our language.",
+      "ibani": "A wamịna ama ẹgẹrẹ fie dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "drive",
+      "ibani": "dọghụ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "to paddle",
+      "ibani": "dọghụ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Drive the car very well.",
+      "ibani": "Kiri arụ ma dọghụ tẹlẹma"
+    }
+  },
+  {
+    "translation": {
+      "en": "You don't know how to drive the car.",
+      "ibani": "Ị kiri arụ ma dọghụ digha"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am paddling my boat.",
+      "ibani": "A iye arụ ma dọghụarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "The house is burning.",
+      "ibani": "Warị ma dọghụ-arï"
+    }
+  },
+  {
+    "translation": {
+      "en": "The car burnt last night.",
+      "ibani": "Kiri-arụ ma dọghụm bịa dii"
+    }
+  },
+  {
+    "translation": {
+      "en": "orange",
+      "ibani": "ẹlẹlẹndẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and buy orange for me.",
+      "ibani": "Mu ẹlẹlẹndẹ fẹ ḅo ịpịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "This orange is not sweet.",
+      "ibani": "Mie ẹlẹlẹndẹ ḅẹlẹgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "green",
+      "ibani": "ẹlẹlẹndẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm wearing a green dress.",
+      "ibani": "A ẹlẹlẹndẹ tọrụ bite sua-ari"
+    }
+  },
+  {
+    "translation": {
+      "en": "You should paint the house with green paint.",
+      "ibani": "Ị ẹlẹlẹndẹ tọrụ agba pa wari ma tabem"
+    }
+  },
+  {
+    "translation": {
+      "en": "finished",
+      "ibani": "faa"
+    }
+  },
+  {
+    "translation": {
+      "en": "My food has finished.",
+      "ibani": "Ịye fịnye ma faa mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "Has your (plural+B280) food finished too?",
+      "ibani": "Ọmịnà fịnye ṣọ faa ma?"
+    }
+  },
+  {
+    "translation": {
+      "en": "loss",
+      "ibani": "faa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Our language is never lost.",
+      "ibani": "Wamịna ama ẹgẹrẹ fafagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Our language cannot be lost.",
+      "ibani": "Wamịna ama ẹgẹrẹ ine fabịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "The Family of Senibo Dabelema",
+      "ibani": "Sẹnịḅọ Daḅẹlẹma na o warị-apụ gbolomanye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Here is the family of Senibo Dabelema.",
+      "ibani": "Mie sẹnịbo Daḅẹlẹma warịapụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "You can see Senibo Dabelema, his wife and their children.",
+      "ibani": "Ị inẹ sẹnịḅọ Daḅẹlẹma, o taa na nna awọ na arị ḅẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "The children are three.",
+      "ibani": "Awọ ma ọ tere apụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "They are two boys and one girl.",
+      "ibani": "Nnị ọ mmẹ kala-asa-awọ na gbere ọrụḅọtụwọ na"
+    }
+  },
+  {
+    "translation": {
+      "en": "The boys are Ipalibo and Iyala.",
+      "ibani": "Kala-asa-awọ ma ọ Ịpalịḅọ na Ịyala na"
+    }
+  },
+  {
+    "translation": {
+      "en": "The girl is Biebele.",
+      "ibani": "Ọrụḅọtụwọ ma ọ Bieḅẹlẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "The children and their parents are taking their breakfast.",
+      "ibani": "Awọ ma na n'yii-apụ na dẹdẹfịnye fịarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "The five of them always eat together.",
+      "ibani": "Nnị sọnọ apụ ma saa mamgba nyẹfị gboloma gbolomam"
+    }
+  },
+  {
+    "translation": {
+      "en": "What food are they taking?",
+      "ibani": "N'tẹ fịnye fị-arị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "They are taking bread and butter with tea.",
+      "ibani": "Nnị fituru na nama ḅẹlẹkị na ọfịrị-mịngị akịarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "The tea is in a jar and it is hot.",
+      "ibani": "Ọfịrị-mịngị ma omongo (ma) bie imim, anị ọfịrịm"
+    }
+  },
+  {
+    "translation": {
+      "en": "It is not safe to drink very hot tea.",
+      "ibani": "Anị ibigha ịkpoma gaga ofịrị-mịngị ḅu"
+    }
+  },
+  {
+    "translation": {
+      "en": "A fish and water",
+      "ibani": "Nji na mịngị"
+    }
+  },
+  {
+    "translation": {
+      "en": "A fish can't drown.",
+      "ibani": "Ogbo nji ine bile-faa bigha"
+    }
+  },
+  {
+    "translation": {
+      "en": "But it can sink into water.",
+      "ibani": "Kuma ani ine Bina-aru bile-faa bem pighi kini baa"
+    }
+  },
+  {
+    "translation": {
+      "en": "leave",
+      "ibani": "só"
+    }
+  },
+  {
+    "translation": {
+      "en": "coming",
+      "ibani": "ḅóarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "going",
+      "ibani": "múarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "leaving",
+      "ibani": "sóarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "came",
+      "ibani": "ḅóm"
+    }
+  },
+  {
+    "translation": {
+      "en": "went",
+      "ibani": "múm"
+    }
+  },
+  {
+    "translation": {
+      "en": "left",
+      "ibani": "sóm"
+    }
+  },
+  {
+    "translation": {
+      "en": "have come",
+      "ibani": "ḅó mám"
+    }
+  },
+  {
+    "translation": {
+      "en": "have gone",
+      "ibani": "mú mám"
+    }
+  },
+  {
+    "translation": {
+      "en": "have left",
+      "ibani": "só mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "comes",
+      "ibani": "ḅo ḅom"
+    }
+  },
+  {
+    "translation": {
+      "en": "goes",
+      "ibani": "mu mum"
+    }
+  },
+  {
+    "translation": {
+      "en": "leaves",
+      "ibani": "so som"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am coming",
+      "ibani": "A ḅóarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am going",
+      "ibani": "A múarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am leaving",
+      "ibani": "A sóarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I came yesterday",
+      "ibani": "A ḅom biaene"
+    }
+  },
+  {
+    "translation": {
+      "en": "Tomorrow I will come",
+      "ibani": "Baa-ene A ḅo ḅẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Every day I come",
+      "ibani": "Enegbọrụ A ḅo ḅom"
+    }
+  },
+  {
+    "translation": {
+      "en": "I went before",
+      "ibani": "A mum pari"
+    }
+  },
+  {
+    "translation": {
+      "en": "I went before",
+      "ibani": "A mum tarisaa"
+    }
+  },
+  {
+    "translation": {
+      "en": "She is coming",
+      "ibani": "Á ḅoarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "He is coming",
+      "ibani": "O ḅoarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "We are coming",
+      "ibani": "Wa ḅoarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "They are coming",
+      "ibani": "Nni ḅoarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "It is coming",
+      "ibani": "Anị- ḅoarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "She is going",
+      "ibani": "Á muarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "He is going",
+      "ibani": "O muarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "We are going",
+      "ibani": "Wa muari"
+    }
+  },
+  {
+    "translation": {
+      "en": "They are going",
+      "ibani": "Nni muari"
+    }
+  },
+  {
+    "translation": {
+      "en": "It is going",
+      "ibani": "Anị muarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "She is leaving",
+      "ibani": "Á soarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "He is leaving",
+      "ibani": "O soarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "We are leaving",
+      "ibani": "Wa soarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "They are leaving",
+      "ibani": "Nni soarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "It is leaving",
+      "ibani": "Anị soarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "One",
+      "ibani": "Ngẹẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Two",
+      "ibani": "Mmẹẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Three",
+      "ibani": "Tẹ́rẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Four",
+      "ibani": "Íní"
+    }
+  },
+  {
+    "translation": {
+      "en": "Five",
+      "ibani": "Sọ́nọ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Six",
+      "ibani": "Sóníe"
+    }
+  },
+  {
+    "translation": {
+      "en": "Six",
+      "ibani": "Suene"
+    }
+  },
+  {
+    "translation": {
+      "en": "Seven",
+      "ibani": "Sọ́nọ́ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Eight",
+      "ibani": "Íníne"
+    }
+  },
+  {
+    "translation": {
+      "en": "Nine",
+      "ibani": "Éséníé"
+    }
+  },
+  {
+    "translation": {
+      "en": "Nine",
+      "ibani": "Esiene"
+    }
+  },
+  {
+    "translation": {
+      "en": "Ten",
+      "ibani": "Óyí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Eleven",
+      "ibani": "Óyí ngẹẹ́ fíndí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Twelve",
+      "ibani": "Oyi mmẹ fíndi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thirteen",
+      "ibani": "Óyí tẹ́rẹ́ fíndí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Fourteen",
+      "ibani": "Óyí iní fíndí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Fifteen",
+      "ibani": "Jee"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sixteen",
+      "ibani": "Íní fa sí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Seventeen",
+      "ibani": "Tẹ́rẹ́ fa sí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Eighteen",
+      "ibani": "Mmẹ́ fa sí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Nineteen",
+      "ibani": "Ngẹẹ́ fa sí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Twenty",
+      "ibani": "Sí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Twenty-one",
+      "ibani": "Sí ngẹẹ́ fíndí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Twenty-two",
+      "ibani": "Sí mmẹ́ fíndí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Twenty-three",
+      "ibani": "Sí tẹ́rẹ́ fíndí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Twenty-four",
+      "ibani": "Sí iní fíndí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Twenty-five",
+      "ibani": "Sí sọ́nọ́ fíndí"
+    }
+  },
+  {
+    "translation": {
+      "en": "Twenty-six",
+      "ibani": "Íní fa súé"
+    }
+  },
+  {
+    "translation": {
+      "en": "Twenty-seven",
+      "ibani": "Tẹ́rẹ́ fa súé"
+    }
+  },
+  {
+    "translation": {
+      "en": "Twenty-eight",
+      "ibani": "Mmẹ́ fa súé"
+    }
+  },
+  {
+    "translation": {
+      "en": "Twenty-nine",
+      "ibani": "Ngẹẹ́ fa súé"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thirty",
+      "ibani": "Súé"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thirty-one",
+      "ibani": "Sue ngẹẹ findi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thirty-two",
+      "ibani": "Sue mmẹ findi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thirty-three",
+      "ibani": "Sue tẹrẹ findi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thirty-four",
+      "ibani": "Sue ini fịndi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thirty-five",
+      "ibani": "Sue sọnọ findị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thirty-six",
+      "ibani": "Ini fa mmẹ-a-si"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thirty-seven",
+      "ibani": "Tẹrẹ fa mmẹ-a-si"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thirty-eight",
+      "ibani": "Mmẹ fa mmẹ-a-si"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thirty-nine",
+      "ibani": "Ngẹẹ fa mmẹ-a-si"
+    }
+  },
+  {
+    "translation": {
+      "en": "Forty",
+      "ibani": "Mmẹẹ-a-si"
+    }
+  },
+  {
+    "translation": {
+      "en": "The man",
+      "ibani": "Owutụwọ ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman",
+      "ibani": "Ọrụḅọ ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog",
+      "ibani": "Obiri ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "The goat",
+      "ibani": "Oḅori ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "The house",
+      "ibani": "Warị ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "The chair",
+      "ibani": "Ịkasị ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "The floor",
+      "ibani": "Warị-kiri ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "The cloth",
+      "ibani": "Bịtẹ ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "The pot",
+      "ibani": "Ḅẹlẹ ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "The bag",
+      "ibani": "Akpa ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "My father",
+      "ibani": "Ịye daa"
+    }
+  },
+  {
+    "translation": {
+      "en": "My mother",
+      "ibani": "Ịye yingi"
+    }
+  },
+  {
+    "translation": {
+      "en": "My children",
+      "ibani": "Ịye awọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "My dog",
+      "ibani": "Ịye obiri"
+    }
+  },
+  {
+    "translation": {
+      "en": "My goat",
+      "ibani": "Ịye oḅori"
+    }
+  },
+  {
+    "translation": {
+      "en": "My chicken",
+      "ibani": "Ịye ọbịọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "My fowl",
+      "ibani": "Ịye ọbịọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "My book",
+      "ibani": "Ịye diri"
+    }
+  },
+  {
+    "translation": {
+      "en": "My bag",
+      "ibani": "Ịye akpa"
+    }
+  },
+  {
+    "translation": {
+      "en": "My chair",
+      "ibani": "Ịye ịkasị"
+    }
+  },
+  {
+    "translation": {
+      "en": "My shoe",
+      "ibani": "Ịye agbagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "This man",
+      "ibani": "Mie owutụwọ ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This woman",
+      "ibani": "Mie ọrụḅọ ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This dog",
+      "ibani": "Mie obiri ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This goat",
+      "ibani": "Mie oḅori ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This house",
+      "ibani": "Mie warị ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This chair",
+      "ibani": "Mie ịkasị ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This floor",
+      "ibani": "Mie kiri ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This cloth",
+      "ibani": "Mie bịtẹ ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This pot",
+      "ibani": "Mie ḅẹlẹ ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This bag",
+      "ibani": "Mie akpa ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your father",
+      "ibani": "Ị́ye daa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your mother",
+      "ibani": "Ị́ye yingi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your children",
+      "ibani": "Ị́ye awọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your dog",
+      "ibani": "Ị́ye obiri"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your goat",
+      "ibani": "Ị́ye oḅori"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your chicken",
+      "ibani": "Ị́ye ọbịọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your fowl",
+      "ibani": "Ị́ye ọbịọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your book",
+      "ibani": "Ị́ye diri"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your bag",
+      "ibani": "Ị́ye akpa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your chair",
+      "ibani": "Ị́ye ịkasị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your shoe",
+      "ibani": "Ị́ye agba"
+    }
+  },
+  {
+    "translation": {
+      "en": "suffer",
+      "ibani": "Si"
+    }
+  },
+  {
+    "translation": {
+      "en": "suffering",
+      "ibani": "Si-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "One who suffers.",
+      "ibani": "Si-arịḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "One who is suffering doesn't lose.",
+      "ibani": "Si-arịḅọ fagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "The woman is suffering.",
+      "ibani": "Orubo ma toru-si ari-ari"
+    }
+  },
+  {
+    "translation": {
+      "en": "Future Tense (Will come)",
+      "ibani": "Ḅo ḅẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will come to the house tomorrow.",
+      "ibani": "A warị ḅo ḅẹm ḅaa"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will come to the house tomorrow.",
+      "ibani": "A warị ḅo ḅẹm ḅa'ene"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will come to the house today.",
+      "ibani": "A warị ḅo ḅẹm mịmgba"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will come to the house today.",
+      "ibani": "A warị ḅo ḅẹm mịmgbaene"
+    }
+  },
+  {
+    "translation": {
+      "en": "She will come to the house today.",
+      "ibani": "Á warị ḅo ḅẹm mịngba"
+    }
+  },
+  {
+    "translation": {
+      "en": "He will come to the house this morning.",
+      "ibani": "O warị ḅo ḅẹm mie dedebie"
+    }
+  },
+  {
+    "translation": {
+      "en": "We will come to the house in the evening.",
+      "ibani": "Wa warị ḅo ḅẹm ḅupiri saa"
+    }
+  },
+  {
+    "translation": {
+      "en": "We will come to the house in the evening.",
+      "ibani": "Wa warị ḅo ḅẹm ḅupiri biri"
+    }
+  },
+  {
+    "translation": {
+      "en": "They will come home by this time tomorrow.",
+      "ibani": "N'warị ḅo ḅẹm misabiri ḅaa"
+    }
+  },
+  {
+    "translation": {
+      "en": "They will come home by this time tomorrow.",
+      "ibani": "N'warị ḅo ḅẹm misabiri ḅaene"
+    }
+  },
+  {
+    "translation": {
+      "en": "It will come here in the night.",
+      "ibani": "Anị mịnga ḅo ḅẹm dii bie"
+    }
+  },
+  {
+    "translation": {
+      "en": "You will come here tomorrow morning to see him.",
+      "ibani": "Ị mịnga ḅo ḅẹm ḅaa dedebie ḅo ori ari"
+    }
+  },
+  {
+    "translation": {
+      "en": "You people will come to the house later.",
+      "ibani": "Ọ warị ḅo ḅẹm miesosa"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will come to the house later.",
+      "ibani": "A warị ḅo ḅẹm miesosa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Came",
+      "ibani": "Ḅom"
+    }
+  },
+  {
+    "translation": {
+      "en": "I came to the house yesterday but I didn't see you.",
+      "ibani": "A warị ḅom bi'ene kuma, A ịarịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "She came to your house yesterday.",
+      "ibani": "Árị iwarị ḅom bị'ene"
+    }
+  },
+  {
+    "translation": {
+      "en": "He came here this afternoon to look for you.",
+      "ibani": "O mịnga ḅom mie eneḅaa ḅo ịdọghụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "They came to school with their parents today.",
+      "ibani": "Nnị n'yii-apụ pa diridawọwarị ḅom mimgbaene"
+    }
+  },
+  {
+    "translation": {
+      "en": "We came to the house but you weren't in.",
+      "ibani": "Wa warị ḅom kuma ịwarịbie ofori"
+    }
+  },
+  {
+    "translation": {
+      "en": "It came here again yesterday.",
+      "ibani": "Anị pịghị mịnga ḅom bị'ene"
+    }
+  },
+  {
+    "translation": {
+      "en": "It came here again yesterday.",
+      "ibani": "Anị jepa mịnga ḅom bị'ene"
+    }
+  },
+  {
+    "translation": {
+      "en": "You came to the house to look for me yesterday.",
+      "ibani": "Ị warị ḅom ḅo ịdọghụ bị'ene"
+    }
+  },
+  {
+    "translation": {
+      "en": "You people came to look for me at home yesterday.",
+      "ibani": "Ọ warị ḅom ḅo ịdọghụ bị'ene"
+    }
+  },
+  {
+    "translation": {
+      "en": "They came here this morning.",
+      "ibani": "N' mịnga ḅom mie dedebíe"
+    }
+  },
+  {
+    "translation": {
+      "en": "They came to this market to buy clothes.",
+      "ibani": "N' mie fẹ ma ḅom ḅo bịtẹ fẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Has the food reached you?",
+      "ibani": "Fịnye ma (anị) ọ laa ma?"
+    }
+  },
+  {
+    "translation": {
+      "en": "They are still waiting, they want to eat the food.",
+      "ibani": "N'pa kuruari, n'fịnye ma fị dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Greetings and Basic Phrases",
+      "ibani": "Paịsịsị na Ibi ma mu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Goodbye",
+      "ibani": "Ibi ma mu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Please",
+      "ibani": "Paịsịsị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thank you",
+      "ibani": "ịmịẹḅam"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes",
+      "ibani": "ịịn"
+    }
+  },
+  {
+    "translation": {
+      "en": "No",
+      "ibani": "ofori"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sorry",
+      "ibani": "ḅụdii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good morning",
+      "ibani": "Ịḅama"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good night",
+      "ibani": "ḅaḅa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Actions",
+      "ibani": "Important Verbs"
+    }
+  },
+  {
+    "translation": {
+      "en": "be",
+      "ibani": "fini"
+    }
+  },
+  {
+    "translation": {
+      "en": "have",
+      "ibani": "nyana"
+    }
+  },
+  {
+    "translation": {
+      "en": "go",
+      "ibani": "mu"
+    }
+  },
+  {
+    "translation": {
+      "en": "come",
+      "ibani": "ḅo"
+    }
+  },
+  {
+    "translation": {
+      "en": "do",
+      "ibani": "mie"
+    }
+  },
+  {
+    "translation": {
+      "en": "make",
+      "ibani": "mie"
+    }
+  },
+  {
+    "translation": {
+      "en": "see",
+      "ibani": "arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "eat",
+      "ibani": "fị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Man",
+      "ibani": "Owutụwọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Woman",
+      "ibani": "Ọrụḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Child",
+      "ibani": "Tụwọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Friend",
+      "ibani": "nangụọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Family",
+      "ibani": "Furo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Water",
+      "ibani": "Mingi"
+    }
+  },
+  {
+    "translation": {
+      "en": "House",
+      "ibani": "Warị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Car",
+      "ibani": "kiri-arụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Work",
+      "ibani": "Fịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Big",
+      "ibani": "Opu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Small",
+      "ibani": "Kala"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good",
+      "ibani": "Ibim"
+    }
+  },
+  {
+    "translation": {
+      "en": "Bad",
+      "ibani": "Si"
+    }
+  },
+  {
+    "translation": {
+      "en": "New",
+      "ibani": "ịwọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Old",
+      "ibani": "Olom"
+    }
+  },
+  {
+    "translation": {
+      "en": "Beautiful",
+      "ibani": "Ibi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Beautiful",
+      "ibani": "Fịafịa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Ugly",
+      "ibani": "Si"
+    }
+  },
+  {
+    "translation": {
+      "en": "Hot",
+      "ibani": "Ọfịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Cold",
+      "ibani": "Oḅughu"
+    }
+  },
+  {
+    "translation": {
+      "en": "English",
+      "ibani": "Ibani"
+    }
+  },
+  {
+    "translation": {
+      "en": "Will come",
+      "ibani": "Ḅo ḅẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "They came to this market to buy clothes.",
+      "ibani": "N'mie fẹ ma ḅom ḅo bịtẹ fẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Have come",
+      "ibani": "Ḅo mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have come to your house before.",
+      "ibani": "A parịsa ịwarị ḅo mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have come to your house before.",
+      "ibani": "A tarịsa ịwarị ḅo mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "She has come to this house before.",
+      "ibani": "Á mie warị ḅo mam parịsa"
+    }
+  },
+  {
+    "translation": {
+      "en": "She has come to this house before.",
+      "ibani": "Á mie warị ḅo mam tarịsa"
+    }
+  },
+  {
+    "translation": {
+      "en": "He has come to work today.",
+      "ibani": "O fịrị ḅo mam mịngbaene"
+    }
+  },
+  {
+    "translation": {
+      "en": "They have come to the market this afternoon.",
+      "ibani": "N'fẹ́-siri ḅo mam mie eneḅabiri"
+    }
+  },
+  {
+    "translation": {
+      "en": "We have come to collect our money.",
+      "ibani": "Wa ḅo wamịna igbi daakị dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "It has come to eat the food we kept.",
+      "ibani": "Anị ḅo mam ḅo wa warị fịnye ma fị"
+    }
+  },
+  {
+    "translation": {
+      "en": "It has come, wanting to eat the food we kept.",
+      "ibani": "Anị ḅo mam ḅo wa warị fịnye ma fị dọghụarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "It has come, wanting to eat the food we kept.",
+      "ibani": "Anị ḅo mam ḅo wa warị fịnye ma fị dumarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "You have come home now",
+      "ibani": "Ị mịsa warị ḅo mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "You have come home now .",
+      "ibani": "Ị warị ḅo mam mịsa"
+    }
+  },
+  {
+    "translation": {
+      "en": "You people have come to the house today.",
+      "ibani": "Ọ mịngba warị ḅo mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "You people have come to the house today.",
+      "ibani": "Ọ warị ḅo mam mịngba"
+    }
+  },
+  {
+    "translation": {
+      "en": "Shouldn't have come",
+      "ibani": "Na (ḅụ)gḅẹgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "You shouldn't have come here this morning.",
+      "ibani": "Ị mịnga ḅo na ḅụgḅẹgha mie dedebie"
+    }
+  },
+  {
+    "translation": {
+      "en": "You shouldn't have come here this morning.",
+      "ibani": "Ị mịnga ḅo na gḅẹgha mie dedebie"
+    }
+  },
+  {
+    "translation": {
+      "en": "I shouldn't have come here yesterday.",
+      "ibani": "A mịnga ḅo na ḅụgbẹgha bị'ene"
+    }
+  },
+  {
+    "translation": {
+      "en": "I shouldn't have come here yesterday.",
+      "ibani": "A mịnga ḅo na gbẹgha bị'ene"
+    }
+  },
+  {
+    "translation": {
+      "en": "She shouldn't have come here in the afternoon.",
+      "ibani": "Á mịnga ḅo na ḅụgbẹgha eneḅa ḅụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "She shouldn't have come here in the afternoon.",
+      "ibani": "Á mịnga ḅo na gbẹgha eneḅa ḅụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "He shouldn't have come here this evening.",
+      "ibani": "O mịnga ḅo na ḅụgbẹgha mie ḅupiri"
+    }
+  },
+  {
+    "translation": {
+      "en": "He shouldn't have come here this evening.",
+      "ibani": "O mịnga ḅo na gbẹgha mie ḅupiri"
+    }
+  },
+  {
+    "translation": {
+      "en": "We shouldn't have come here today.",
+      "ibani": "Wa mịnga ḅo na ḅụgbẹgha mịmgba"
+    }
+  },
+  {
+    "translation": {
+      "en": "We shouldn't have come here today.",
+      "ibani": "Wa mịnga ḅo na gbẹgha mịmgba"
+    }
+  },
+  {
+    "translation": {
+      "en": "They shouldn't have come to my house today.",
+      "ibani": "Nnị ịwarị ḅo na ḅụgbẹgha mimgbaene"
+    }
+  },
+  {
+    "translation": {
+      "en": "They shouldn't have come to my house today.",
+      "ibani": "Nnị ịwarị ḅo na gbẹgha mimgbaene"
+    }
+  },
+  {
+    "translation": {
+      "en": "You people shouldn't have come to my house uninvited when I didn't call you.",
+      "ibani": "Ọmịnị ịwarị ḅo na ḅụgbẹgha A ọsịgha saa"
+    }
+  },
+  {
+    "translation": {
+      "en": "You people shouldn't have come to my house uninvited when I didn't call you.",
+      "ibani": "Ọmịnị ịwarị ḅo na gbẹgha A ọsịgha saa"
+    }
+  },
+  {
+    "translation": {
+      "en": "You people shouldn't have come to my house uninvited without me calling you.",
+      "ibani": "Ọmịnị ịwarị ḅo na ḅụgbẹgha A ọsịgha ḅụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "You people shouldn't have come to my house uninvited without me calling you.",
+      "ibani": "Ọmịnị ịwarị ḅo na gbẹgha A ọsịgha ḅụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "It shouldn't have come here to eat our food.",
+      "ibani": "Anị mịnga ḅo sị wamịna fịnyẹ ma fị na ḅụgbẹgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "It shouldn't have come here to eat our food.",
+      "ibani": "Anị mịnga ḅo sị wamịna fịnyẹ ma fị na gbẹgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "get up",
+      "ibani": "saghi"
+    }
+  },
+  {
+    "translation": {
+      "en": "arise",
+      "ibani": "saghi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Get up there.",
+      "ibani": "Anịnga saghi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Get up let's go home.",
+      "ibani": "Saghi wa warị mu"
+    }
+  },
+  {
+    "translation": {
+      "en": "from",
+      "ibani": "saghi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Where do you come from?",
+      "ibani": "I te ama saghi ḅo?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm from Bonny.",
+      "ibani": "A Okolo-ama saghi ḅom"
+    }
+  },
+  {
+    "translation": {
+      "en": "start",
+      "ibani": "saghi"
+    }
+  },
+  {
+    "translation": {
+      "en": "It has started working.",
+      "ibani": "Anị saghị fịrị wangị mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "When will you start school?",
+      "ibani": "Ị te saa saghị diridawọwarị mu be?"
+    }
+  },
+  {
+    "translation": {
+      "en": "pick up",
+      "ibani": "nye saghi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Pick up that thing for me.",
+      "ibani": "Anị nyema saghị ịpịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Have you picked up the thing?",
+      "ibani": "Ị nye ma saghị akị ma?"
+    }
+  },
+  {
+    "translation": {
+      "en": "take effect",
+      "ibani": "ẹnwẹẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "It will not have effect on me (a curse).",
+      "ibani": "Anị ẹnwẹẹ́ ịpịrị bịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "It will not have effect on you (a curse).",
+      "ibani": "Anị ẹnwẹẹ́ ịpịrị bịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "What you invoked is effective.",
+      "ibani": "Ị karị nye ma anị ẹnwẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "asthma",
+      "ibani": "ẹnwẹẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "The child has asthmatic cough.",
+      "ibani": "ẹnwẹẹ́ kọlọ tụwọ ma ọlọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "I don't have asthma.",
+      "ibani": "A ẹnwẹẹ nyanagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "market",
+      "ibani": "fẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am going to the market.",
+      "ibani": "A fẹ muarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "My wife went to the market.",
+      "ibani": "Ịtaa fẹ mum"
+    }
+  },
+  {
+    "translation": {
+      "en": "buy",
+      "ibani": "fẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am going to the market to buy yam.",
+      "ibani": "A fẹ muarị sị mu ḅuru fẹ dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and buy plantain for me.",
+      "ibani": "Mu inyaụ fẹḅo ọkọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "utter",
+      "ibani": "fie"
+    }
+  },
+  {
+    "translation": {
+      "en": "make a sound",
+      "ibani": "fie"
+    }
+  },
+  {
+    "translation": {
+      "en": "The radio is not talking.",
+      "ibani": "Radio ma fiefiegha"
+    }
+  },
+  {
+    "translation": {
+      "en": "The drum you are beating didn't sound well.",
+      "ibani": "Ị farị-arị akwa ma ibima fiegha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Did it sound?",
+      "ibani": "Anị fie?"
+    }
+  },
+  {
+    "translation": {
+      "en": "It didn't sound well.",
+      "ibani": "Ibima fiegha"
+    }
+  },
+  {
+    "translation": {
+      "en": "speak",
+      "ibani": "fie"
+    }
+  },
+  {
+    "translation": {
+      "en": "I don't know you know how to speak Ibani.",
+      "ibani": "A nimigha ị Ịbanị ẹgẹrẹ fie dim"
+    }
+  },
+  {
+    "translation": {
+      "en": "You don't know how to speak Ịḅanị.",
+      "ibani": "Ị Ịḅanị ẹgẹrẹ fie digha"
+    }
+  },
+  {
+    "translation": {
+      "en": "blow (of wind)",
+      "ibani": "fie"
+    }
+  },
+  {
+    "translation": {
+      "en": "Wind is blowing.",
+      "ibani": "Fọrụ fie-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Come let's go and take breeze, it has started blowing.",
+      "ibani": "Ḅo wa mu fọrụ timi, anị saghi fie-arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Come let's go and take breeze, it has started blowing.",
+      "ibani": "Ḅo wa mu fọrụ timi, anị saghị fie mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The sun was shining brightly as it always does in Bonny during the hot season.",
+      "ibani": "Ịrụa ma kori pagha-ari anị mie mie ḅara Okoloma erekura saa"
+    }
+  },
+  {
+    "translation": {
+      "en": "The sun was shining brightly as it always does in Bonny during the hot season.",
+      "ibani": "Ịrụa ma kori pagha-ari anị mie mie ḅara Okoloma erekura bu"
+    }
+  },
+  {
+    "translation": {
+      "en": "By the traffic lights, two policemen stood watching the motorists.",
+      "ibani": "Aso-di(gh)e tọndọ ma nga, mma kuruapụ sefịnị arụ dọghụapụ dighiarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "By the traffic lights, two policemen stood watching the motorists.",
+      "ibani": "Aso-di(gh)e tọndọ ma nga, mma ologhukuu-apu sefịnị arụ dọghụapụ dighiarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Every now and then, they would stop a taxi driver for committing a traffic offense.",
+      "ibani": "Saa gonye gonye bu, nnị kiri-aru dọghụḅọ dasema dasema si olo pa aso di(gh)e- tondo ma olo ka-aribo kuu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Every now and then, they would stop a taxi driver for committing a traffic offense.",
+      "ibani": "Saa gonye gonye bu, nnị kiri-aru dọghụḅọ dasema dasema si olo pa aso di(gh)e- tondo ma olo warighabo kuu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Every now and then, they would stop a taxi driver for committing a traffic offense.",
+      "ibani": "Saa gonye gonye bu, nnị kiri-aru dọghụḅọ dasema dasema si olo pa aso di(gh)e- tondo ma olo korobo kuu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Assignment",
+      "ibani": "Topirifiri"
+    }
+  },
+  {
+    "translation": {
+      "en": "Poor people, God will not allow shame to reach them.",
+      "ibani": "Igoinapụ Tamụnọ mini bịgha sị ḅụgịrị n'laa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Because it's good for you, don't insult the poor.",
+      "ibani": "Anị ibi ịpịrị go, igoinḅọ wiri ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "In every house, we have commoners.",
+      "ibani": "Warị gonye gonye ḅụ, wa simini-apụ nyanam"
+    }
+  },
+  {
+    "translation": {
+      "en": "In every house, we have poor people.",
+      "ibani": "Warị gonye gonye ḅụ, wa simini-apụ nyanam"
+    }
+  },
+  {
+    "translation": {
+      "en": "My relative, it enters for you, ask of family and community.",
+      "ibani": "Ị mịnaḅọ, anị sọ ịpịrị pịrị, warị na ama na gbila"
+    }
+  },
+  {
+    "translation": {
+      "en": "To bathe",
+      "ibani": "Mingi-biri"
+    }
+  },
+  {
+    "translation": {
+      "en": "To dress up",
+      "ibani": "Oju-birima"
+    }
+  },
+  {
+    "translation": {
+      "en": "To dress up",
+      "ibani": "Ḅụ-birima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Come and bathe.",
+      "ibani": "Ḅo mingi-biri"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and bathe.",
+      "ibani": "Mu mingi-biri"
+    }
+  },
+  {
+    "translation": {
+      "en": "Have you bathed?",
+      "ibani": "Ị mingi-biri ma?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes, I have bathed.",
+      "ibani": "Ịịn, A mingi-biri mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "No, I have not bathed.",
+      "ibani": "Ofori, na A mingi-birigha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Will you bathe?",
+      "ibani": "Ị mingi-biri ḅẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes, I will bathe.",
+      "ibani": "Ịịn, A mingi-biri ḅẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "No, I will not bathe.",
+      "ibani": "Ofori o, A mingi-biri bịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Do you want to bathe?",
+      "ibani": "Ị mingi-biri dọghụ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes, I want to bathe.",
+      "ibani": "Ịịn, A mingi-biri dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "No, I don't want to bathe.",
+      "ibani": "Ofori o, A Mingi-biri- dọụgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "It's tomorrow I want to bathe.",
+      "ibani": "Ḅaa-ene anị A mingi-biri dọghụnye"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will bathe tomorrow morning.",
+      "ibani": "A mingi-biri ḅẹm ḅaa dedebie"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm in the bathroom, I want to bathe.",
+      "ibani": "A biri-nga imim, A mingi-biri dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm in the bathroom, I want to bathe.",
+      "ibani": "A biri-wari imim, A mingi-biri dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Where is my bathing water?",
+      "ibani": "Ịye biri-mingi tenga imi?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have dropped it in the bathroom.",
+      "ibani": "A pa biringa koroma mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have dropped it in the bathroom.",
+      "ibani": "A anị koroma mam biringa bie"
+    }
+  },
+  {
+    "translation": {
+      "en": "It's not hot.",
+      "ibani": "Anị ọfịrịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "What is not hot?",
+      "ibani": "Tenye ọfịrịgha?"
+    }
+  },
+  {
+    "translation": {
+      "en": "My bathing water is not hot.",
+      "ibani": "Ịye biri mingi ọfịrịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "God's time",
+      "ibani": "Abesa"
+    }
+  },
+  {
+    "translation": {
+      "en": "What I asked from God",
+      "ibani": "Abinye"
+    }
+  },
+  {
+    "translation": {
+      "en": "I leave all to God",
+      "ibani": "Abarasi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Nobody knows God's mind",
+      "ibani": "Abie"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm not worried",
+      "ibani": "Abalagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Grandfather's house",
+      "ibani": "Adawari"
+    }
+  },
+  {
+    "translation": {
+      "en": "The father's wealth",
+      "ibani": "Adango"
+    }
+  },
+  {
+    "translation": {
+      "en": "The father's riches",
+      "ibani": "Adango"
+    }
+  },
+  {
+    "translation": {
+      "en": "Father's name",
+      "ibani": "Adaere"
+    }
+  },
+  {
+    "translation": {
+      "en": "Born after the death of the father",
+      "ibani": "Adaobu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Resemblance of the father",
+      "ibani": "Adagogo"
+    }
+  },
+  {
+    "translation": {
+      "en": "God's mind is different",
+      "ibani": "Abiekirim"
+    }
+  },
+  {
+    "translation": {
+      "en": "My coming was wrong",
+      "ibani": "Abosimagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "I do not want trouble",
+      "ibani": "Aberebiegha"
+    }
+  },
+  {
+    "translation": {
+      "en": "He who believes in God is safe",
+      "ibani": "Agobofagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "I do not discuss matters",
+      "ibani": "Aberekanagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "I do not fear trouble",
+      "ibani": "Aberemangigha"
+    }
+  },
+  {
+    "translation": {
+      "en": "I do not run away from cases",
+      "ibani": "Aberemangigha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Do not take",
+      "ibani": "Akima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Laughter is not love",
+      "ibani": "Akaderi"
+    }
+  },
+  {
+    "translation": {
+      "en": "A great value",
+      "ibani": "Atili"
+    }
+  },
+  {
+    "translation": {
+      "en": "Precious",
+      "ibani": "Atili"
+    }
+  },
+  {
+    "translation": {
+      "en": "God's plan",
+      "ibani": "Atonye"
+    }
+  },
+  {
+    "translation": {
+      "en": "God's wish",
+      "ibani": "Atonye"
+    }
+  },
+  {
+    "translation": {
+      "en": "What have I done",
+      "ibani": "Atemie"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm gathering children",
+      "ibani": "Akokoari"
+    }
+  },
+  {
+    "translation": {
+      "en": "What wrong have I done to you?",
+      "ibani": "Atesipara-Omie"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have done nothing wrong",
+      "ibani": "Amiesimanyeofori"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will not reply",
+      "ibani": "Aparabiegha"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will not revenge",
+      "ibani": "Aparabiegha"
+    }
+  },
+  {
+    "translation": {
+      "en": "What I need",
+      "ibani": "Adonye"
+    }
+  },
+  {
+    "translation": {
+      "en": "My wish",
+      "ibani": "Adonye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Happiness",
+      "ibani": "Alali"
+    }
+  },
+  {
+    "translation": {
+      "en": "Joy",
+      "ibani": "Alali"
+    }
+  },
+  {
+    "translation": {
+      "en": "Celebration",
+      "ibani": "Alali"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have no other one than God",
+      "ibani": "Ajubonyanagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "My life",
+      "ibani": "Anju"
+    }
+  },
+  {
+    "translation": {
+      "en": "My blood",
+      "ibani": "Anju"
+    }
+  },
+  {
+    "translation": {
+      "en": "Because of that",
+      "ibani": "Anieresi"
+    }
+  },
+  {
+    "translation": {
+      "en": "That day",
+      "ibani": "Aniene"
+    }
+  },
+  {
+    "translation": {
+      "en": "Issues of that day",
+      "ibani": "Anienebere"
+    }
+  },
+  {
+    "translation": {
+      "en": "I did not do any wrong",
+      "ibani": "Amiesimagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have done nothing",
+      "ibani": "Amienye-ofori"
+    }
+  },
+  {
+    "translation": {
+      "en": "The voice of the people",
+      "ibani": "Amabipi"
+    }
+  },
+  {
+    "translation": {
+      "en": "The god of the land",
+      "ibani": "Amaso"
+    }
+  },
+  {
+    "translation": {
+      "en": "The good of the land",
+      "ibani": "Amaibi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Right hand",
+      "ibani": "Amabara"
+    }
+  },
+  {
+    "translation": {
+      "en": "Wealth",
+      "ibani": "Atoni"
+    }
+  },
+  {
+    "translation": {
+      "en": "Riches",
+      "ibani": "Atoni"
+    }
+  },
+  {
+    "translation": {
+      "en": "I do not covet",
+      "ibani": "Amonigha"
+    }
+  },
+  {
+    "translation": {
+      "en": "I planned no evil",
+      "ibani": "Asinyetogha"
+    }
+  },
+  {
+    "translation": {
+      "en": "No evil intentions",
+      "ibani": "Asitogha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Wealth",
+      "ibani": "Inyingiala"
+    }
+  },
+  {
+    "translation": {
+      "en": "Wealthy house",
+      "ibani": "Ngowari"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am from a good home",
+      "ibani": "Apawaribim"
+    }
+  },
+  {
+    "translation": {
+      "en": "My kindness will not kill me",
+      "ibani": "Ibibama"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good thing",
+      "ibani": "Ibinye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good time",
+      "ibani": "Ibisa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good sight",
+      "ibani": "Ibitoru"
+    }
+  },
+  {
+    "translation": {
+      "en": "Nice fellow",
+      "ibani": "Ibibo"
+    }
+  },
+  {
+    "translation": {
+      "en": "A good deed is never lost",
+      "ibani": "Ibifagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Born on a good day",
+      "ibani": "Ibienebo"
+    }
+  },
+  {
+    "translation": {
+      "en": "A good name",
+      "ibani": "Ibiere"
+    }
+  },
+  {
+    "translation": {
+      "en": "My father's name",
+      "ibani": "Idaere"
+    }
+  },
+  {
+    "translation": {
+      "en": "My wealth (children)",
+      "ibani": "Iyeala"
+    }
+  },
+  {
+    "translation": {
+      "en": "Do not laugh at me",
+      "ibani": "Iderima"
+    }
+  },
+  {
+    "translation": {
+      "en": "My father's house",
+      "ibani": "Idawari"
+    }
+  },
+  {
+    "translation": {
+      "en": "My father is a House Elder",
+      "ibani": "Idasenibo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good health",
+      "ibani": "Ibikisi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good household",
+      "ibani": "Ibiwari"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good path",
+      "ibani": "Ibiaso"
+    }
+  },
+  {
+    "translation": {
+      "en": "Wealth attracts many friends",
+      "ibani": "Ibiminapa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good journey",
+      "ibani": "Ibiwangi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good luck",
+      "ibani": "Ibifubara"
+    }
+  },
+  {
+    "translation": {
+      "en": "I did not think so",
+      "ibani": "Ibiokotogha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good relations",
+      "ibani": "Ibimina"
+    }
+  },
+  {
+    "translation": {
+      "en": "It will be good",
+      "ibani": "Ibima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good God",
+      "ibani": "Ibitamuno"
+    }
+  },
+  {
+    "translation": {
+      "en": "Know yourself",
+      "ibani": "ibunimi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good name lasts forever",
+      "ibani": "Ibierefagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm Good",
+      "ibani": "Ibim"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good town",
+      "ibani": "Ibiama"
+    }
+  },
+  {
+    "translation": {
+      "en": "Good, fruitful womb",
+      "ibani": "Ibifuro"
+    }
+  },
+  {
+    "translation": {
+      "en": "My greatest possession",
+      "ibani": "Iye-opu(nye)"
+    }
+  },
+  {
+    "translation": {
+      "en": "My Lord is still working on me",
+      "ibani": "Inyanaboimieari"
+    }
+  },
+  {
+    "translation": {
+      "en": "Commit to God's hands",
+      "ibani": "Barasua"
+    }
+  },
+  {
+    "translation": {
+      "en": "Tomorrow is pregnant",
+      "ibani": "Baafuro"
+    }
+  },
+  {
+    "translation": {
+      "en": "God's blessing",
+      "ibani": "Boma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Tomorrow is another day",
+      "ibani": "Basoene"
+    }
+  },
+  {
+    "translation": {
+      "en": "Be not afraid",
+      "ibani": "Balafama"
+    }
+  },
+  {
+    "translation": {
+      "en": "No one knows tomorrow",
+      "ibani": "Banimibo-ofori"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm comforted",
+      "ibani": "Biedima"
+    }
+  },
+  {
+    "translation": {
+      "en": "A thing of comfort",
+      "ibani": "Biedimanye"
+    }
+  },
+  {
+    "translation": {
+      "en": "God has encouraged me",
+      "ibani": "Biekpo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Don't be angry",
+      "ibani": "Bieobuma"
+    }
+  },
+  {
+    "translation": {
+      "en": "What I expected",
+      "ibani": "Bietonye"
+    }
+  },
+  {
+    "translation": {
+      "en": "What I didn't expect",
+      "ibani": "Bietonyegha"
+    }
+  },
+  {
+    "translation": {
+      "en": "The father's love",
+      "ibani": "Data"
+    }
+  },
+  {
+    "translation": {
+      "en": "Daughter born after her father's death",
+      "ibani": "Daba"
+    }
+  },
+  {
+    "translation": {
+      "en": "The father's friend",
+      "ibani": "Daminabo"
+    }
+  },
+  {
+    "translation": {
+      "en": "The father's hope",
+      "ibani": "Daopunye"
+    }
+  },
+  {
+    "translation": {
+      "en": "The father's child",
+      "ibani": "Datuwo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Heavenly gift",
+      "ibani": "Sodienye"
+    }
+  },
+  {
+    "translation": {
+      "en": "My father's house",
+      "ibani": "Dawari"
+    }
+  },
+  {
+    "translation": {
+      "en": "His father's resemblance",
+      "ibani": "Dagogo"
+    }
+  },
+  {
+    "translation": {
+      "en": "God's plan",
+      "ibani": "Datonye"
+    }
+  },
+  {
+    "translation": {
+      "en": "My father has not done wrong",
+      "ibani": "Damie-simagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "The good deeds of the father",
+      "ibani": "Damieibi"
+    }
+  },
+  {
+    "translation": {
+      "en": "The father's hand",
+      "ibani": "Dabara"
+    }
+  },
+  {
+    "translation": {
+      "en": "Do not take offense",
+      "ibani": "Dibiobuma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Women household",
+      "ibani": "Eremina"
+    }
+  },
+  {
+    "translation": {
+      "en": "My name is not lost",
+      "ibani": "Erefagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Women household",
+      "ibani": "Eredapa"
+    }
+  },
+  {
+    "translation": {
+      "en": "A house with women will never end",
+      "ibani": "Erewarifagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Blessing",
+      "ibani": "Fila"
+    }
+  },
+  {
+    "translation": {
+      "en": "What death has done",
+      "ibani": "Fimienye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Death is the end of everything",
+      "ibani": "Fiberesima"
+    }
+  },
+  {
+    "translation": {
+      "en": "My own blood",
+      "ibani": "Furopanye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your child is your child",
+      "ibani": "Furopanyekirim"
+    }
+  },
+  {
+    "translation": {
+      "en": "Grandmother's resemblance",
+      "ibani": "Ayagogo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Grandfather's resemblance",
+      "ibani": "Adagogo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Come and dress up.",
+      "ibani": "Ḅo ịye oju-birima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and dress up.",
+      "ibani": "Mu ịye oju-birima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Have you dressed up?",
+      "ibani": "Ị ịye oju-birima ma?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes, I have dressed up.",
+      "ibani": "Ịịn, A ịye oju-birima mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "No, I have not dressed up.",
+      "ibani": "Ofori o, na A ịye oju-birimagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Will you dress up?",
+      "ibani": "Ị ịye oju-birima ḅẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes, I will dress up.",
+      "ibani": "Ịịn, A ịye oju-birima bem"
+    }
+  },
+  {
+    "translation": {
+      "en": "No, I will not dress up.",
+      "ibani": "Ofori o, A ịye oju-birima bịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Do you want to dress up?",
+      "ibani": "Ị ịye oju-birima dọghụ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes, I want to dress up.",
+      "ibani": "Ịịn, A ịye oju-birima dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "No, I don't want to dress up.",
+      "ibani": "Ofori o, A ịye oju-birima dọụgha?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will dress up when I'm done (later).",
+      "ibani": "A ịye oju-birima ḅẹm miesosaa"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will dress up in the afternoon.",
+      "ibani": "A ịye oju-birima ḅẹm eneḅaa ḅụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm in my room, I want to dress up so that we can go.",
+      "ibani": "A ị'warịbie imim, A ịye oju-birima dọghụm sị wa mu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Where is my cloth, I want to dress up.",
+      "ibani": "Sọm ịye suabịtẹ, A ịye oju-birima dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your cloth is in your bag.",
+      "ibani": "Ịye suabịtẹ ịye akpa bie imim"
+    }
+  },
+  {
+    "translation": {
+      "en": "When do you want to bathe?",
+      "ibani": "Ị tesaa mingi-biri dọghụ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "It's right now I want to bathe.",
+      "ibani": "Misaa misaa, anị A mingi-biri dọghụnye"
+    }
+  },
+  {
+    "translation": {
+      "en": "When do you want to bathe the children?",
+      "ibani": "Ị tesaa mingi pa awọma-apụ sịghịrị dọghụ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "It's around 8 o'clock I want to bathe them.",
+      "ibani": "Inine enekienye saa biri anị A mingi pa n'sịghịrị dọghụnye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Why have you not bathed since morning?",
+      "ibani": "Ị tegosi na mingi-birigha saghi dedebie?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I was washing clothes since morning that's why have not taken my bathe.",
+      "ibani": "A bite sighiriari saghi dedebie, anịmagoo na A mingi birigha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go, bathe and dress up and let's go out.",
+      "ibani": "Mu mingi biri pịghị oju-birima sị wa nungu pagha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and dress up the children so we can go.",
+      "ibani": "Mu awọma-apụ oju-birima sị wa ine mu ḅẹ ḅara"
+    }
+  },
+  {
+    "translation": {
+      "en": "Father said that you should bathe us yourself and dress us up.",
+      "ibani": "Daḅọ ḅẹm ḅẹ, ị ịḅarana mingi pa wa sịghịrị pịghị wa (oju)birima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Can you bathe and dress up yourself?",
+      "ibani": "Ị ine ịḅarana mingi-biri pịghị iḅụ-birima ḅẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I can't because whenever I bathe my hands do not get to my back.",
+      "ibani": "A ine bịgha, A mingi-biri saa gonyegonye, ịḅara iye oḅudu lalagha gosi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Bring soap for me.",
+      "ibani": "Saḅẹ akuo ịpịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "There is no soap in the bathroom.",
+      "ibani": "Saḅẹ mingi-biri-warị ofori"
+    }
+  },
+  {
+    "translation": {
+      "en": "There is no soap in the bathroom.",
+      "ibani": "Saḅẹ mingi-biri-nga ofori"
+    }
+  },
+  {
+    "translation": {
+      "en": "I want to dress up, which wrapper should I tie?",
+      "ibani": "A ḅụ-birima dọghụm, A tenga nwabịtẹ nwaa ḅẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "We will tie George wrapper, dress up with it.",
+      "ibani": "Wa bighi bịtẹ nwaa ḅẹm, pa anị (oju)birima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Monday",
+      "ibani": "Órú éné óbúụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Tuesday",
+      "ibani": "Kálá fēní íbí éne"
+    }
+  },
+  {
+    "translation": {
+      "en": "Wednesday",
+      "ibani": "Ogunu Féní Íbí éne"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thursday",
+      "ibani": "Féní óbú éne"
+    }
+  },
+  {
+    "translation": {
+      "en": "Friday",
+      "ibani": "Féní íbí éne"
+    }
+  },
+  {
+    "translation": {
+      "en": "Saturday",
+      "ibani": "Kálá ōrú éné"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sunday",
+      "ibani": "Órú éné"
+    }
+  },
+  {
+    "translation": {
+      "en": "Head",
+      "ibani": "Sịbị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Hair",
+      "ibani": "Sịbị nume"
+    }
+  },
+  {
+    "translation": {
+      "en": "Eye",
+      "ibani": "Tọrụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Ear",
+      "ibani": "Biri"
+    }
+  },
+  {
+    "translation": {
+      "en": "Nose",
+      "ibani": "Nini"
+    }
+  },
+  {
+    "translation": {
+      "en": "Mouth",
+      "ibani": "bịbị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Mouth",
+      "ibani": "Bịpị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Teeth",
+      "ibani": "Aka"
+    }
+  },
+  {
+    "translation": {
+      "en": "Tongue",
+      "ibani": "Ḅẹlẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Neck",
+      "ibani": "Kọngọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Hand",
+      "ibani": "Ḅara"
+    }
+  },
+  {
+    "translation": {
+      "en": "Leg",
+      "ibani": "Ḅụọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Body",
+      "ibani": "Oju"
+    }
+  },
+  {
+    "translation": {
+      "en": "Oil",
+      "ibani": "Pulo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Blood",
+      "ibani": "Pulo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Fish",
+      "ibani": "Nji"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yam",
+      "ibani": "Ḅuru"
+    }
+  },
+  {
+    "translation": {
+      "en": "Maize",
+      "ibani": "Mbịapka"
+    }
+  },
+  {
+    "translation": {
+      "en": "Orange",
+      "ibani": "Ẹlẹlẹndẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Firewood",
+      "ibani": "Fịnị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Fire",
+      "ibani": "Fịnị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Town",
+      "ibani": "Ama"
+    }
+  },
+  {
+    "translation": {
+      "en": "Boat",
+      "ibani": "Arụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Rain",
+      "ibani": "Iti"
+    }
+  },
+  {
+    "translation": {
+      "en": "Father",
+      "ibani": "Daa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Mother",
+      "ibani": "Nyingi"
+    }
+  },
+  {
+    "translation": {
+      "en": "God",
+      "ibani": "Tamụnọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Black",
+      "ibani": "Kurukuru"
+    }
+  },
+  {
+    "translation": {
+      "en": "White",
+      "ibani": "Pịnapịna"
+    }
+  },
+  {
+    "translation": {
+      "en": "Red",
+      "ibani": "Awụtọrụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "The unity of our culture",
+      "ibani": "Wamịna amangangaḅara ḅịpị ogbosọḅara"
+    }
+  },
+  {
+    "translation": {
+      "en": "The unity of culture",
+      "ibani": "Gbere bu amamienye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Embracing cultural diversity",
+      "ibani": "Ḅụ pa kịrịkịrị amangangaḅara ḅụ sụa"
+    }
+  },
+  {
+    "translation": {
+      "en": "The beauty of our culture",
+      "ibani": "Wamịna amangangaḅara ibi"
+    }
+  },
+  {
+    "translation": {
+      "en": "The beauty of our culture",
+      "ibani": "Bu bele ma amamienye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Paternal uncle",
+      "ibani": "Daa numboru-owutụwọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Maternal Uncle",
+      "ibani": "Nyingi numboru-owutụwọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Paternal Aunt",
+      "ibani": "Daa numboru-ọrụḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "maternal aunt",
+      "ibani": "Nyingi numboru-ọrụḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "In-law",
+      "ibani": "Ọgọḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Father in-law (to husband)",
+      "ibani": "Dee daa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Father in-law (to wife)",
+      "ibani": "Taa daa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Mother in-law (to husband)",
+      "ibani": "Dee nyingi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Mother in-law (to wife)",
+      "ibani": "Taa nyingi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Brother in-law (to husband)",
+      "ibani": "Dee numboru-owutụwọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Brother in-law (to wife)",
+      "ibani": "Taa numboru-owutụwọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sister in-law (to husband)",
+      "ibani": "Dee numboru-ọrụḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sister in-law (to wife)",
+      "ibani": "Taa numboru-ọrụḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Younger brother",
+      "ibani": "Numboru-kala-owutụwọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Immediate younger brother",
+      "ibani": "Ọḅụdụ paa owutụwọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Younger sister",
+      "ibani": "Numboru-kala-ọrụḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Immediate younger sister",
+      "ibani": "Ọḅụdụ paa ọrụḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Senior brother",
+      "ibani": "Numboru-sẹnị-owutụwọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Immediate senior brother",
+      "ibani": "Tọrụkụ-sẹnị-owutụwọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Senior sister",
+      "ibani": "Numboru-sẹnị-ọrụḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Immediate senior sister",
+      "ibani": "Tọrụkụ-sẹnị-ọrụḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "My senior",
+      "ibani": "Ịḅụ sẹnịḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "My junior",
+      "ibani": "Ịḅụ kalatụwọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Nephew",
+      "ibani": "Numboru-owutụwọ nudu ye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Niece",
+      "ibani": "Numboru-owutụwọ nudu ḅa"
+    }
+  },
+  {
+    "translation": {
+      "en": "I",
+      "ibani": "A"
+    }
+  },
+  {
+    "translation": {
+      "en": "Me",
+      "ibani": "A"
+    }
+  },
+  {
+    "translation": {
+      "en": "I",
+      "ibani": "ịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Me",
+      "ibani": "ịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "My",
+      "ibani": "Ịye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Mine",
+      "ibani": "Ịyenye"
+    }
+  },
+  {
+    "translation": {
+      "en": "You",
+      "ibani": "ị́rị́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Your",
+      "ibani": "ị́yé"
+    }
+  },
+  {
+    "translation": {
+      "en": "Her",
+      "ibani": "á"
+    }
+  },
+  {
+    "translation": {
+      "en": "She",
+      "ibani": "á"
+    }
+  },
+  {
+    "translation": {
+      "en": "She",
+      "ibani": "Árị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Her",
+      "ibani": "Árị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Hers",
+      "ibani": "Árịnye"
+    }
+  },
+  {
+    "translation": {
+      "en": "He",
+      "ibani": "o"
+    }
+  },
+  {
+    "translation": {
+      "en": "His",
+      "ibani": "o"
+    }
+  },
+  {
+    "translation": {
+      "en": "His",
+      "ibani": "Ori"
+    }
+  },
+  {
+    "translation": {
+      "en": "He",
+      "ibani": "Ori"
+    }
+  },
+  {
+    "translation": {
+      "en": "His",
+      "ibani": "ọ́rịnye"
+    }
+  },
+  {
+    "translation": {
+      "en": "We",
+      "ibani": "wá"
+    }
+  },
+  {
+    "translation": {
+      "en": "Us",
+      "ibani": "wá"
+    }
+  },
+  {
+    "translation": {
+      "en": "Us",
+      "ibani": "Wámịnị"
+    }
+  },
+  {
+    "translation": {
+      "en": "We",
+      "ibani": "Wámịnị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Our",
+      "ibani": "Wámịna"
+    }
+  },
+  {
+    "translation": {
+      "en": "They",
+      "ibani": "Nnị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Them",
+      "ibani": "Nnị"
+    }
+  },
+  {
+    "translation": {
+      "en": "They",
+      "ibani": "n'"
+    }
+  },
+  {
+    "translation": {
+      "en": "Their",
+      "ibani": "Nna"
+    }
+  },
+  {
+    "translation": {
+      "en": "That",
+      "ibani": "Anị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Them",
+      "ibani": "n'"
+    }
+  },
+  {
+    "translation": {
+      "en": "It",
+      "ibani": "Anị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Arise",
+      "ibani": "Saghi"
+    }
+  },
+  {
+    "translation": {
+      "en": "From",
+      "ibani": "Saghi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Start",
+      "ibani": "Saghi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Pick up",
+      "ibani": "Nye saghi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Take effect (as a curse or invocation)",
+      "ibani": "ẹnwẹẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Asthma",
+      "ibani": "ẹnwẹẹ́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Market",
+      "ibani": "Fẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Buy",
+      "ibani": "Fẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Utter",
+      "ibani": "Fie"
+    }
+  },
+  {
+    "translation": {
+      "en": "Speak (language)",
+      "ibani": "Fie"
+    }
+  },
+  {
+    "translation": {
+      "en": "Blow (wind)",
+      "ibani": "Fie"
+    }
+  },
+  {
+    "translation": {
+      "en": "What is your name?",
+      "ibani": "Iye ẹrẹ ọtẹnye?"
+    }
+  },
+  {
+    "translation": {
+      "en": "It is Boma.",
+      "ibani": "Ọ Boma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This is the water we drink.",
+      "ibani": "Mie míngí ma wa ḅu-ḅum"
+    }
+  },
+  {
+    "translation": {
+      "en": "My father is drinking it.",
+      "ibani": "Ida ḅuarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "My mother is drinking it.",
+      "ibani": "Inyingi ḅuarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "It is good.",
+      "ibani": "Anị ibim"
+    }
+  },
+  {
+    "translation": {
+      "en": "Nothing surpasses God.",
+      "ibani": "Tamụnọ nẹngịnye ofori"
+    }
+  },
+  {
+    "translation": {
+      "en": "My mother, I am looking for the key.",
+      "ibani": "I yingi, A igbe findi-nye ma doghuari"
+    }
+  },
+  {
+    "translation": {
+      "en": "Didn't you keep it on the chair?",
+      "ibani": "I ikasi ogono ani warigha?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes, I kept it there, but I cannot find it again.",
+      "ibani": "Iin, A ani warim aninga, kuma A mini ani arigha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Look around the kitchen area; it might be there.",
+      "ibani": "Burusuu nga dighi; ani ine aninga imi bem"
+    }
+  },
+  {
+    "translation": {
+      "en": "My mother, I have found it",
+      "ibani": "I yingi eeee, ani ari mam ooo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Where did you find it?",
+      "ibani": "I tenga ani ari bo?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I saw it on top of the chair in front of the house.",
+      "ibani": "A ani arim wari torukuu imi ikasi ogono"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thank you, Duma. Since morning, our mother and I have been looking for it.",
+      "ibani": "Duma, i miebam. Saa ene ene, iri na wamina yingi na ani doghuari"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thank God that we have seen it.",
+      "ibani": "Tamuno, imiebam si wamini ani ari-bo mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "Who has the padlock? (In whose hands is it?)",
+      "ibani": "Igodo ma tuwo bara imi?"
+    }
+  },
+  {
+    "translation": {
+      "en": "It is in my hands, mother.",
+      "ibani": "Ani i bara imim, yingi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Bring it so the door can be locked, so thieves don't enter the house.",
+      "ibani": "Ani akuobo si gberesaa bupo ma kasii, furu-apu wari ma som bigha bara"
+    }
+  },
+  {
+    "translation": {
+      "en": "Forehead",
+      "ibani": "Fụḅara kpo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Face",
+      "ibani": "Tọrụkụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Eyeball",
+      "ibani": "Tọrụmgbọlụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Eyebrow",
+      "ibani": "Tọrụanjị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Eyelash",
+      "ibani": "Tọrụnume"
+    }
+  },
+  {
+    "translation": {
+      "en": "Nostril",
+      "ibani": "Ninibie"
+    }
+  },
+  {
+    "translation": {
+      "en": "Lips",
+      "ibani": "Bịpịmpara"
+    }
+  },
+  {
+    "translation": {
+      "en": "Chin",
+      "ibani": "Ḅapo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Jaw",
+      "ibani": "lughú"
+    }
+  },
+  {
+    "translation": {
+      "en": "Jaw",
+      "ibani": "íkú"
+    }
+  },
+  {
+    "translation": {
+      "en": "Jaw",
+      "ibani": "Mgba"
+    }
+  },
+  {
+    "translation": {
+      "en": "Cheeks",
+      "ibani": "Mgbanga"
+    }
+  },
+  {
+    "translation": {
+      "en": "Throat",
+      "ibani": "Pụghọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Shoulder",
+      "ibani": "Abana"
+    }
+  },
+  {
+    "translation": {
+      "en": "Chest",
+      "ibani": "Kukubie"
+    }
+  },
+  {
+    "translation": {
+      "en": "Armpit",
+      "ibani": "Tinibie"
+    }
+  },
+  {
+    "translation": {
+      "en": "Breast",
+      "ibani": "Ndo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Nipple",
+      "ibani": "Ndo bịpị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Stomach",
+      "ibani": "Furo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Navel",
+      "ibani": "Mbu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Arm",
+      "ibani": "Ḅara"
+    }
+  },
+  {
+    "translation": {
+      "en": "Elbow",
+      "ibani": "Ḅaratungu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Wrist",
+      "ibani": "Ḅarakọngọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Finger",
+      "ibani": "Ḅaratumgbọlụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Fingernail",
+      "ibani": "Mime"
+    }
+  },
+  {
+    "translation": {
+      "en": "Palm",
+      "ibani": "Ḅaraku"
+    }
+  },
+  {
+    "translation": {
+      "en": "Thigh",
+      "ibani": "Ḅụọ-ẹlẹghẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Knee",
+      "ibani": "Ḅụọsịbị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Shin",
+      "ibani": "Ḅụọmgbo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Calf",
+      "ibani": "Ḅụọfuro"
+    }
+  },
+  {
+    "translation": {
+      "en": "Heel",
+      "ibani": "Ḅụọtungu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Ankle",
+      "ibani": "Ḅụọkọngọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Toe",
+      "ibani": "Ḅụọtumgbọlụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Toenail",
+      "ibani": "Ḅụọ imime"
+    }
+  },
+  {
+    "translation": {
+      "en": "Foot",
+      "ibani": "Ḅụọ-ọgọnọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sole of the foot",
+      "ibani": "Ḅụọ-kuu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Knife",
+      "ibani": "Kingi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Machete",
+      "ibani": "Agidi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Spoon",
+      "ibani": "Ekwe"
+    }
+  },
+  {
+    "translation": {
+      "en": "Bowl",
+      "ibani": "Boli"
+    }
+  },
+  {
+    "translation": {
+      "en": "Plate",
+      "ibani": "Efere"
+    }
+  },
+  {
+    "translation": {
+      "en": "Cooking oil",
+      "ibani": "Taba-pulo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Palm oil",
+      "ibani": "Dim-pulo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Rice",
+      "ibani": "Orosi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Meat",
+      "ibani": "Nama"
+    }
+  },
+  {
+    "translation": {
+      "en": "Wash hand basin",
+      "ibani": "Bara-siri pan"
+    }
+  },
+  {
+    "translation": {
+      "en": "Hand towels",
+      "ibani": "Bara-si bite"
+    }
+  },
+  {
+    "translation": {
+      "en": "Ashes",
+      "ibani": "Fo"
+    }
+  },
+  {
+    "translation": {
+      "en": "Charcoal",
+      "ibani": "Anyi-gbolu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Garri",
+      "ibani": "Afina"
+    }
+  },
+  {
+    "translation": {
+      "en": "Soap",
+      "ibani": "Sabe"
+    }
+  },
+  {
+    "translation": {
+      "en": "Pot",
+      "ibani": "Ḅẹlẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Water pot",
+      "ibani": "Mingi-so-ḅẹlẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Kettle",
+      "ibani": "Mingi-so-ḅẹlẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sponge",
+      "ibani": "Sapo"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am older than him.",
+      "ibani": "A o nengim"
+    }
+  },
+  {
+    "translation": {
+      "en": "He is doing something greater than himself.",
+      "ibani": "Ori o nengi ma nye mieari"
+    }
+  },
+  {
+    "translation": {
+      "en": "She has reached a senior position at work.",
+      "ibani": "Ari opu kiri la mam firi-kiri bu"
+    }
+  },
+  {
+    "translation": {
+      "en": "He is not senior to her.",
+      "ibani": "Ori a nengigha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Walk",
+      "ibani": "Wangị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Run",
+      "ibani": "Mangị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Jump",
+      "ibani": "Dosi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Blow by mouth",
+      "ibani": "Fii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Fly",
+      "ibani": "Fii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Whistle",
+      "ibani": "Fii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Pass by",
+      "ibani": "Ḅọrọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Give",
+      "ibani": "Pịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Follow",
+      "ibani": "Duwa"
+    }
+  },
+  {
+    "translation": {
+      "en": "See",
+      "ibani": "Arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Find",
+      "ibani": "Arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Touch (with hand)",
+      "ibani": "Laama"
+    }
+  },
+  {
+    "translation": {
+      "en": "Know",
+      "ibani": "Nimi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Remember",
+      "ibani": "Biekoroma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Forget",
+      "ibani": "Bieḅarama"
+    }
+  },
+  {
+    "translation": {
+      "en": "Dig",
+      "ibani": "Sughu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Laugh",
+      "ibani": "Dẹrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Weep",
+      "ibani": "Owu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Cry",
+      "ibani": "Owu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sing",
+      "ibani": "Suu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Dance",
+      "ibani": "Sẹghị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Play",
+      "ibani": "Tii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Fear",
+      "ibani": "Balafaa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Greet",
+      "ibani": "Sị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Salute",
+      "ibani": "Bii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Fight",
+      "ibani": "Owusọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Call",
+      "ibani": "Si"
+    }
+  },
+  {
+    "translation": {
+      "en": "Send (someone)",
+      "ibani": "Fịrịma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Say",
+      "ibani": "Dugho"
+    }
+  },
+  {
+    "translation": {
+      "en": "Say",
+      "ibani": "Ḅẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Ask (question)",
+      "ibani": "Gbila"
+    }
+  },
+  {
+    "translation": {
+      "en": "Reply",
+      "ibani": "Paragha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Ask (request)",
+      "ibani": "Bii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Refuse",
+      "ibani": "Minima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Love",
+      "ibani": "Ḅẹlẹma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Like",
+      "ibani": "Ḅẹlẹma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Wait",
+      "ibani": "Kuru"
+    }
+  },
+  {
+    "translation": {
+      "en": "Look for",
+      "ibani": "Dọghụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Finish",
+      "ibani": "Faa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Lose (something)",
+      "ibani": "Faa"
+    }
+  },
+  {
+    "translation": {
+      "en": "have",
+      "ibani": "Nyana"
+    }
+  },
+  {
+    "translation": {
+      "en": "Gather (things)",
+      "ibani": "Kubiri"
+    }
+  },
+  {
+    "translation": {
+      "en": "Steal",
+      "ibani": "Furu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Take (one thing)",
+      "ibani": "Akị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Choose",
+      "ibani": "Sẹlẹaki"
+    }
+  },
+  {
+    "translation": {
+      "en": "Select",
+      "ibani": "Sẹlẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Cover",
+      "ibani": "Gbẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Pay",
+      "ibani": "Gbẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Grind",
+      "ibani": "Gbẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Count",
+      "ibani": "Kịẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Show",
+      "ibani": "Die"
+    }
+  },
+  {
+    "translation": {
+      "en": "Share",
+      "ibani": "Die"
+    }
+  },
+  {
+    "translation": {
+      "en": "Divide",
+      "ibani": "Die"
+    }
+  },
+  {
+    "translation": {
+      "en": "Shoot",
+      "ibani": "Tẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Kill",
+      "ibani": "Ḅaa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Fry",
+      "ibani": "Kpangịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Roast",
+      "ibani": "Fọọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Beat (person)",
+      "ibani": "Timi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Pound (in mortar)",
+      "ibani": "Timi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Extinguish",
+      "ibani": "Bima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Full",
+      "ibani": "Bima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Switch off",
+      "ibani": "Bima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Pour",
+      "ibani": "Sara"
+    }
+  },
+  {
+    "translation": {
+      "en": "Throw",
+      "ibani": "Gbii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sew",
+      "ibani": "Gbii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Turn round",
+      "ibani": "Ịkelekele"
+    }
+  },
+  {
+    "translation": {
+      "en": "Wander round",
+      "ibani": "Ịkelekele"
+    }
+  },
+  {
+    "translation": {
+      "en": "Plait hair",
+      "ibani": "Sịbị kpẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Weave (cloth)",
+      "ibani": "Dọrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Spin (thread)",
+      "ibani": "Fangala"
+    }
+  },
+  {
+    "translation": {
+      "en": "Dress up",
+      "ibani": "Ḅụbirima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Take off clothes",
+      "ibani": "Bịtẹ si"
+    }
+  },
+  {
+    "translation": {
+      "en": "Wash (things)",
+      "ibani": "Sịghịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Pull",
+      "ibani": "Nụnụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Push",
+      "ibani": "Súmaá"
+    }
+  },
+  {
+    "translation": {
+      "en": "Beat (drum)",
+      "ibani": "Farị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Break (pot)",
+      "ibani": "Puu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Split",
+      "ibani": "Puu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Break (stick)",
+      "ibani": "Anyịma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Pierce",
+      "ibani": "Tulu"
+    }
+  },
+  {
+    "translation": {
+      "en": "Eat",
+      "ibani": "Fị́ị́"
+    }
+  },
+  {
+    "translation": {
+      "en": "Eat something",
+      "ibani": "Nyẹ́ Fị́ị́"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am eating something.",
+      "ibani": "A nyẹ́ fị́arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "What are you eating?",
+      "ibani": "Ị́ tẹ fị́arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am eating yam.",
+      "ibani": "A ḅurú fị́arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am eating rice.",
+      "ibani": "A ọrọ́sị fị́arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am eating beans.",
+      "ibani": "A akị́dị fị́arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Will you eat?",
+      "ibani": "Ị́ nyẹ́-fị́ị́ bẹ̄?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I don't want to eat.",
+      "ibani": "A nyẹ́-fị́ị́ dọ́ụghā"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm hungry .",
+      "ibani": "Fị́ịnyé tarị́arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm hungry.",
+      "ibani": "ḅuru ịtarị́arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm hungry for yam",
+      "ibani": "ḅuru ịtarị́arị"
+    }
+  },
+  {
+    "translation": {
+      "en": "The food is on the table.",
+      "ibani": "Fịnyẹ má opu-ịkasị ọ́gọ́nọ́ ḅụ imim"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog's food is under the table.",
+      "ibani": "Obiri fị́nyẹ ma opu-ịkasị sughu imim"
+    }
+  },
+  {
+    "translation": {
+      "en": "Will the food be enough for us?",
+      "ibani": "Fịnye ma anị wa laa bẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "It is enough for us.",
+      "ibani": "Anị wa laa mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "It has reached us",
+      "ibani": "Anị wa laa mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "Moon",
+      "ibani": "Akalụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Month",
+      "ibani": "Akalụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Table",
+      "ibani": "Opuịkasị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Chair",
+      "ibani": "Ịkasị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sweat",
+      "ibani": "Imo"
+    }
+  },
+  {
+    "translation": {
+      "en": "The rope",
+      "ibani": "Dighi ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Youth",
+      "ibani": "Asatụwọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Ancestors",
+      "ibani": "Tadọapụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Cockroach",
+      "ibani": "Fọrụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Wind",
+      "ibani": "Fọrụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Anxiety",
+      "ibani": "Nainnain"
+    }
+  },
+  {
+    "translation": {
+      "en": "Worried",
+      "ibani": "Nainnain"
+    }
+  },
+  {
+    "translation": {
+      "en": "To spread",
+      "ibani": "Wasama"
+    }
+  },
+  {
+    "translation": {
+      "en": "Famine",
+      "ibani": "Ḅuruḅa"
+    }
+  },
+  {
+    "translation": {
+      "en": "End",
+      "ibani": "Kunoma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Last",
+      "ibani": "Kunoma"
+    }
+  },
+  {
+    "translation": {
+      "en": "In a short while",
+      "ibani": "Ḅologha saa ḅụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have been washing clothes since morning, therefore I haven't bathed.",
+      "ibani": "A bịtẹ sịghịrịarị saghị dedebie anịmago(sị) na A mingibirigha"
+    }
+  },
+  {
+    "translation": {
+      "en": "It is the clothes I've been washing since morning that caused my not bathing.",
+      "ibani": "A bịtẹ sịghịrịarị saghị dedebie anịị A goo na mịngibirigha nye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Washing clothes all through the morning is the reason I have not bathed.",
+      "ibani": "A bite sighiriari dedebie ene, animago, na A mingi birigha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Starting from early morning I've been washing clothes, so I haven't bathed.",
+      "ibani": "Saghi dedebie ene-ene A bịtẹ sịghịrịarị, anịmago na A mingi birigha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Because I have been washing clothes since morning, I have not bathed.",
+      "ibani": "Saghị dedebie A bịtẹ sighiriari go, na A mingi birigha"
+    }
+  },
+  {
+    "translation": {
+      "en": "My washing clothes throughout the morning is why I am yet to bathe.",
+      "ibani": "A bịtẹ sighiriari go, saghi dedebie ene, na A go mingi birigha nye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Since I was washing clothes since morning, that is why I haven't bathed.",
+      "ibani": "A bịtẹ sighiriari go saghi dedebie, na A go na mingi birigha nye"
+    }
+  },
+  {
+    "translation": {
+      "en": "I finished washing clothes just now since morning, that is why I haven't bathed.",
+      "ibani": "A bịtẹ sịghịrị fịnịm dedebie, na ogosi mingi birigha nye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Father said that you should bathe us yourself and dress us up.",
+      "ibani": "Daḅọ ḅẹm ḅẹ, ị ịḅarana mingi pa wa sịghịrị pịghị wamina (oju)birima"
+    }
+  },
+  {
+    "translation": {
+      "en": "Come and lie down.",
+      "ibani": "Ḅo ḅụlọlọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Lie down here.",
+      "ibani": "Mịnga ḅụlọlọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and lie down there.",
+      "ibani": "Mu aninga ḅụlọlọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Do you want to lie down here?",
+      "ibani": "Ị mịnga ḅụlọlọ dọghụ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes, I want to lie down here.",
+      "ibani": "Ịịn, A mịnga ḅụlọlọ dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "No, I don't want to lie down here.",
+      "ibani": "Ofori o, A minga ḅụlọlọ dọụgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yesterday he lay down here.",
+      "ibani": "Bịa ene, o mịnga ḅụlọlọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "She has been the one lying down here since.",
+      "ibani": "Arị ma ani mịnga ḅụlọlọarị ḅọ saghị ene-ene"
+    }
+  },
+  {
+    "translation": {
+      "en": "You (plural) should go and lie down and sleep.",
+      "ibani": "Ọ mu ḅụlọlọ sị muno"
+    }
+  },
+  {
+    "translation": {
+      "en": "They lay down on the mat all day.",
+      "ibani": "Enegbọrụ nnị ibila ma ḅụ ḅụlọlọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Everyday, they lie down on the mat.",
+      "ibani": "Ene gonyegonye, nnị ibila ma ḅụ ḅụlọlọ ḅụlọlọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Will you lie down on the mat?",
+      "ibani": "Ị ibila ma ḅụ ḅụlọlọ bẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes I will lie down on the mat.",
+      "ibani": "Ịịn A ibila ma ḅụ ḅụlọlọ bẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "We will not lie down on the mat.",
+      "ibani": "Wa ibila ma ḅụ ḅụlọlọ bịgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Didn't you lie down on the mat?",
+      "ibani": "Ị ibila ma ḅụ ḅụlọlọgha?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I didn't lie down on the mat.",
+      "ibani": "A ibila ma ḅụ ḅụlọlọgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Do not lie down there.",
+      "ibani": "Anịnga ḅụlọlọ ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Do not lie down there again.",
+      "ibani": "Mini anịnga ḅụlọlọ ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "The dog is sleeping.",
+      "ibani": "Obiri ma munoarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "The goat is lying down.",
+      "ibani": "Oḅori ma ḅụlọlọarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "The cat and its kitten are sleeping.",
+      "ibani": "Pọọsị ma na anị awọ na munoarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "They want to sleep in their room.",
+      "ibani": "Nnị muno dọghụm nna warịbie"
+    }
+  },
+  {
+    "translation": {
+      "en": "When are you going to sleep?",
+      "ibani": "Ị tesaa muno bẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am going to sleep by 9 o'clock.",
+      "ibani": "A esenie enekịẹnye ḅụ mu muno bẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Where will you sleep?",
+      "ibani": "Ị tẹnga muno bẹ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will sleep in your house.",
+      "ibani": "A ịwarịbie muno bẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Why do you sleep all the time?",
+      "ibani": "Ị tego sị saa mamgba muno muno?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm not well, that's why I'm sleeping all the time.",
+      "ibani": "Ị ḅu kụrọagh anị A go saa mamgba muno muno nye"
+    }
+  },
+  {
+    "translation": {
+      "en": "I'm not feeling sleepy yet",
+      "ibani": "Muno na ịtọrụ sọgha"
+    }
+  },
+  {
+    "translation": {
+      "en": "Whenever I lie down sleep disappears from my eyes.",
+      "ibani": "A ḅụlọlọ saa muno ịtọrụ fafaam"
+    }
+  },
+  {
+    "translation": {
+      "en": "Where did she sleep last night?",
+      "ibani": "Á tẹnga muno bịa-ene dii?"
+    }
+  },
+  {
+    "translation": {
+      "en": "She slept in the house last night.",
+      "ibani": "Á warị bie munom bịa-ene dii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Welcome father.",
+      "ibani": "Daa ịḅoma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes my children, thank you.",
+      "ibani": "Ịịn ịye awọ, ọmịẹḅam"
+    }
+  },
+  {
+    "translation": {
+      "en": "How are you?",
+      "ibani": "Ọtọrọ fịnị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "We are fine.",
+      "ibani": "Wamịnị ibim"
+    }
+  },
+  {
+    "translation": {
+      "en": "Have you people eaten?",
+      "ibani": "Ọ nyẹfị ma?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Yes we have eaten.",
+      "ibani": "Ịịn, wa nyefị mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "What did you eat?",
+      "ibani": "Ọ́ tẹ fị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "We ate garri and soup.",
+      "ibani": "Wa nụnụma na fụlọ fịm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Who prepared it for you?",
+      "ibani": "Tụwọ anị tẹlẹma ọpịrị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Mother prepared it for us.",
+      "ibani": "Nyingiḅọ tẹlẹma wa pịrịm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Worship and praise him.",
+      "ibani": "Susi ee, oboma"
+    }
+  },
+  {
+    "translation": {
+      "en": "He is the Lord of praise.",
+      "ibani": "Oboma nyanaḅọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am going to the market.",
+      "ibani": "A fẹghẹ muarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "What do you want to buy?",
+      "ibani": "Ị te fẹ dọghụ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I want to buy items for cooking soup.",
+      "ibani": "A fụlọ sọọ nye fẹ dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Which market do you want to go to?",
+      "ibani": "Ị tẹnga fẹghẹ mu n'fẹ dọghụ?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I want to go and buy them from Bonny main market.",
+      "ibani": "A Okoloma fẹghẹ mu n'fẹ dọghụm"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am going to buy them from slaughter market.",
+      "ibani": "A nama gbogbo fẹghẹ mu n'fẹ bẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Go and buy them from another market.",
+      "ibani": "Je fẹghẹ mu sị mu n'fẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "What are you selling?",
+      "ibani": "Ị tẹ deriari?"
+    }
+  },
+  {
+    "translation": {
+      "en": "I am selling dry fish and yam.",
+      "ibani": "A samuno nji na ḅuru na deriari"
+    }
+  },
+  {
+    "translation": {
+      "en": "How are you selling the fish and the yam?",
+      "ibani": "Ị tọrọpa nji ma na ḅuru ma na dẹrịari?"
+    }
+  },
+  {
+    "translation": {
+      "en": "How much are they?",
+      "ibani": "N'ndẹẹ́?"
+    }
+  },
+  {
+    "translation": {
+      "en": "How much are they worth?",
+      "ibani": "Sọm n'laa ḅara?"
+    }
+  },
+  {
+    "translation": {
+      "en": "The fish is ₦2k, while the yam is ₦1k.",
+      "ibani": "Nji ma Naịra sọnọ-a-ndẹ, kuma ḅuru ma Naịra mmẹ-a-ndẹ oyi-a-si findi"
+    }
+  },
+  {
+    "translation": {
+      "en": "Ah, they are too expensive.",
+      "ibani": "Ah, n'nyela ḅaam"
+    }
+  },
+  {
+    "translation": {
+      "en": "Ah, they are too expensive.",
+      "ibani": "Nni opuma nye laam"
+    }
+  },
+  {
+    "translation": {
+      "en": "What if I pay you ₦1500 for the fish, and ₦700 for the yam.",
+      "ibani": "Ḅọrọbẹ a ₦1500 pa ị'gbẹẹ nji ma ḅụ, pịị ₦700 pa i'gbẹẹ ḅuru ma bu"
+    }
+  },
+  {
+    "translation": {
+      "en": "No oh, it will not be enough, things are very expensive.",
+      "ibani": "Ofori o, anị laa (kara) bịgha, nye nyelaa ḅaam"
+    }
+  },
+  {
+    "translation": {
+      "en": "I can give you the fish for ₦1800 and the yam for ₦800.",
+      "ibani": "A ine nji ma pa ịpịrị ḅẹm ₦1,800, pịghị ḅuru ma pa ịpịrị ₦800"
+    }
+  },
+  {
+    "translation": {
+      "en": "Okay, put them in the bag for me.",
+      "ibani": "Bẹrẹ ofori, nnị pa akpa ma bie sụa ọkọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "I will put them for you.",
+      "ibani": "A n'sụa ịpịrị ḅẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Please call your account number for me.",
+      "ibani": "Paịsịsị, iye acct no sịị ọkọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have sent money to you.",
+      "ibani": "A igbi fịrịma ị'pịrị mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "How is your mother?",
+      "ibani": "Ị nyingi tọrọfịnị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "How is your father?",
+      "ibani": "Ịdaa tọrọfịnị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "How is your family?",
+      "ibani": "Ịwarịapụ tọrọfịnị?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Greet her for me.",
+      "ibani": "Arị bii ịpịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Greet her for me.",
+      "ibani": "Arị bii ọkọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Greet him for me.",
+      "ibani": "Ori bii ịpịrị"
+    }
+  },
+  {
+    "translation": {
+      "en": "Greet him for me.",
+      "ibani": "Ori bii ọkọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Greet your family for me.",
+      "ibani": "Ịwarịapụ bii ọkọm"
+    }
+  },
+  {
+    "translation": {
+      "en": "Ok, I will put them for you.",
+      "ibani": "Bẹrẹ ofori, A n'sụa ịpịrị ḅẹm"
+    }
+  },
+  {
+    "translation": {
+      "en": "I have sent you, your money.",
+      "ibani": "A iye igbi fịrịma ị'pịrị mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "That man.",
+      "ibani": "Anị owutụwọ ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Is that the man?",
+      "ibani": "Anịị owutụwọ ma?"
+    }
+  },
+  {
+    "translation": {
+      "en": "That is the man.",
+      "ibani": "Anịị owutụwọ maa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Please join me to squeeze out water from this wrapper.",
+      "ibani": "Paịsịsị ḅarasụa ịpịrị wa nwabite ma ḅụ mingi ma imima sii"
+    }
+  },
+  {
+    "translation": {
+      "en": "Anywhere you go, people are hungry. Why?",
+      "ibani": "Ị munga munga, ḅuru tumuni tarịarị, tẹgosi?"
+    }
+  },
+  {
+    "translation": {
+      "en": "Anything you say will be used against you, so better keep quiet.",
+      "ibani": "Ị dughonye gonye gonye anị Ịkpụrụma bẹm, anị goo ịbịpị gbẹẹ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Anybody is not everybody, don't blame him.",
+      "ibani": "Bebobebo kinimamgbagha, ọ ḅala ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Anyone of you people can be chosen.",
+      "ibani": "ọmịna bie, nnị ine gbereḅọ sẹlẹakị bem"
+    }
+  },
+  {
+    "translation": {
+      "en": "Sit with others on the table.",
+      "ibani": "Isiapụ ma na kpọrọfịnị opu ịkasị ma ọgọnọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "This chair is better.",
+      "ibani": "Mie ịkasị ma ibi ḅaam"
+    }
+  },
+  {
+    "translation": {
+      "en": "The weather is hot, I am sweating.",
+      "ibani": "Sotọrụ ma ọfịrịm, A imo suarị"
+    }
+  },
+  {
+    "translation": {
+      "en": "I don't need noise here.",
+      "ibani": "Ọ yọ ma fiema ma mịnga"
+    }
+  },
+  {
+    "translation": {
+      "en": "The people hoot at the criminal.",
+      "ibani": "Tumini ma furuapụ ma sịbị silem"
+    }
+  },
+  {
+    "translation": {
+      "en": "This broom.",
+      "ibani": "Mie sundu ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This cap.",
+      "ibani": "Mie su ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This stick.",
+      "ibani": "Mie nsị ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This tree.",
+      "ibani": "Mie sii ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This leaf.",
+      "ibani": "Mie anyinya ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This fruit.",
+      "ibani": "Mie simgbọlụ ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This water.",
+      "ibani": "Mie mingi ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This weather.",
+      "ibani": "Mie sotọrụ ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This box.",
+      "ibani": "Mie Igbe ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This well.",
+      "ibani": "Mie siḅe ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "This cloth is old, please discard it.",
+      "ibani": "Mie bịtẹ ma olom mam, paịsịsị anị pa ḅumaa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Untie the goat to move about.",
+      "ibani": "Oḅori ma fimaa sị anị wangịma ḅọrọ"
+    }
+  },
+  {
+    "translation": {
+      "en": "Tie the yams together so that they can be carried.",
+      "ibani": "Ḅuru ma Kpọọ gboloma, nnị ine anị dighi ḅara"
+    }
+  },
+  {
+    "translation": {
+      "en": "I love the fragrance of this perfume.",
+      "ibani": "A ojukụnụmanye ma Kụnụ ḅẹlẹ mam"
+    }
+  },
+  {
+    "translation": {
+      "en": "You are pressing me tight, please stop.",
+      "ibani": "Ị ịpụnụma sẹmaarị, paịsịsị dasẹma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Enlighten us more about the importance of native language.",
+      "ibani": "Wamina Toru findi, ama egere ibi gboloma nye ḅụ"
+    }
+  },
+  {
+    "translation": {
+      "en": "My eyes are not blind that I cannot see the money.",
+      "ibani": "Ị tọrụ pụgha, A ine goo igbi ma arị ḅịghanye"
+    }
+  },
+  {
+    "translation": {
+      "en": "Don't lean on me.",
+      "ibani": "Ibu serere ma"
+    }
+  },
+  {
+    "translation": {
+      "en": "Hide and take was the game we played when we were young.",
+      "ibani": "Ḅọghụ sị akị, anị wa kọọ tii̇ wamịna ịrụ saa"
+    }
+  },
+  {
+    "translation": {
+      "en": "Honorables don't cheat.",
+      "ibani": "Igilakọnapụ, Kịnị inoma inomagha"
     }
   }
 ]
